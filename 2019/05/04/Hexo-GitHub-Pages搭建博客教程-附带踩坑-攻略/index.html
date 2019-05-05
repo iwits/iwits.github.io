@@ -88,7 +88,10 @@
 <meta property="og:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/upload_images/create_a_new_repository.png">
-<meta property="og:updated_time" content="2019-05-04T16:28:31.578Z">
+<meta property="og:image" content="https://github.com/upload_images/SSH_Key.png">
+<meta property="og:image" content="https://github.com/upload_images/DNS.png">
+<meta property="og:image" content="https://github.com/upload_images/CNAME.png">
+<meta property="og:updated_time" content="2019-05-05T14:01:10.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
 <meta name="twitter:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
@@ -332,7 +335,7 @@
 </blockquote>
 <p>  这里一定要把项目名字定义成以下样式.<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;username&#125;.github.io</span><br></pre></td></tr></table></figure></p>
 <p>  <img src="/upload_images/create_a_new_repository.png" alt></p>
-<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><h2 id="本地环境搭建Hexo"><a href="#本地环境搭建Hexo" class="headerlink" title="本地环境搭建Hexo"></a>本地环境搭建Hexo</h2><ol>
+<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="本地环境搭建Hexo"><a href="#本地环境搭建Hexo" class="headerlink" title="本地环境搭建Hexo"></a>本地环境搭建Hexo</h2><ol>
 <li>本机新建一个文件夹,如blog</li>
 <li><p>进入该文件夹.鼠标右键选择”Git Bash Here”.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
@@ -348,16 +351,118 @@
 </ol>
 <h2 id="关联到Github"><a href="#关联到Github" class="headerlink" title="关联到Github"></a>关联到Github</h2><ol>
 <li><a href="#create_a_new_repository">Create a New respository</a></li>
-<li><p>安装Hexo的Git Deployer插件</p>
+<li><p><span id="Git_Deployer">安装Hexo的Git Deployer插件</span></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>本地生成静态文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将静态文件推送到Github, 推送的时候需要输入用户名以及密码.</p>
+<li><p>将静态文件推送到Github.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h2><p>  使用SSH key避免执行Hexo d部署时频繁的密码输入.</p>
+<ul>
+<li><p>测试是否有已存在的SSH key<br>任意位置打开Git Bash</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地生成密钥</p>
+<p>如果没有,那么我们在本地生成密钥.输入的邮箱是github注册邮箱.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>根据提示按下三次回车.可以看到以下文字则表示密钥生成成功.(生成的id_rsa.pub文件默认在系统盘个人文件夹下的.ssh文件夹中.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  Your identification has been saved in ~/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in ~/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>设置GitHub项目的deploy Keys,粘贴进去就好了.<br><img src="/upload_images/SSH_Key.png" alt></p>
+</li>
+<li><p>测试配置是否成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>出现以下样式的配置则表示成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Hi username! You&apos;ve successfully authenticated, but GitHub does not</span><br><span class="line">provide shell access.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><span id="Set_SSH">修改部署协议为SSH</span></p>
+<p>进入blog文件夹,使用记事本类工具打开_config.yml文件,设置deploy属性.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:chengjianhua/chengjianhua.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h1><ul>
+<li>购买域名(我用的阿里云购买,大家可以根据自己的喜好)</li>
+<li>域名备案</li>
+<li>设置DNS云解析(域名解析生效需要时间,我直接隔天查看了)<br><img src="/upload_images/DNS.png" alt></li>
+<li>依次进入本地文件夹Blog-&gt;source,新建一个文件名为CNAME<br><img src="/upload_images/CNAME.png" alt></li>
+<li><p><span id="cgd">执行”cgd”操作将CNAME文件提交到服务器上</span></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>使用网址访问是否正常.</p>
+</li>
+</ul>
+<h1 id="Hexo使用指南-Next"><a href="#Hexo使用指南-Next" class="headerlink" title="Hexo使用指南(Next)"></a>Hexo使用指南(Next)</h1><h2 id="Hexo主题设置-Next"><a href="#Hexo主题设置-Next" class="headerlink" title="Hexo主题设置(Next)"></a>Hexo主题设置(Next)</h2><ol>
+<li><p>下载主题<br>我使用的是star数量最多的<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">Next</a>主题,你也可以访问<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题列表</a>选择自己喜欢的主题.</p>
+<p>进入blog页面,Git Bash here输入以下命令以下载next主题.(我是无脑最新,稳定版下载请访问Next官网查找最新稳定版本)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>下载完成之后,会在\bolg\themes中看到next 文件夹.</p>
+</li>
+<li><p>找到blog底下的_config.yml文件,修改theme</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行<a href="#cgd">“cgd操作”</a> 提交到服务器.<br>如果你想在本地查看,那执行完cg操作之后,使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>启动本地服务,在浏览器中使用<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>查看本地页面.</p>
+</li>
+</ol>
+<h2 id="Next-设置语言"><a href="#Next-设置语言" class="headerlink" title="Next 设置语言"></a>Next 设置语言</h2><p> 实名感谢Hexo支持中文.<br> 修改blog下的_config.yml文件中的language</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td>en</td>
+</tr>
+<tr>
+<td>简体中文</td>
+<td>zh-Hans</td>
+</tr>
+<tr>
+<td>Français</td>
+<td>fr-FR</td>
+</tr>
+<tr>
+<td>Português</td>
+<td>pt</td>
+</tr>
+<tr>
+<td>繁體中文(Hk)</td>
+<td>zh-hk</td>
+</tr>
+<tr>
+<td>繁體中文(tw)</td>
+<td>zh-tw</td>
+</tr>
+<tr>
+<td>Русский язык</td>
+<td>ru</td>
+</tr>
+<tr>
+<td>日本語</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td>ko</td>
+</tr>
+</tbody>
+</table>
+<p>Next更多使用说明可以查看<a href="https://theme-next.iissnan.com/getting-started.html#select-scheme" target="_blank" rel="noopener">Next官网</a>.或者期待我的不定期更新的日常</p>
+<h1 id="遇到的坑与解决措施"><a href="#遇到的坑与解决措施" class="headerlink" title="遇到的坑与解决措施"></a>遇到的坑与解决措施</h1><h2 id="SSH-协议设置不生效"><a href="#SSH-协议设置不生效" class="headerlink" title="SSH 协议设置不生效"></a>SSH 协议设置不生效</h2><p>SSH协议传输设置最开始使用网上的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> #切入到包含 .git 文件夹的文件夹</span><br><span class="line"> cd .deploy/</span><br><span class="line"></span><br><span class="line"> #查看当前的传输协议</span><br><span class="line">  git remote -v</span><br><span class="line"></span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)</span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">#修改 https 协议为 ssh 协议</span><br><span class="line"> git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</span><br><span class="line"></span><br><span class="line">#或者</span><br><span class="line"> git remote add origin git@github.com:username/username.github.io.gi</span><br></pre></td></tr></table></figure></p>
+<p> 然而并没有生效,最后使用了上文所述<a href="#Set_SSH">SSH设置方法</a>,才生效.原因未知,google了以下,也有很多人和我一样.</p>
+<h2 id="localhost正常-部署后房屋内为404或空白"><a href="#localhost正常-部署后房屋内为404或空白" class="headerlink" title="localhost正常,部署后房屋内为404或空白"></a>localhost正常,部署后房屋内为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
+<p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
+<h2 id="Localhost正常-部署后没有页面无主题样式-只有文字"><a href="#Localhost正常-部署后没有页面无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后没有页面无主题样式,只有文字."></a>Localhost正常,部署后没有页面无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -525,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number">2.</span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">2.1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">3.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH"><span class="nav-number">3.1.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">3.2.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">3.3.</span> <span class="nav-text">关联到Github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number">2.</span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">2.1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">3.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">3.2.</span> <span class="nav-text">关联到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-Key"><span class="nav-number">3.3.</span> <span class="nav-text">SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置域名"><span class="nav-number">4.</span> <span class="nav-text">设置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo使用指南-Next"><span class="nav-number">5.</span> <span class="nav-text">Hexo使用指南(Next)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主题设置-Next"><span class="nav-number">5.1.</span> <span class="nav-text">Hexo主题设置(Next)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-设置语言"><span class="nav-number">5.2.</span> <span class="nav-text">Next 设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的坑与解决措施"><span class="nav-number">6.</span> <span class="nav-text">遇到的坑与解决措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-协议设置不生效"><span class="nav-number">6.1.</span> <span class="nav-text">SSH 协议设置不生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localhost正常-部署后房屋内为404或空白"><span class="nav-number">6.2.</span> <span class="nav-text">localhost正常,部署后房屋内为404或空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Localhost正常-部署后没有页面无主题样式-只有文字"><span class="nav-number">6.3.</span> <span class="nav-text">Localhost正常,部署后没有页面无主题样式,只有文字.</span></a></li></ol></li></ol></div>
             
 
           </div>

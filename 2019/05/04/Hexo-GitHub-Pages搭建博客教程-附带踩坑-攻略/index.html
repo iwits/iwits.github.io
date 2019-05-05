@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="hexo,环境搭建,GitHub pages,NextT,">
 
 
 
@@ -79,14 +79,20 @@
 
 
 
+<meta name="description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
+<meta name="keywords" content="hexo,环境搭建,GitHub pages,NextT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
 <meta property="og:url" content="https://github.com/iwits/iwits.github.io/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-04T14:42:43.008Z">
+<meta property="og:image" content="https://github.com/upload_images/create_a_new_repository.png">
+<meta property="og:updated_time" content="2019-05-04T16:28:31.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
+<meta name="twitter:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
+<meta name="twitter:image" content="https://github.com/upload_images/create_a_new_repository.png">
 
 
 
@@ -296,7 +302,63 @@
       
 
       
-        
+        <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
+
+
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>仅以此文记录我自己搭建博客的过程以及踩到的坑.<br>我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)</p>
+</blockquote>
+<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><blockquote>
+<p><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<p> 选择Hexo的理由很简单.</p>
+<ul>
+<li>支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件</li>
+<li>支持一键部署</li>
+<li>有丰富的插件和主题</li>
+<li>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
+<li>内容物为静态网页,可以轻松的托管再GitHub上,管理和更新方便.</li>
+</ul>
+<h2 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages?"></a>什么是Github Pages?</h2><p>  <a href="https://zh.wikipedia.org/wiki/GitHub" target="_blank" rel="noopener">Github</a>是世界上最大的代码存放网站和开源社区.<a href="https://pages.github.com/" target="_blank" rel="noopener">Githubpages</a>功能的推出,让用户有机会自定义项目首页,用来替代默认的源码列表.它是一种被用户编写\托管再Github上面的静态网页.</p>
+<h1 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h1><p>  “工欲善其事,必先利其器”</p>
+<h2 id="工具类安装"><a href="#工具类安装" class="headerlink" title="工具类安装"></a>工具类安装</h2><ul>
+<li>下载安装<a href="https://www.npmjs.com/get-npm" target="_blank" rel="noopener">npm</a></li>
+<li>下载并安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></li>
+<li>下载并安装<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">Node.js</a></li>
+</ul>
+<h2 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a><span id="create_a_new_repository">Create a new repository</span></h2><blockquote>
+<p>特别提醒:我已经拥有Github账户.如果你没有,请移步官网注册.</p>
+</blockquote>
+<p>  这里一定要把项目名字定义成以下样式.<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;username&#125;.github.io</span><br></pre></td></tr></table></figure></p>
+<p>  <img src="/upload_images/create_a_new_repository.png" alt></p>
+<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><h2 id="本地环境搭建Hexo"><a href="#本地环境搭建Hexo" class="headerlink" title="本地环境搭建Hexo"></a>本地环境搭建Hexo</h2><ol>
+<li>本机新建一个文件夹,如blog</li>
+<li><p>进入该文件夹.鼠标右键选择”Git Bash Here”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行上述步骤成功后,输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成静态页面,启动本地hexo服务进行本机测试.依次执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>, 测试安装是否成功.看见页面即为成功.</p>
+</li>
+</ol>
+<h2 id="关联到Github"><a href="#关联到Github" class="headerlink" title="关联到Github"></a>关联到Github</h2><ol>
+<li><a href="#create_a_new_repository">Create a New respository</a></li>
+<li><p>安装Hexo的Git Deployer插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地生成静态文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将静态文件推送到Github, 推送的时候需要输入用户名以及密码.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
     
@@ -310,6 +372,18 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/环境搭建/" rel="tag"># 环境搭建</a>
+          
+            <a href="/tags/GitHub-pages/" rel="tag"># GitHub pages</a>
+          
+            <a href="/tags/NextT/" rel="tag"># NextT</a>
+          
+        </div>
       
 
       
@@ -380,8 +454,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -405,6 +488,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
 
           </nav>
 
@@ -423,6 +515,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number">2.</span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">2.1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">3.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH"><span class="nav-number">3.1.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">3.2.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">3.3.</span> <span class="nav-text">关联到Github</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

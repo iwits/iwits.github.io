@@ -83,19 +83,19 @@
 <meta name="keywords" content="hexo,环境搭建,GitHub pages,NextT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
-<meta property="og:url" content="https://github.com/iwits/iwits.github.io/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/index.html">
+<meta property="og:url" content="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/upload_images/create_a_new_repository.png">
-<meta property="og:image" content="https://github.com/upload_images/SSH_Key.png">
-<meta property="og:image" content="https://github.com/upload_images/DNS.png">
-<meta property="og:image" content="https://github.com/upload_images/CNAME.png">
-<meta property="og:updated_time" content="2019-05-05T14:01:10.714Z">
+<meta property="og:image" content="https://iwits.com.cn/upload_images/create_a_new_repository.png">
+<meta property="og:image" content="https://iwits.com.cn/upload_images/SSH_Key.png">
+<meta property="og:image" content="https://iwits.com.cn/upload_images/DNS.png">
+<meta property="og:image" content="https://iwits.com.cn/upload_images/CNAME.png">
+<meta property="og:updated_time" content="2019-05-07T14:46:12.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
 <meta name="twitter:description" content="过去,现在,将来,一代又一代,直到时间的消失    前言 仅以此文记录我自己搭建博客的过程以及踩到的坑.我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)  什么是Hexo? Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。   选择He">
-<meta name="twitter:image" content="https://github.com/upload_images/create_a_new_repository.png">
+<meta name="twitter:image" content="https://iwits.com.cn/upload_images/create_a_new_repository.png">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/iwits/iwits.github.io/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/">
+  <link rel="canonical" href="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/">
 
 
 
@@ -239,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/iwits/iwits.github.io/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -461,9 +461,9 @@
 <p>Next更多使用说明可以查看<a href="https://theme-next.iissnan.com/getting-started.html#select-scheme" target="_blank" rel="noopener">Next官网</a>.或者期待我的不定期更新的日常</p>
 <h1 id="遇到的坑与解决措施"><a href="#遇到的坑与解决措施" class="headerlink" title="遇到的坑与解决措施"></a>遇到的坑与解决措施</h1><h2 id="SSH-协议设置不生效"><a href="#SSH-协议设置不生效" class="headerlink" title="SSH 协议设置不生效"></a>SSH 协议设置不生效</h2><p>SSH协议传输设置最开始使用网上的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> #切入到包含 .git 文件夹的文件夹</span><br><span class="line"> cd .deploy/</span><br><span class="line"></span><br><span class="line"> #查看当前的传输协议</span><br><span class="line">  git remote -v</span><br><span class="line"></span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)</span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">#修改 https 协议为 ssh 协议</span><br><span class="line"> git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</span><br><span class="line"></span><br><span class="line">#或者</span><br><span class="line"> git remote add origin git@github.com:username/username.github.io.gi</span><br></pre></td></tr></table></figure></p>
 <p> 然而并没有生效,最后使用了上文所述<a href="#Set_SSH">SSH设置方法</a>,才生效.原因未知,google了以下,也有很多人和我一样.</p>
-<h2 id="localhost正常-部署后房屋内为404或空白"><a href="#localhost正常-部署后房屋内为404或空白" class="headerlink" title="localhost正常,部署后房屋内为404或空白"></a>localhost正常,部署后房屋内为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
+<h2 id="localhost正常-部署后自定义域名访问为404或空白"><a href="#localhost正常-部署后自定义域名访问为404或空白" class="headerlink" title="localhost正常,部署后自定义域名访问为404或空白"></a>localhost正常,部署后自定义域名访问为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
 <p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
-<h2 id="Localhost正常-部署后没有页面无主题样式-只有文字"><a href="#Localhost正常-部署后没有页面无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后没有页面无主题样式,只有文字."></a>Localhost正常,部署后没有页面无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
+<h2 id="Localhost正常-部署后页面没有无主题样式-只有文字"><a href="#Localhost正常-部署后页面没有无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后页面没有无主题样式,只有文字."></a>Localhost正常,部署后页面没有无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -475,6 +475,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwits
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/" title="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -631,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number">2.</span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">2.1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">3.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">3.2.</span> <span class="nav-text">关联到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-Key"><span class="nav-number">3.3.</span> <span class="nav-text">SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置域名"><span class="nav-number">4.</span> <span class="nav-text">设置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo使用指南-Next"><span class="nav-number">5.</span> <span class="nav-text">Hexo使用指南(Next)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主题设置-Next"><span class="nav-number">5.1.</span> <span class="nav-text">Hexo主题设置(Next)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-设置语言"><span class="nav-number">5.2.</span> <span class="nav-text">Next 设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的坑与解决措施"><span class="nav-number">6.</span> <span class="nav-text">遇到的坑与解决措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-协议设置不生效"><span class="nav-number">6.1.</span> <span class="nav-text">SSH 协议设置不生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localhost正常-部署后房屋内为404或空白"><span class="nav-number">6.2.</span> <span class="nav-text">localhost正常,部署后房屋内为404或空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Localhost正常-部署后没有页面无主题样式-只有文字"><span class="nav-number">6.3.</span> <span class="nav-text">Localhost正常,部署后没有页面无主题样式,只有文字.</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number">2.</span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">2.1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">3.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">3.1.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">3.2.</span> <span class="nav-text">关联到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-Key"><span class="nav-number">3.3.</span> <span class="nav-text">SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置域名"><span class="nav-number">4.</span> <span class="nav-text">设置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo使用指南-Next"><span class="nav-number">5.</span> <span class="nav-text">Hexo使用指南(Next)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主题设置-Next"><span class="nav-number">5.1.</span> <span class="nav-text">Hexo主题设置(Next)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-设置语言"><span class="nav-number">5.2.</span> <span class="nav-text">Next 设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的坑与解决措施"><span class="nav-number">6.</span> <span class="nav-text">遇到的坑与解决措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-协议设置不生效"><span class="nav-number">6.1.</span> <span class="nav-text">SSH 协议设置不生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localhost正常-部署后自定义域名访问为404或空白"><span class="nav-number">6.2.</span> <span class="nav-text">localhost正常,部署后自定义域名访问为404或空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Localhost正常-部署后页面没有无主题样式-只有文字"><span class="nav-number">6.3.</span> <span class="nav-text">Localhost正常,部署后页面没有无主题样式,只有文字.</span></a></li></ol></li></ol></div>
             
 
           </div>

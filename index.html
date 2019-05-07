@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://github.com/iwits/iwits.github.io/index.html">
+<meta property="og:url" content="https://iwits.com.cn/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="https://github.com/iwits/iwits.github.io/">
+  <link rel="canonical" href="https://iwits.com.cn/">
 
 
 
@@ -230,7 +230,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/iwits/iwits.github.io/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -249,7 +249,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/04/Hexo-GitHub-Pages搭建博客教程-附带踩坑-攻略/" itemprop="url">Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)</a></h1>
+                <a class="post-title-link" href="/2019/05/04/Hexo_GitHub_Pages_Build_blog/" itemprop="url">Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)</a></h1>
         
 
         <div class="post-meta">
@@ -456,9 +456,9 @@
 <p>Next更多使用说明可以查看<a href="https://theme-next.iissnan.com/getting-started.html#select-scheme" target="_blank" rel="noopener">Next官网</a>.或者期待我的不定期更新的日常</p>
 <h1 id="遇到的坑与解决措施"><a href="#遇到的坑与解决措施" class="headerlink" title="遇到的坑与解决措施"></a>遇到的坑与解决措施</h1><h2 id="SSH-协议设置不生效"><a href="#SSH-协议设置不生效" class="headerlink" title="SSH 协议设置不生效"></a>SSH 协议设置不生效</h2><p>SSH协议传输设置最开始使用网上的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> #切入到包含 .git 文件夹的文件夹</span><br><span class="line"> cd .deploy/</span><br><span class="line"></span><br><span class="line"> #查看当前的传输协议</span><br><span class="line">  git remote -v</span><br><span class="line"></span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)</span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">#修改 https 协议为 ssh 协议</span><br><span class="line"> git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</span><br><span class="line"></span><br><span class="line">#或者</span><br><span class="line"> git remote add origin git@github.com:username/username.github.io.gi</span><br></pre></td></tr></table></figure></p>
 <p> 然而并没有生效,最后使用了上文所述<a href="#Set_SSH">SSH设置方法</a>,才生效.原因未知,google了以下,也有很多人和我一样.</p>
-<h2 id="localhost正常-部署后房屋内为404或空白"><a href="#localhost正常-部署后房屋内为404或空白" class="headerlink" title="localhost正常,部署后房屋内为404或空白"></a>localhost正常,部署后房屋内为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
+<h2 id="localhost正常-部署后自定义域名访问为404或空白"><a href="#localhost正常-部署后自定义域名访问为404或空白" class="headerlink" title="localhost正常,部署后自定义域名访问为404或空白"></a>localhost正常,部署后自定义域名访问为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
 <p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
-<h2 id="Localhost正常-部署后没有页面无主题样式-只有文字"><a href="#Localhost正常-部署后没有页面无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后没有页面无主题样式,只有文字."></a>Localhost正常,部署后没有页面无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
+<h2 id="Localhost正常-部署后页面没有无主题样式-只有文字"><a href="#Localhost正常-部署后页面没有无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后页面没有无主题样式,只有文字."></a>Localhost正常,部署后页面没有无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -507,7 +507,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/iwits/iwits.github.io/2019/05/04/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/04/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -578,7 +578,7 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>

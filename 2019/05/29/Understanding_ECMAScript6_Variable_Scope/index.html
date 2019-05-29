@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="过去,现在,将来,一代又一代,直到时间的消失   最佳实践  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。 var声明及Hoisting机制 使用var关键字来声明变量 无论在哪里声明，都会被当成在当前作用域顶部声明的变量 声明提前，初始化操作依旧留在原处执行  块级声明 块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量">
+<meta name="description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 <meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解ES6之变量作用域">
 <meta property="og:url" content="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/index.html">
 <meta property="og:site_name" content="I&#39;wits">
-<meta property="og:description" content="过去,现在,将来,一代又一代,直到时间的消失   最佳实践  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。 var声明及Hoisting机制 使用var关键字来声明变量 无论在哪里声明，都会被当成在当前作用域顶部声明的变量 声明提前，初始化操作依旧留在原处执行  块级声明 块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量">
+<meta property="og:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-29T12:55:58.450Z">
+<meta property="og:updated_time" content="2019-05-29T13:30:35.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解ES6之变量作用域">
-<meta name="twitter:description" content="过去,现在,将来,一代又一代,直到时间的消失   最佳实践  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。 var声明及Hoisting机制 使用var关键字来声明变量 无论在哪里声明，都会被当成在当前作用域顶部声明的变量 声明提前，初始化操作依旧留在原处执行  块级声明 块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量">
+<meta name="twitter:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 
 
 
@@ -386,7 +386,12 @@
       
 
       
-        <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
+        <p>深入理解ES6-变量作用域</p>
+<ul>
+<li>最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var</li>
+</ul>
+<a id="more"></a>
+<blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
 
 
 <h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。</p>
@@ -613,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

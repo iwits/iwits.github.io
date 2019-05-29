@@ -375,63 +375,17 @@
 
       
         
-          
-            <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
-
-
-<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。</p>
-<h2 id="var声明及Hoisting机制"><a href="#var声明及Hoisting机制" class="headerlink" title="var声明及Hoisting机制"></a>var声明及Hoisting机制</h2><ul>
-<li>使用var关键字来声明变量</li>
-<li>无论在哪里声明，都会被当成在当前作用域顶部声明的变量</li>
-<li>声明提前，初始化操作依旧留在原处执行</li>
-</ul>
-<h2 id="块级声明"><a href="#块级声明" class="headerlink" title="块级声明"></a>块级声明</h2><blockquote>
-<p>块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量。存在于：</p>
-<blockquote>
+          <p>深入理解ES6-变量作用域</p>
 <ul>
-<li>函数内部</li>
-<li>块（{}）中</li>
+<li>最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var</li>
 </ul>
-</blockquote>
-</blockquote>
-<ul>
-<li>使用let关键字声明块级元素，将变量的作用域限制在当前代码块中</li>
-<li>let声明不会提前，因此通常把let声明语句在封闭代码块的顶部</li>
-<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
-<li>const也是块级标识符</li>
-<li>块级作用标识符特点是声明不会hoisting，一旦执行到块外就被销毁。</li>
-</ul>
-<h2 id="禁止重声明"><a href="#禁止重声明" class="headerlink" title="禁止重声明"></a>禁止重声明</h2><p>   同一作用域中不能用let重复定义已经存在的标识符。但是如果当前作用域内嵌另一作用域，则可以在内嵌的作用域中使用let声明同名变量。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例子1</span><br><span class="line">var count = 20;</span><br><span class="line"></span><br><span class="line">//下面语句会抛出错误</span><br><span class="line">let count =40;</span><br><span class="line"></span><br><span class="line">//例子2</span><br><span class="line">var count = 20;</span><br><span class="line">if (conditon)&#123;</span><br><span class="line">   //不会抛出错误，内部作用域的count会屏蔽全局作用域的count</span><br><span class="line">   let count = 40;</span><br><span class="line">   Alert(count); //40</span><br><span class="line">&#125;</span><br><span class="line">Alert(count); //20</span><br></pre></td></tr></table></figure></p>
-<h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p>  和其他语言一样，const声明的是常量，一旦被设定之后不可修改，每个使用const定义的常量必须进行初始化。一旦不初始化，则会抛出错误。</p>
-<ul>
-<li>const和let都是块级作用标识符</li>
-<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
-<li><p>无论在严格模式还是非严格模式下，都不可以为const定义的常量再赋值。一旦赋值就会抛出错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不能重声明， 被let声明过的不能用const声明</span><br><span class="line">var count = 20;</span><br><span class="line">let age = 10;</span><br><span class="line">const price = 100;</span><br><span class="line"></span><br><span class="line">//以下语句都会抛出错误</span><br><span class="line">const count = 40;</span><br><span class="line">const age = 12;</span><br><span class="line">let price = 200;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>const声明不允许修改绑定，但是允许修改值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  name: &quot;Nick&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//可以修改值</span><br><span class="line">person.name = &quot;Greg&quot;;</span><br><span class="line"></span><br><span class="line">//不可以修改绑定</span><br><span class="line">person = &#123;</span><br><span class="line">  name: &quot;Greg&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="临界死区（Temporal-Dead-Zone）"><a href="#临界死区（Temporal-Dead-Zone）" class="headerlink" title="临界死区（Temporal Dead Zone）"></a>临界死区（Temporal Dead Zone）</h2><p>   由于声明不会被提前，在作用域外访问变量会抛出错误。即使是相对安全的typeof.</p>
-<p>   Javascript引擎在扫描代码发现变量声明时，要么将它们提升至作用域顶部（var），要么将声明放到TDZ中（let、const）。访问TDZ中的变量会触发运行时错误。只有执行过变量声明语句后，变量才会从TDZ中移出，然后方可访问。</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof value); // undefined</span><br><span class="line">if (condition) &#123;</span><br><span class="line">   console.log(typeof value); //引用错误</span><br><span class="line">   let value = &quot;blue&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="循环中的块级作用域绑定"><a href="#循环中的块级作用域绑定" class="headerlink" title="循环中的块级作用域绑定"></a>循环中的块级作用域绑定</h2><p>  块级作用域最经典的应用场景就是在循环中，将计数器变量使用块级声明。保证一旦循环结束，，其他地方不可以访问计数器。</p>
-<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><p>   var声明因为变量共享的问题，使得在循环中创建函数非常困难<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//var声明的i被共享存储在funcs里面。执行下面操作会输出10个10</span><br><span class="line">for (var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">  funcs.push(function()&#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func)&#123;</span><br><span class="line">   func();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>   IIFE解决了这个问题，它的思路是通过强制生成计数器变量的副本，规避共享变量。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//每次接收到i都创建一个新的副本并存储为value  foreach循环调用的时候就会输出0到9</span><br><span class="line">for (var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">  funcs.push((function(value)&#123;</span><br><span class="line">     return function() &#123;</span><br><span class="line">       console.log(value);</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;(i)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func)&#123;</span><br><span class="line">   func();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>   ES6支持了块级声明之后，可以使用块级声明达到同样的效果。这是因为块级标识符利用了块级标识符一旦离开了作用域会自动销毁的特性。使用块级标识符声明声明计数器变量，每次循环中都会创建一个新的变量，并以之前循环中同名变量的值将其初始化。【aka.自动副本】</p>
-<p>   对于for 循环，let和const两种块级标识符是有差别的。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// **********方案一****************</span><br><span class="line"> var funcs = [];</span><br><span class="line"></span><br><span class="line"> for (let i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">   funcs.push(function()&#123;</span><br><span class="line">     console.log(i);</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func)&#123;</span><br><span class="line">    func();</span><br><span class="line">   &#125;);</span><br><span class="line"></span><br><span class="line"> // **********方案二****************</span><br><span class="line">  var funcs = [];</span><br><span class="line"></span><br><span class="line">   //完成一次循环之后，会抛出报错。因为i被定义为常量，i++中尝试修改i的绑定，抛出错误</span><br><span class="line">  for (const i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">    funcs.push(function()&#123;</span><br><span class="line">      console.log(i);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  funcs.forEach(function(func)&#123;</span><br><span class="line">     func();</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>   对于for-in或者for-of循环，只要循环中不涉及对计数器变量绑定的修改，表现就是无差异。每次循环都会创建一个新的key绑定，因此每个函数都有一个变量key的副本。于是不同的函数输出不同的值。正是因为每次都会创建一个新的绑定。在不修改计数器变量的请况下。const声明也不会抛出错误。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//**************let*********</span><br><span class="line"> var funcs = [],</span><br><span class="line">     object = &#123;</span><br><span class="line">       a: true,</span><br><span class="line">       b: true,</span><br><span class="line">       c: true</span><br><span class="line">     &#125;;</span><br><span class="line"></span><br><span class="line"> for (let key in object)&#123;</span><br><span class="line">   funcs.push(function()&#123;</span><br><span class="line">        console.log(key);</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func)&#123;</span><br><span class="line">    func();</span><br><span class="line">   &#125;);   </span><br><span class="line">//************const*********q</span><br><span class="line">var funcs = [],</span><br><span class="line">    object = &#123;</span><br><span class="line">      a: true,</span><br><span class="line">      b: true,</span><br><span class="line">      c: true</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">for (const key in object)&#123;</span><br><span class="line">  funcs.push(function()&#123;</span><br><span class="line">       console.log(key);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func)&#123;</span><br><span class="line">   func();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
-<h2 id="全局块作用域绑定"><a href="#全局块作用域绑定" class="headerlink" title="全局块作用域绑定"></a>全局块作用域绑定</h2><p>   块级标识符和var声明另一个很大的区别，在于他们在全局作用域中的行为。</p>
-<ul>
-<li>当var被作用域全局作用域的时候，他会创建一个新的全局变量作为全局对象[我们所说的全局对象是window对象]的属性。这意味着var可能会覆盖一个已经存在的全局属性。</li>
-<li>在全局作用域下使用块级标识符，则是会在全局作用域下创建一个新的绑定，该绑定不会成为全局对象的一个属性。换句话说，块级作用域不能覆盖全局变量，只能遮蔽它。</li>
-</ul>
-<blockquote>
-<p>如果不想对全局对象创建属性，则使用let和const 要安全。如果希望在全局对象下定义变量，仍然可以使用var。这种情况创建于在浏览器中跨frame或者跨window访问代码。</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/29/Understanding_ECMAScript6_Variable_Scope/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -570,295 +524,19 @@
 
       
         
-          
-            <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
-
-
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>仅以此文记录我自己搭建博客的过程以及踩到的坑.<br>我的本地操作系统为为win10. 使用的hexo版本为3.0后的版本(NextT对其支持较好,2.0+版本未实验)</p>
-</blockquote>
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><blockquote>
-<p><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-</blockquote>
-<p> 选择Hexo的理由很简单.</p>
+          <p>仅以此文记录我自己搭建hexo博客的过程以及踩到的坑.</p>
 <ul>
-<li>支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件</li>
-<li>支持一键部署</li>
-<li>有丰富的插件和主题</li>
-<li>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
-<li>内容物为静态网页,可以轻松的托管再GitHub上,管理和更新方便.</li>
+<li>本地操作系统为为Win10. </li>
+<li>使用的hexo版本为3.0后的版本(NexT对其支持较好,2.0+版本未实验)</li>
+<li>托管位置:github</li>
 </ul>
-<h2 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages?"></a>什么是Github Pages?</h2><p>  <a href="https://zh.wikipedia.org/wiki/GitHub" target="_blank" rel="noopener">Github</a>是世界上最大的代码存放网站和开源社区.<a href="https://pages.github.com/" target="_blank" rel="noopener">Githubpages</a>功能的推出,让用户有机会自定义项目首页,用来替代默认的源码列表.它是一种被用户编写\托管再Github上面的静态网页.</p>
-<h1 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h1><p>  “工欲善其事,必先利其器”</p>
-<h2 id="工具类安装"><a href="#工具类安装" class="headerlink" title="工具类安装"></a>工具类安装</h2><ul>
-<li>下载安装<a href="https://www.npmjs.com/get-npm" target="_blank" rel="noopener">npm</a></li>
-<li>下载并安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></li>
-<li>下载并安装<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">Node.js</a></li>
-</ul>
-<h2 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a><span id="create_a_new_repository">Create a new repository</span></h2><blockquote>
-<p>特别提醒:我已经拥有Github账户.如果你没有,请移步官网注册.</p>
-</blockquote>
-<p>  这里一定要把项目名字定义成以下样式.<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;username&#125;.github.io</span><br></pre></td></tr></table></figure></p>
-<p>  <img src="/upload_images/create_a_new_repository.png" alt></p>
-<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="本地环境搭建Hexo"><a href="#本地环境搭建Hexo" class="headerlink" title="本地环境搭建Hexo"></a>本地环境搭建Hexo</h2><ol>
-<li>本机新建一个文件夹,如blog</li>
-<li><p>进入该文件夹.鼠标右键选择”Git Bash Here”.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行上述步骤成功后,输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成静态页面,启动本地hexo服务进行本机测试.依次执行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>, 测试安装是否成功.看见页面即为成功.</p>
-</li>
-</ol>
-<h2 id="关联到Github"><a href="#关联到Github" class="headerlink" title="关联到Github"></a>关联到Github</h2><ol>
-<li><a href="#create_a_new_repository">Create a New respository</a></li>
-<li><p><span id="Git_Deployer">安装Hexo的Git Deployer插件</span></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地生成静态文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将静态文件推送到Github.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h2><p>  使用SSH key避免执行Hexo d部署时频繁的密码输入.</p>
-<ul>
-<li><p>测试是否有已存在的SSH key<br>任意位置打开Git Bash</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地生成密钥</p>
-<p>如果没有,那么我们在本地生成密钥.输入的邮箱是github注册邮箱.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<p>根据提示按下三次回车.可以看到以下文字则表示密钥生成成功.(生成的id_rsa.pub文件默认在系统盘个人文件夹下的.ssh文件夹中.)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  Your identification has been saved in ~/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in ~/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>设置GitHub项目的deploy Keys,粘贴进去就好了.<br><img src="/upload_images/SSH_Key.png" alt></p>
-</li>
-<li><p>测试配置是否成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>出现以下样式的配置则表示成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Hi username! You&apos;ve successfully authenticated, but GitHub does not</span><br><span class="line">provide shell access.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><span id="Set_SSH">修改部署协议为SSH</span></p>
-<p>进入blog文件夹,使用记事本类工具打开_config.yml文件,设置deploy属性.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:chengjianhua/chengjianhua.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h1><ul>
-<li>购买域名(我用的阿里云购买,大家可以根据自己的喜好)</li>
-<li>域名备案</li>
-<li>设置DNS云解析(域名解析生效需要时间,我直接隔天查看了)<br><img src="/upload_images/DNS.png" alt></li>
-<li>依次进入本地文件夹Blog-&gt;source,新建一个文件名为CNAME<br><img src="/upload_images/CNAME.png" alt></li>
-<li><p><span id="cgd">执行”cgd”操作将CNAME文件提交到服务器上</span></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>使用网址访问是否正常.</p>
-</li>
-</ul>
-<h1 id="Hexo使用指南-Next"><a href="#Hexo使用指南-Next" class="headerlink" title="Hexo使用指南(Next)"></a>Hexo使用指南(Next)</h1><h2 id="Hexo主题设置-Next"><a href="#Hexo主题设置-Next" class="headerlink" title="Hexo主题设置(Next)"></a>Hexo主题设置(Next)</h2><ol>
-<li><p>下载主题<br>我使用的是star数量最多的<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">Next</a>主题,你也可以访问<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题列表</a>选择自己喜欢的主题.</p>
-<p>进入blog页面,Git Bash here输入以下命令以下载next主题.(我是无脑最新,稳定版下载请访问Next官网查找最新稳定版本)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>下载完成之后,会在\bolg\themes中看到next 文件夹.</p>
-</li>
-<li><p>找到blog底下的_config.yml文件,修改theme</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行<a href="#cgd">“cgd操作”</a> 提交到服务器.<br>如果你想在本地查看,那执行完cg操作之后,使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>启动本地服务,在浏览器中使用<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>查看本地页面.</p>
-</li>
-</ol>
-<h2 id="Next-设置语言"><a href="#Next-设置语言" class="headerlink" title="Next 设置语言"></a>Next 设置语言</h2><p> 实名感谢Hexo支持中文.<br> 修改blog下的_config.yml文件中的language</p>
-<table>
-<thead>
-<tr>
-<th>语言</th>
-<th>代码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>English</td>
-<td>en</td>
-</tr>
-<tr>
-<td>简体中文</td>
-<td>zh-Hans</td>
-</tr>
-<tr>
-<td>Français</td>
-<td>fr-FR</td>
-</tr>
-<tr>
-<td>Português</td>
-<td>pt</td>
-</tr>
-<tr>
-<td>繁體中文(Hk)</td>
-<td>zh-hk</td>
-</tr>
-<tr>
-<td>繁體中文(tw)</td>
-<td>zh-tw</td>
-</tr>
-<tr>
-<td>Русский язык</td>
-<td>ru</td>
-</tr>
-<tr>
-<td>日本語</td>
-<td>ja</td>
-</tr>
-<tr>
-<td>Korean</td>
-<td>ko</td>
-</tr>
-</tbody>
-</table>
-<p>Next更多使用说明可以查看<a href="https://theme-next.iissnan.com/getting-started.html#select-scheme" target="_blank" rel="noopener">Next官网</a>.或者期待我的不定期更新的日常</p>
-<h1 id="遇到的坑与解决措施"><a href="#遇到的坑与解决措施" class="headerlink" title="遇到的坑与解决措施"></a>遇到的坑与解决措施</h1><h2 id="SSH-协议设置不生效"><a href="#SSH-协议设置不生效" class="headerlink" title="SSH 协议设置不生效"></a>SSH 协议设置不生效</h2><p>SSH协议传输设置最开始使用网上的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> #切入到包含 .git 文件夹的文件夹</span><br><span class="line"> cd .deploy/</span><br><span class="line"></span><br><span class="line"> #查看当前的传输协议</span><br><span class="line">  git remote -v</span><br><span class="line"></span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)</span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">#修改 https 协议为 ssh 协议</span><br><span class="line"> git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</span><br><span class="line"></span><br><span class="line">#或者</span><br><span class="line"> git remote add origin git@github.com:username/username.github.io.gi</span><br></pre></td></tr></table></figure></p>
-<p> 然而并没有生效,最后使用了上文所述<a href="#Set_SSH">SSH设置方法</a>,才生效.原因未知,google了以下,也有很多人和我一样.</p>
-<h2 id="localhost正常-部署后自定义域名访问为404或空白"><a href="#localhost正常-部署后自定义域名访问为404或空白" class="headerlink" title="localhost正常,部署后自定义域名访问为404或空白"></a>localhost正常,部署后自定义域名访问为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
-<p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
-<h2 id="Localhost正常-部署后页面没有无主题样式-只有文字"><a href="#Localhost正常-部署后页面没有无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后页面没有无主题样式,只有文字."></a>Localhost正常,部署后页面没有无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="iwits">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="I'wits">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/04/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T13:31:09+08:00">
-                2019-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/04/Hexo_GitHub_Pages_Build_blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -938,7 +616,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

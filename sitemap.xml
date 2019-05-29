@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/</loc>
+    
+    <lastmod>2019-05-29T12:56:59.717Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/</loc>
+    
+    <lastmod>2019-05-29T12:55:58.450Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://iwits.com.cn/categories/index.html</loc>
     
     <lastmod>2019-05-14T14:48:19.541Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://iwits.com.cn/google41b3c8fda3955670.html</loc>
     
     <lastmod>2019-05-07T14:51:43.017Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/</loc>
-    
-    <lastmod>2019-05-07T14:46:12.434Z</lastmod>
     
   </url>
   

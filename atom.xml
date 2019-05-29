@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-05-07T14:46:12.434Z</updated>
+  <updated>2019-05-29T12:55:58.450Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解ES6之变量作用域</title>
+    <link href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/"/>
+    <id>https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/</id>
+    <published>2019-05-29T12:46:32.000Z</published>
+    <updated>2019-05-29T12:55:58.450Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote class=&quot;blockquote-center&quot;&gt;过去,现在,将来,一代又一代,直到时间的消失&lt;/blockquote&gt;
+
+
+&lt;h2 id=&quot;最佳实践&quot;&gt;&lt;a href=&quot;#最佳实践&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端学习" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/ES6/"/>
+    
+    
+      <category term="Javascript" scheme="https://iwits.com.cn/tags/Javascript/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/tags/ES6/"/>
+    
+      <category term="读书笔记" scheme="https://iwits.com.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)</title>
     <link href="https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/"/>
     <id>https://iwits.com.cn/2019/05/04/Hexo_GitHub_Pages_Build_blog/</id>
     <published>2019-05-04T14:42:42.000Z</published>
-    <updated>2019-05-07T14:46:12.434Z</updated>
+    <updated>2019-05-29T12:56:59.717Z</updated>
     
     <summary type="html">
     
@@ -38,6 +73,8 @@
       
     
     </summary>
+    
+      <category term="博客搭建" scheme="https://iwits.com.cn/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
       <category term="hexo" scheme="https://iwits.com.cn/tags/hexo/"/>

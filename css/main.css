@@ -1868,6 +1868,7 @@ pre .javascript .function {
   max-width: 96px;
   height: auto;
   border: 2px solid #333;
+  border-radius: 50%;
 }
 .site-author-name {
   margin: 5px 0 0;
@@ -1880,6 +1881,15 @@ pre .javascript .function {
   text-align: center;
   font-size: 14px;
   color: #999;
+}
+.site-avatar-plug-bilibili {
+  position: relative;
+  display: block;
+  padding: 0;
+  max-width: 168px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
 }
 .site-state {
   overflow: hidden;
@@ -1949,7 +1959,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b1b9ff;
+  background: #ff1d38;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2799,4 +2809,23 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.site-author-image-bilibili {
+  display: block;
+  margin-top: -132px;
+  margin-bottom: 30px;
+  padding: 0;
+  max-width: 94px;
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 50%;
+}
+.site-avatar-plug-bilibili {
+  position: relative;
+  display: block;
+  padding: 0;
+  max-width: 168px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
 }

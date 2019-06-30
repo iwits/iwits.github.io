@@ -6,7 +6,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -385,12 +385,24 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  1.7k
                 </span>
               
 
               
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
               
             </div>
           
@@ -443,18 +455,22 @@
 <h2 id="禁止重声明"><a href="#禁止重声明" class="headerlink" title="禁止重声明"></a>禁止重声明</h2><p>   同一作用域中不能用let重复定义已经存在的标识符。但是如果当前作用域内嵌另一作用域，则可以在内嵌的作用域中使用let声明同名变量。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例子1</span><br><span class="line">var count = 20;</span><br><span class="line"></span><br><span class="line">//下面语句会抛出错误</span><br><span class="line">let count =40;</span><br><span class="line"></span><br><span class="line">//例子2</span><br><span class="line">var count = 20;</span><br><span class="line">if (conditon)&#123;</span><br><span class="line">   //不会抛出错误，内部作用域的count会屏蔽全局作用域的count</span><br><span class="line">   let count = 40;</span><br><span class="line">   Alert(count); //40</span><br><span class="line">&#125;</span><br><span class="line">Alert(count); //20</span><br></pre></td></tr></table></figure></p>
 <h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p>  和其他语言一样，const声明的是常量，一旦被设定之后不可修改，每个使用const定义的常量必须进行初始化。一旦不初始化，则会抛出错误。</p>
 <ul>
-<li>const和let都是块级作用标识符</li>
-<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
+<li><p>const和let都是块级作用标识符</p>
+</li>
+<li><p>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</p>
+</li>
 <li><p>无论在严格模式还是非严格模式下，都不可以为const定义的常量再赋值。一旦赋值就会抛出错误。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不能重声明， 被let声明过的不能用const声明</span><br><span class="line">var count = 20;</span><br><span class="line">let age = 10;</span><br><span class="line">const price = 100;</span><br><span class="line"></span><br><span class="line">//以下语句都会抛出错误</span><br><span class="line">const count = 40;</span><br><span class="line">const age = 12;</span><br><span class="line">let price = 200;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>const声明不允许修改绑定，但是允许修改值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const person = &#123;</span><br><span class="line">  name: &quot;Nick&quot;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//可以修改值</span><br><span class="line">person.name = &quot;Greg&quot;;</span><br><span class="line"></span><br><span class="line">//不可以修改绑定</span><br><span class="line">person = &#123;</span><br><span class="line">  name: &quot;Greg&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="临界死区（Temporal-Dead-Zone）"><a href="#临界死区（Temporal-Dead-Zone）" class="headerlink" title="临界死区（Temporal Dead Zone）"></a>临界死区（Temporal Dead Zone）</h2><p>   由于声明不会被提前，在作用域外访问变量会抛出错误。即使是相对安全的typeof.</p>
 <p>   Javascript引擎在扫描代码发现变量声明时，要么将它们提升至作用域顶部（var），要么将声明放到TDZ中（let、const）。访问TDZ中的变量会触发运行时错误。只有执行过变量声明语句后，变量才会从TDZ中移出，然后方可访问。</p>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof value); // undefined</span><br><span class="line">if (condition) &#123;</span><br><span class="line">   console.log(typeof value); //引用错误</span><br><span class="line">   let value = &quot;blue&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <h2 id="循环中的块级作用域绑定"><a href="#循环中的块级作用域绑定" class="headerlink" title="循环中的块级作用域绑定"></a>循环中的块级作用域绑定</h2><p>  块级作用域最经典的应用场景就是在循环中，将计数器变量使用块级声明。保证一旦循环结束，，其他地方不可以访问计数器。</p>
 <h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><p>   var声明因为变量共享的问题，使得在循环中创建函数非常困难<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//var声明的i被共享存储在funcs里面。执行下面操作会输出10个10</span><br><span class="line">for (var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">  funcs.push(function()&#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func)&#123;</span><br><span class="line">   func();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
 <p>   IIFE解决了这个问题，它的思路是通过强制生成计数器变量的副本，规避共享变量。<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//每次接收到i都创建一个新的副本并存储为value  foreach循环调用的时候就会输出0到9</span><br><span class="line">for (var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">  funcs.push((function(value)&#123;</span><br><span class="line">     return function() &#123;</span><br><span class="line">       console.log(value);</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;(i)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func)&#123;</span><br><span class="line">   func();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
@@ -760,7 +776,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">7.3k</span>
   
 </div>
 

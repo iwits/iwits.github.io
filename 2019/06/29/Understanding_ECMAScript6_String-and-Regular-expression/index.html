@@ -6,7 +6,7 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -385,12 +385,24 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  4k
                 </span>
               
 
               
+                <span class="post-meta-divider">|</span>
+              
 
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
               
             </div>
           
@@ -439,14 +451,21 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="ES6对utf-16的支持"><a href="#ES6对utf-16的支持" class="headerlink" title="ES6对utf-16的支持"></a>ES6对utf-16的支持</h1><p>在ES5中,所有的字符串操作都是基于16位编码单元.这时候如果使用对使用了两个编码单元32位表示的字符使用对应的方法,则会导致得到的结果与预期不符合.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let text = &quot;𠮷&quot;;</span><br><span class="line"></span><br><span class="line">console.log(text.length); //2 长度实际位1,但是length位2</span><br><span class="line">console.log(/^.$/.test(text)); //false 正则表达式是用来判定单一字符的.因此失效.</span><br><span class="line">console.log(text.charAt(0)); //&quot;&quot; 前16位不包含可打印字符</span><br><span class="line">console.log(text.charAt(1)); //&quot;&quot; 后16位不包含可答应字符</span><br><span class="line">console.log(text.charCodeAt(0)); //55362  charCodeAt()会返回每16个编码单元对应的数值.</span><br><span class="line">console.log(text.charCodeAt(1)); //57271</span><br></pre></td></tr></table></figure></p>
+<h1 id="ES6对utf-16的支持"><a href="#ES6对utf-16的支持" class="headerlink" title="ES6对utf-16的支持"></a>ES6对utf-16的支持</h1><p>在ES5中,所有的字符串操作都是基于16位编码单元.这时候如果使用对使用了两个编码单元32位表示的字符使用对应的方法,则会导致得到的结果与预期不符合.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let text = &quot;𠮷&quot;;</span><br><span class="line"></span><br><span class="line">console.log(text.length); //2 长度实际位1,但是length位2</span><br><span class="line">console.log(/^.$/.test(text)); //false 正则表达式是用来判定单一字符的.因此失效.</span><br><span class="line">console.log(text.charAt(0)); //&quot;&quot; 前16位不包含可打印字符</span><br><span class="line">console.log(text.charAt(1)); //&quot;&quot; 后16位不包含可答应字符</span><br><span class="line">console.log(text.charCodeAt(0)); //55362  charCodeAt()会返回每16个编码单元对应的数值.</span><br><span class="line">console.log(text.charCodeAt(1)); //57271</span><br></pre></td></tr></table></figure>
+
 <p>正是因为以上的种种的问题,ES6中强制使用utf-16编码来解决上诉问题,并按照这种字符编码来标准准话字符串操作,在Javascript中增加专门针对代理对的功能.</p>
 <h2 id="codePointAt-方法"><a href="#codePointAt-方法" class="headerlink" title="codePointAt()方法"></a>codePointAt()方法</h2><p>ES6新增完全支持UTF-16的codePointAt()方法,这个方法接受的编码单元的位置,而非字符位置作为参数,返回与字符串中给定位置对应的码位,即一个整数值.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let text = &quot;𠮷a&quot;;</span><br><span class="line"></span><br><span class="line">console.log(text.charCodeAt(0)); //55362  </span><br><span class="line">console.log(text.charCodeAt(1)); //57271</span><br><span class="line">console.log(text.charCodeAt(2)); //97</span><br><span class="line"></span><br><span class="line">console.log(text.codePointAt(0)); //134071</span><br><span class="line">console.log(text.codePointAt(1)); //57271</span><br><span class="line">console.log(text.codePointAt(2)); //97</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>最佳实践:要检测一个字符占用的编码单元数量,最简单的方法是调用字的codePointAt()方法.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function is32Bit(c)&#123;</span><br><span class="line">  return c.codePointAt(0) &gt; oxFFFF;</span><br><span class="line">&#125;</span><br><span class="line">console.log(is32Bit(&quot;𠮷&quot;)); //true</span><br><span class="line">console.log(is32Bit(&quot;a&quot;)); //false</span><br></pre></td></tr></table></figure></p>
+<p>最佳实践:要检测一个字符占用的编码单元数量,最简单的方法是调用字的codePointAt()方法.</p>
 </blockquote>
-<h2 id="String-formCodePoint-方法"><a href="#String-formCodePoint-方法" class="headerlink" title="String.formCodePoint()方法"></a>String.formCodePoint()方法</h2><p>ES6中提供的String.formCodePoint()方法是codePointAt()的反向方法,用于根据制定码位生成一个字符.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.formCodePoint(134071));</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function is32Bit(c)&#123;</span><br><span class="line">  return c.codePointAt(0) &gt; oxFFFF;</span><br><span class="line">&#125;</span><br><span class="line">console.log(is32Bit(&quot;𠮷&quot;)); //true</span><br><span class="line">console.log(is32Bit(&quot;a&quot;)); //false</span><br></pre></td></tr></table></figure>
+
+<h2 id="String-formCodePoint-方法"><a href="#String-formCodePoint-方法" class="headerlink" title="String.formCodePoint()方法"></a>String.formCodePoint()方法</h2><p>ES6中提供的String.formCodePoint()方法是codePointAt()的反向方法,用于根据制定码位生成一个字符.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.formCodePoint(134071));</span><br></pre></td></tr></table></figure>
+
 <h2 id="normalize-方法"><a href="#normalize-方法" class="headerlink" title="normalize()方法"></a>normalize()方法</h2><p>Unicode的另一个有趣之处在于,如果我们要对不同字符进行排序或比较操作,会存在一种可能,他们是等效的.所谓的规范等效存在两种情况:</p>
 <ul>
 <li>无论从哪个角度来看,两个序列的码位都是没有区别的</li>
@@ -463,14 +482,19 @@
 <p>最佳实践: 在对比字符串之前一定要先把他们标准化为同一形式.在国际化的开发中应用广泛.</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//对数组中的每一个字符串进行比较</span><br><span class="line">let normalize = values.map(function(text)&#123;</span><br><span class="line">  return text.normalize();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">normalize.sort(function(first, second)&#123;</span><br><span class="line">  if (first &lt; second)&#123;</span><br><span class="line">    return -1;</span><br><span class="line">  &#125; else if (first = second)&#123;</span><br><span class="line">    return 0;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//比较原始数组</span><br><span class="line">values.sort(function(first, second)&#123;</span><br><span class="line">  let firstNormalized = first.normalize(),</span><br><span class="line">      secondNormalized = second.normalize();  </span><br><span class="line">  if(firstNormalized &lt; secondNormalized)&#123;</span><br><span class="line">    return -1;</span><br><span class="line">  &#125; else if (firstNormalized = secondNormalized)&#123;</span><br><span class="line">    return 0;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return 1;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h2 id="正则表达式u修饰符"><a href="#正则表达式u修饰符" class="headerlink" title="正则表达式u修饰符"></a>正则表达式u修饰符</h2><p>正则表达式是应用非常广泛,有很多好用的<a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">在线正则表达式网站</a>.正则表达式默认将字符串的每一个字符按照16位编码单元处理.当遇到32位编码单元时就就出现错误.为了解决这个问题,ES6中引入了正则表达式u修饰符.</p>
 <p>当一个正则表达式添加了u修饰符,他就会从编码操作模式切换为字符模式,如此一来正则表达式就不会视代理对为两个字符,从而完全按照预期正常运行.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let text = &quot;𠮷&quot;;</span><br><span class="line">console.log(text.length); //2</span><br><span class="line">console.log(/^.$/.test(text)); //false /^.$/表示匹配所有但字符字符串,没有用U时会匹配编码单元.使用u时会切换到匹配字符模式</span><br><span class="line">console.log(/^.$/u.test(text)); //false</span><br></pre></td></tr></table></figure>
+
 <p>虽然ES6中并没有支持字符串码位数量的检测,但是有了u修饰符之后,可以用正则表达式来解决这个问题.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function codePointLength(text)&#123;</span><br><span class="line">  let result = text.match(/[\s\S]/gu); //[\s\S]保证名匹配到新行</span><br><span class="line">  return result ? result.length : 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(codePointLength(&apos;𠮷bc&apos;)); // 3</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>最佳实践:因为u修饰符时语法层面的变更,尝试在不兼容ES6的JavaScript引擎中使用它会导致语法错误.如果要检测当前引擎是否支持u修饰符,最安全的方式时通过以下这个函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//代码工作在老式的JavaScript引擎中,那么在使用u修饰符时,切记</span><br><span class="line">//要使用RegExp构造函数,这样可以避免发生语法错误,并且可以有选择的</span><br><span class="line">//检测和使用u修饰符</span><br><span class="line">function hasRegExpU()&#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    var pattern = new RegExp(&quot;.&quot;, &quot;u&quot;);</span><br><span class="line">    return true;  </span><br><span class="line">  &#125; catch (ex)&#123;</span><br><span class="line">    retun false;  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最佳实践:因为u修饰符时语法层面的变更,尝试在不兼容ES6的JavaScript引擎中使用它会导致语法错误.如果要检测当前引擎是否支持u修饰符,最安全的方式时通过以下这个函数:</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//代码工作在老式的JavaScript引擎中,那么在使用u修饰符时,切记</span><br><span class="line">//要使用RegExp构造函数,这样可以避免发生语法错误,并且可以有选择的</span><br><span class="line">//检测和使用u修饰符</span><br><span class="line">function hasRegExpU()&#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    var pattern = new RegExp(&quot;.&quot;, &quot;u&quot;);</span><br><span class="line">    return true;  </span><br><span class="line">  &#125; catch (ex)&#123;</span><br><span class="line">    retun false;  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="其他字符串变更"><a href="#其他字符串变更" class="headerlink" title="其他字符串变更"></a>其他字符串变更</h1><h2 id="字符串中的子串识别"><a href="#字符串中的子串识别" class="headerlink" title="字符串中的子串识别"></a>字符串中的子串识别</h2><p>之前的版本中我们一直使用indexOf()方法在一段字符串中检测另一端子字符串,他们一直希望能通过更简单的方法来识别字串.</p>
 <p>ES6 中增加3个类似的方法可以达到相同的效果.</p>
 <ul>
@@ -486,11 +510,14 @@
 <li>indexOf()或lastIndexOf()的参数中可以传入正则表达式(他们会把正则表达转化为一个字符串并搜索它).但是在以上三个方法中,第一个参数传入正则表达式则会出发一个错误.</li>
 </ul>
 </blockquote>
-<h2 id="repeat-方法"><a href="#repeat-方法" class="headerlink" title="repeat()方法"></a>repeat()方法</h2><p>ES6为字符串增加了repeat()方法,其接受一个number类型的参数,表示该字符串重复的次数,返回值时当前字符串重复一定次数后的新字符串.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;x&quot;.repeat(3)); //xxx</span><br></pre></td></tr></table></figure></p>
+<h2 id="repeat-方法"><a href="#repeat-方法" class="headerlink" title="repeat()方法"></a>repeat()方法</h2><p>ES6为字符串增加了repeat()方法,其接受一个number类型的参数,表示该字符串重复的次数,返回值时当前字符串重复一定次数后的新字符串.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;x&quot;.repeat(3)); //xxx</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>最佳实践,可以用这个方法来控制缩进</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let indent = &quot; &quot;.repeat(4),</span><br><span class="line">    indentLevel =0;</span><br><span class="line"></span><br><span class="line">//当需要增加缩进的时候</span><br><span class="line">let newIndent = indent.repeat(++indentLevel);</span><br></pre></td></tr></table></figure>
+
 <h1 id="其他正则表达式语法变更"><a href="#其他正则表达式语法变更" class="headerlink" title="其他正则表达式语法变更"></a>其他正则表达式语法变更</h1><h2 id="正则表达式y修饰符"><a href="#正则表达式y修饰符" class="headerlink" title="正则表达式y修饰符"></a>正则表达式y修饰符</h2><p> y修饰符曾在Firefox中被实现过,现在经ES6标准化后正式成为正则表达式的一个专有扩展.它会影响正则表达式搜索过程中的sticky属性.当在字符串中开始字符匹配时,他会通知搜索从正则表达式的lastIndex属性开始进行,如果在指定位置没能成功匹配,则停止继续匹配.</p>
 <blockquote>
 <p>lastIndex属性指明每次搜索开始的位置</p>
@@ -501,23 +528,32 @@
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> let text =&quot;hello1 hello2 hello3&quot;,</span><br><span class="line">     pattern = /hello\d\s?/,</span><br><span class="line">     result = pattern.exec(text),</span><br><span class="line">     globalPattern = /hello\d\s?/g,</span><br><span class="line">     globalResult = globalPattern.exex(text),</span><br><span class="line">     stickyPattern = /hello\d\s?/y,</span><br><span class="line">     stickyResult = stickyPattern.exec(text);</span><br><span class="line"></span><br><span class="line">console.log(result[0]); //&quot;Hello1&quot;</span><br><span class="line">console.log(globalResult[0]); //&quot;Hello1&quot;</span><br><span class="line">console.log(stickyResult[0]); //&quot;Hello1&quot;</span><br><span class="line"></span><br><span class="line">pattern.lastIndex = 1;</span><br><span class="line">globalPattern.lastIndex = 1;</span><br><span class="line">stickyPattern.lastIndex = 1;</span><br><span class="line"></span><br><span class="line">result = pattern.exec(text);</span><br><span class="line">globalResult = globalPattern.exex(text);</span><br><span class="line">stickyResult = stickyPattern.exec(text);</span><br><span class="line"></span><br><span class="line">console.log(result[0]); //&quot;Hello1&quot;</span><br><span class="line">console.log(globalResult[0]); //&quot;Hello2&quot;</span><br><span class="line">console.log(stickyResult[0]); // 抛出错误</span><br></pre></td></tr></table></figure>
+
 <p>使用y修饰符的时候,还需要记住以下几点:</p>
 <ul>
 <li>sticky 属性时候只读属性,其值由该修饰符的存在性所决定.</li>
 <li>只有调用exec()和test()这些正则表达式对象的方法时才会涉及lastIndex属性;调用字符串的方法,例如match(),则不会触发沾滞行为.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//单单一个y修饰符对match方法，只能返回第一个匹配，必须与g修饰符联用，才能返回所有匹配。</span><br><span class="line">let text = &apos;a1a2a3&apos;;</span><br><span class="line">text.match(/a\d/y) // [&quot;a1&quot;]</span><br><span class="line">text.match(/a\d/gy) // [&quot;a1&quot;, &quot;a2&quot;, &quot;a3&quot;]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>对于沾滞正则表达式而言,如果使用^字符来匹配字符串开端,指挥从字符串的起始位置或多行模式的首行进行匹配.</li>
 <li>若要检测y修饰符是否存在,与检测其他正则表达式修饰符类似,可以通过属性名来检测.sticky属性表示是否设置了y修饰符</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//检查sticky属性的存在性</span><br><span class="line">let pattern = /hello\d/y;</span><br><span class="line"></span><br><span class="line">console.log(pattern.sticky); //如果Javasc引擎支持沾滞修饰符,则sticky的属性为true.</span><br><span class="line"></span><br><span class="line">//检查JavaScript引擎对y修饰符的支持,不支持则会报错.在老浏览器里面运行一定要记得增加判断</span><br><span class="line">function hasRegExpY&#123;</span><br><span class="line">  try&#123;</span><br><span class="line">      var pattern = new RegExp(&quot;,&quot;, &quot;y&quot;);</span><br><span class="line">      return true;</span><br><span class="line">    &#125; catch (ex)&#123;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>g修饰符会忽略非法字符,y修饰符不会,这样容易发现错误.</li>
 </ul>
-<h2 id="正则表达式的复制"><a href="#正则表达式的复制" class="headerlink" title="正则表达式的复制"></a>正则表达式的复制</h2><p>在ES5中可以通过给RegExp构造函数传递正则表达式作为参数来符之这个正则表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var rel1 = /ab/i,</span><br><span class="line">    rel2 = new RegExp(rel1); //在ES5中,此时rel2只是rel1的一份拷贝.但如果给RegExp构造函数提供第二个参数,为正则表达式指定一个修饰符,则代码无法运行.</span><br><span class="line"></span><br><span class="line">   //ES5中报错,ES6中正常运行</span><br><span class="line">   rel3 = new RegExp(rel1, &quot;g&quot;);</span><br><span class="line"></span><br><span class="line">   //在ES6 中</span><br><span class="line">   console.log(rel1.tostring());// &quot;/ab/i&quot;</span><br><span class="line">   console.log(rel2.tostring());// &quot;/ab/i&quot;</span><br><span class="line">   console.log(rel3.tostring());// &quot;/ab/g&quot;</span><br></pre></td></tr></table></figure></p>
-<h2 id="flags属性"><a href="#flags属性" class="headerlink" title="flags属性"></a>flags属性</h2><p>在ES5中如果想获取正则表达式的文本,可以通过source属性,但是如果想获取使用的修饰符,就需要tostring()来获取输出的文本.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function getFlags(re)&#123;</span><br><span class="line">  var text = re.tostring();</span><br><span class="line">  return text.substring(text.lastIndexOf(&quot;/&quot;) + 1, text.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//tostring()返回值为&quot;/ab/g&quot;</span><br><span class="line">var re = /ab/g</span><br><span class="line">console.log(getFlags(re));</span><br></pre></td></tr></table></figure></p>
-<p>为了简化这一过程,ES6中使用了flags属性,它与source属性都是制度的原型属性访问器.对其之定义了getter方法,这极大的简化了调试和编写继承代码的复杂度.ES6的版本中,访问flags属性会返回所有应用在当前正则表达式的修饰符字符串.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let re = /ab/g;</span><br><span class="line"></span><br><span class="line">console.log(re.source); //&quot;ab&quot;</span><br><span class="line">console.log(re.flags); //&quot;g&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="正则表达式的复制"><a href="#正则表达式的复制" class="headerlink" title="正则表达式的复制"></a>正则表达式的复制</h2><p>在ES5中可以通过给RegExp构造函数传递正则表达式作为参数来符之这个正则表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var rel1 = /ab/i,</span><br><span class="line">    rel2 = new RegExp(rel1); //在ES5中,此时rel2只是rel1的一份拷贝.但如果给RegExp构造函数提供第二个参数,为正则表达式指定一个修饰符,则代码无法运行.</span><br><span class="line"></span><br><span class="line">   //ES5中报错,ES6中正常运行</span><br><span class="line">   rel3 = new RegExp(rel1, &quot;g&quot;);</span><br><span class="line"></span><br><span class="line">   //在ES6 中</span><br><span class="line">   console.log(rel1.tostring());// &quot;/ab/i&quot;</span><br><span class="line">   console.log(rel2.tostring());// &quot;/ab/i&quot;</span><br><span class="line">   console.log(rel3.tostring());// &quot;/ab/g&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="flags属性"><a href="#flags属性" class="headerlink" title="flags属性"></a>flags属性</h2><p>在ES5中如果想获取正则表达式的文本,可以通过source属性,但是如果想获取使用的修饰符,就需要tostring()来获取输出的文本.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function getFlags(re)&#123;</span><br><span class="line">  var text = re.tostring();</span><br><span class="line">  return text.substring(text.lastIndexOf(&quot;/&quot;) + 1, text.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//tostring()返回值为&quot;/ab/g&quot;</span><br><span class="line">var re = /ab/g</span><br><span class="line">console.log(getFlags(re));</span><br></pre></td></tr></table></figure>
+
+<p>为了简化这一过程,ES6中使用了flags属性,它与source属性都是制度的原型属性访问器.对其之定义了getter方法,这极大的简化了调试和编写继承代码的复杂度.ES6的版本中,访问flags属性会返回所有应用在当前正则表达式的修饰符字符串.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let re = /ab/g;</span><br><span class="line"></span><br><span class="line">console.log(re.source); //&quot;ab&quot;</span><br><span class="line">console.log(re.flags); //&quot;g&quot;</span><br></pre></td></tr></table></figure>
+
 <h1 id="模板字面量"><a href="#模板字面量" class="headerlink" title="模板字面量"></a>模板字面量</h1><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener">模板字面量</a>(前称模板字符串)是允许嵌入表达式的字符串字面量.可以使用多行字符串和字符串插值功能.</p>
 </blockquote>
@@ -816,7 +852,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">7.3k</span>
   
 </div>
 

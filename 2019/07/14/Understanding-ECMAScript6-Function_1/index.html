@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/upload_images/BlogIcon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/upload_images/BlogIcon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/upload_images/BlogIconMini.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Javascript,ES6,读书笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'wits" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  函数形参的默认值语法支持 支持无命名参数的处理 增强的Function构造函数 展开运算符 Name 属性 明确函数的多重用途">
+<meta name="keywords" content="Javascript,ES6,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解ES6-函数(1)">
+<meta property="og:url" content="https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/index.html">
+<meta property="og:site_name" content="I&#39;wits">
+<meta property="og:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  函数形参的默认值语法支持 支持无命名参数的处理 增强的Function构造函数 展开运算符 Name 属性 明确函数的多重用途">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-15T13:51:21.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解ES6-函数(1)">
+<meta name="twitter:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  函数形参的默认值语法支持 支持无命名参数的处理 增强的Function构造函数 展开运算符 Name 属性 明确函数的多重用途">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/">
+
+
+
+
+
+  <title>深入理解ES6-函数(1) | I'wits</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+	  <a href="https://github.com/iwits" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'wits</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwits">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload_images/Me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'wits">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深入理解ES6-函数(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T22:54:08+08:00">
+                2019-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/14/Understanding-ECMAScript6-Function_1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/14/Understanding-ECMAScript6-Function_1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.</p>
+<ul>
+<li>函数形参的默认值语法支持</li>
+<li>支持无命名参数的处理</li>
+<li>增强的Function构造函数</li>
+<li>展开运算符</li>
+<li>Name 属性</li>
+<li>明确函数的多重用途</li>
+</ul>
+<a id="more"></a>
+<blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
+
+<h1 id="函数形参的默认值"><a href="#函数形参的默认值" class="headerlink" title="函数形参的默认值"></a>函数形参的默认值</h1><p>众所周知,Js中的函数与其他语言函数最大的不同在于,JS中的函数不介意传递进来参数的类型与个数.实际上,在函数体内通过arguments对象来访问整个参数数组.arguments对象是一个类似数组(但不是的Array的实例),它支持[]语法.</p>
+<h2 id="ES5模拟默认参数与ES6默认参数"><a href="#ES5模拟默认参数与ES6默认参数" class="headerlink" title="ES5模拟默认参数与ES6默认参数"></a>ES5模拟默认参数与ES6默认参数</h2><h3 id="在ECMAScript5中模拟默认参数"><a href="#在ECMAScript5中模拟默认参数" class="headerlink" title="在ECMAScript5中模拟默认参数"></a>在ECMAScript5中模拟默认参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function makeRequest(url, timeout, callback)&#123;</span><br><span class="line">  timeout = timeout || 2000;</span><br><span class="line">  callback = callback || function() &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中,timeout与callback为可选参数,未传递的话自动赋予初始值.对于函数的命名参数来说,不显示传值,则其值默认未undefined.在这个例子中,大部分情况是正确的,但是一旦遇到timeoout显示传递0进入时,仍会被条件表达式判定为假值,并强制更改其值为2000.</p>
+<p>于是我们不得不增加判断参数类型的写法,以保证逻辑的正确性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function makeRequest(url, timeout, callback)&#123;</span><br><span class="line">  timeout = (typeof timeout !== &apos;undefined&apos;)? timeout : 2000;</span><br><span class="line">  callback = (typeof callback !== &apos;undefined&apos;)? callback : function() &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在ECMAScript6中默认参数"><a href="#在ECMAScript6中默认参数" class="headerlink" title="在ECMAScript6中默认参数"></a>在ECMAScript6中默认参数</h3><p>在ES6中针对函数形参的默认值给出了简化写法.如果没为参数传入值则为其提供一个初始值(语法与.net的写法类似).不再需要自行增加任何检验值是否缺失的代码.与.net写法不同的时,在已指定默认值的参数后可以继续声明无默认值参数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function makeRequest(url, timeout = 2000, callback)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="默认参数值对arguments对象的影响"><a href="#默认参数值对arguments对象的影响" class="headerlink" title="默认参数值对arguments对象的影响"></a>默认参数值对arguments对象的影响</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function mixArgs(first, second)&#123;</span><br><span class="line">  console.log(first === arguments[0]);</span><br><span class="line">  console.log(second === arguments[1]);</span><br><span class="line">  first = &apos;c&apos;;</span><br><span class="line">  second = &apos;d&apos;;</span><br><span class="line">  console.log(first === arguments[0]);</span><br><span class="line">  console.log(second === arguments[1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mixArgs(&apos;a&apos;,&apos;b&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>在ES5中严格模式与非严格模式下的输出迥异.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//非严格模式下,命名参数的变化会同步到arguments对象中</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line"></span><br><span class="line">//严格模式下,命名参数的变化不会同步到arguments对象中</span><br><span class="line">true</span><br><span class="line">true</span><br><span class="line">false</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
+
+<p><strong>在ES6中,如果一个函数使用了默认参数值,则无论是否显式定义了严格模式,arguments对象的行为都将与ECMAScript5 严格模式下的执行保持一致.</strong></p>
+<h2 id="默认参数表达式"><a href="#默认参数表达式" class="headerlink" title="默认参数表达式"></a>默认参数表达式</h2><p>关于默认参数值,最有趣的特性可能是非原始值传参.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let value = 5;</span><br><span class="line">function getValue() &#123;</span><br><span class="line">  return value++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function add(first, second = getValue())&#123;</span><br><span class="line">  return first + second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(add(1, 1)); //2</span><br><span class="line">console.log(add(1)); //6</span><br><span class="line">console.log(add(1)); //7</span><br></pre></td></tr></table></figure>
+
+<p>初次解析函数声明时不会调用getValue.只有当真实需要赋予默认参数值(2参数未传递时),才会调用此函数.</p>
+<blockquote>
+<p>注意,当使用函数调用结果作为默认参数值时,如果忘记写().则最终传入的时是函数的引用,而不是函数调用的结果.</p>
+</blockquote>
+<p>正是因为默认参数实在函数调用时求值,所以可以使用先定义的参数作为后定义参数的默认值.此外,只允许引用前面参数的值,即先定义的参数不能访问后定义的参数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function add(first, second = first)&#123;</span><br><span class="line">  return first + second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console(add(1)); //2</span><br><span class="line"></span><br><span class="line">//不被允许的写法</span><br><span class="line">function add(first = second, second)&#123;</span><br><span class="line">  return first + second;</span><br><span class="line">&#125;</span><br><span class="line">console.log(undefined, 1); //抛出错误</span><br></pre></td></tr></table></figure>
+
+<h2 id="默认参数的临时死区"><a href="#默认参数的临时死区" class="headerlink" title="默认参数的临时死区"></a>默认参数的临时死区</h2><p>与let声明类似,定义参数时会为每个参数创建一个新的标识符绑定,该绑定在初始化之前不可被引用,如果试图访问则会抛出错误.当调用函数时,会通过传入的值或参数的默认值初始化该参数.</p>
+<blockquote>
+<p>函数参数有自己的作用于与临时死去,其与函数体的作用域时各自福利的,也就是说参数的默认值不可以访问函数体内声明的变量.</p>
+</blockquote>
+<h1 id="处理无命名参数"><a href="#处理无命名参数" class="headerlink" title="处理无命名参数"></a>处理无命名参数</h1><p>对于函数的参数还可以使用无命名(通过arguments[index])访问的方式.</p>
+<h2 id="不定参数"><a href="#不定参数" class="headerlink" title="不定参数"></a>不定参数</h2><p> 在函数的命名参数钱添加…表明这是一个补丁参数,该参数为一个数组,包含着自他之后传入的所有参数,通过这个数组名即可逐一访问里面的参数.<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function pick(object, ...keys)&#123;</span><br><span class="line">  let result = Object.create(null);</span><br><span class="line"></span><br><span class="line">  for (let i = 0, len = keys.length; i &lt; len; i++)&#123;</span><br><span class="line">    return[keys[i]] = object[keys[i]];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> 不定参数keys包含的是object之后传入的所有参数</p>
+<blockquote>
+<p>函数的length属性统计的是函数命名参数的数量,不定参数的加入不会影响length属性的值.length(pick) = 1</p>
+</blockquote>
+<h2 id="不定参数的使用限制"><a href="#不定参数的使用限制" class="headerlink" title="不定参数的使用限制"></a>不定参数的使用限制</h2><ul>
+<li>每个函数最多只能声明一个不定参数,并且一定要放在所有参数的末尾.</li>
+<li>不定参数不能用于对象字面量setter之中.对象字面量setter的参数有且只能有一个.</li>
+</ul>
+<h2 id="不定参数对arguments对象的影响"><a href="#不定参数对arguments对象的影响" class="headerlink" title="不定参数对arguments对象的影响"></a>不定参数对arguments对象的影响</h2><p> 不定参数的设计初衷是代替JavaScript中的arguments对象.因为种种原因,导致的现状是不定参数与arguments参数同时存在.<br> 如果声明函数时定义了不定参数,则在函数被调用时,arguments对象包含了所有传入函数的参数.</p>
+<blockquote>
+<p>其实无论是否使用了不定参数,arguments对象总是包含所有传入函数的参数.</p>
+</blockquote>
+<h1 id="增强的Function构造函数"><a href="#增强的Function构造函数" class="headerlink" title="增强的Function构造函数"></a>增强的Function构造函数</h1><p> Function 构造函数通常被用来动态创建构造函数.这种构造函数接受字符串形式的参数,分别为函数的参数及函数体(以字符串的形式传递).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var add = new Function(&quot;first&quot;, &quot;second&quot;, &quot;return first + second&quot;);</span><br><span class="line">console.log(add(1, 1)); //2</span><br></pre></td></tr></table></figure>
+
+<p>ES6 中增强了Function构造函数的功能,支持在擦黄健函数时定义默认参数与不定参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var add = new Function(&quot;first&quot;, &quot;second = first&quot;, &quot;return first + second&quot;);</span><br><span class="line">console.log(add(1)); // 2</span><br><span class="line"></span><br><span class="line">var pickFirst = new Function(&quot;...args&quot;, &quot;return args[0]&quot;);</span><br><span class="line">cosole.log(pickFirst(1, 2)); //1</span><br></pre></td></tr></table></figure>
+
+<h1 id="展开运算符"><a href="#展开运算符" class="headerlink" title="展开运算符"></a>展开运算符</h1><p>不定参数可以让你指定多个各自独立的参数,并通过整合后的数组来访问.而展开运算符可以让你指定一个数组,将他们打散后作为各自独立的参数传入函数.Javascript内建的Math.max()方法可以接受任意数量的参数并返回值最大的那一个.但是面对数组,Math.max()无法接受其作为参数.想要获取数组中的最大值.只能遍历或者使用apply方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//在ES5中从数组中挑选最大的哪个值</span><br><span class="line">let values = [25, 50, 75, 100]</span><br><span class="line">console.log(Macth.max.apply(Math, values)); //100</span><br><span class="line"></span><br><span class="line">//在ES6中的展开运算符可以简化以上写法.方式为在数组前面加入不定参数...符号</span><br><span class="line">let values = [25, 75, 50, 125]</span><br><span class="line">console.log(Math.max(...values)); //100</span><br><span class="line">//这种写法等价于</span><br><span class="line">console.log(Math.max(25, 75, 50, 125));</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在使用数组给函数传递参数的过程中,大部分使用apply()方法的场景都可以使用展开运算符做替代方案.</p>
+</blockquote>
+<h1 id="name属性"><a href="#name属性" class="headerlink" title="name属性"></a>name属性</h1><h2 id="如何选择合适的名称"><a href="#如何选择合适的名称" class="headerlink" title="如何选择合适的名称"></a>如何选择合适的名称</h2><p> ES6程序中的所有的函数的name属性都有一个合适的值.在接下来的示例中展示了一个函数和一个函数表达式,并打印了各自的name属性:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> function doSomething()&#123;</span><br><span class="line">   //空函数</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">//匿名函数表达式的name对应着被赋值为该匿名函数的变量的名称</span><br><span class="line"> var doAnotherThing = function() &#123;</span><br><span class="line">   // 空函数</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> console.log(doSomething.name); // &quot;doSomething&quot;</span><br><span class="line"> console.log(doAnotherThing.name); //&quot;doAnotherThing&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="name属性的特殊情况"><a href="#name属性的特殊情况" class="headerlink" title="name属性的特殊情况"></a>name属性的特殊情况</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var doSomething = function doSomethingElse()&#123;</span><br><span class="line">  //empty function</span><br><span class="line">&#125;</span><br><span class="line">var person = &#123;</span><br><span class="line">  get firstName ()&#123;</span><br><span class="line">    return  &quot;Nick&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  sayName : function()&#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//函数表达式名称&gt;函数本身被赋值的变量名</span><br><span class="line">console.log(doSomething.name); //&quot;doSomethingElse&quot;</span><br><span class="line"></span><br><span class="line">//取值为对象字面量</span><br><span class="line">console.log(person.sayName.name); //&quot;sayName&quot;</span><br><span class="line"></span><br><span class="line">//getter setter对象有各自的前缀</span><br><span class="line">console.log(person.firstName.name); //&quot;get firstName&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var doSomething = function()&#123;</span><br><span class="line">  //empty function</span><br><span class="line">&#125;;</span><br><span class="line">//通过bind()函数创建的函数,其名称将带有&quot;bound&quot;前缀</span><br><span class="line">console.log(doSomething.bind().name); //&quot;bound doSomething&quot;</span><br><span class="line"></span><br><span class="line">//通过Function构造函数创建的函数,其名称将是&quot;anonymous&quot;</span><br><span class="line">//console.log(new Function().name); //&quot;anonymous&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意: 函数name属性的值不一定引用同名变量,他只是协助调试用的额外信息,所以不能使用name属性的值来获取对于函数的引用.</p>
+</blockquote>
+<h1 id="明确函数的多重用途"><a href="#明确函数的多重用途" class="headerlink" title="明确函数的多重用途"></a>明确函数的多重用途</h1><p>ES5及其早期版本中的函数具有多重功能,可以结合new使用,函数内的this值将只想一个新对象,函数最终会返回这个新对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&quot;Nick&quot;);</span><br><span class="line">var NotAPerson = person(&quot;Nick&quot;);</span><br><span class="line"></span><br><span class="line">console.log(person); //&quot;[Object object]&quot;</span><br><span class="line">console.log(NotAPerson); //&quot;undefined&quot;,非严格模式下,还会在全局对象中设置一个name属性</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript 函数有两个不同的内部方法:[[call]]和[[Construct]].当使用new关键字调用函数时,执行的时[[Construct]]函数,它负责创建一个通常被称作实例的新对象,然后再执行函数体,将this绑定到实例上;<br>如果不使用new关键字,则执行[[call]]函数, 从而直接支持性代码中的函数体.具有[[Construc]]方法的函数被统称为构造函数.</p>
+<h2 id="ECMAScript5中判断函数被调用的方法"><a href="#ECMAScript5中判断函数被调用的方法" class="headerlink" title="ECMAScript5中判断函数被调用的方法"></a>ECMAScript5中判断函数被调用的方法</h2><p>在ES5中,如果想确定一个函数是否通过new关键字被调用(或者说,判断该函数是否做欸构造函数被调用),最流行的方式就是用instanceof,举个例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">  if (this instanceof Person)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw new Error(&quot;必须通过new关键字来调用person&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person = new Person(&quot;Nick&quot;);</span><br><span class="line">var NotAPerson = Person(&quot;Nick&quot;); //抛出错误</span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中,首先检查this的值,看他是否为构造函数的实例,如果时则正常执行,否则抛出错误.由于[[Construct]]方法会创建一个Person的新势力,并将this 绑定到新势力上,通常来讲这样做时正确的,但是这个方法也不完全可靠,因为有一种不宜俩new关键字的方法也可以将this绑定到person实例上.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">  if (this instanceof Perso)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw new Error(&quot;必须通过new关键字来调用person&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var person = new Person(&quot;Nick&quot;);</span><br><span class="line">var notAPerson = Person.call(person &quot;Michael&quot;); //有效!</span><br></pre></td></tr></table></figure>
+
+<p>调用Person.call()时将变量person传入作为第一个参数,相当于在Person函数里将this设为person实例.对于函数本身,无法却分是通过Person.call(或者时Person.apply())还是new关键字调用得到的Person实例.</p>
+<h2 id="元属性-metaproperty-new-target"><a href="#元属性-metaproperty-new-target" class="headerlink" title="元属性(metaproperty) new.target"></a>元属性(metaproperty) new.target</h2><p>为了解决判断函数是否通过new关键字调用的问题,ECMAScript6引入了new.target这个元属性.元属性是指非对象的属性,其可以提供非对象目标的补充信息(例如new).</p>
+<ul>
+<li>当调用函数的[[Construct]]方法时,new.target被赋值为new操作符的目标,通常是新创建对象实例,也就是函数体内this的构造函数;</li>
+<li>如果调用[[call]]方法,则new.target的值为undefined.</li>
+</ul>
+<p>有了这个元属性,可以通过检查new.target石佛普被定义过来安全地检测一个函数是否通过new关键字调用的,就像这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">  if (typeof new.target !== &quot;undefined&quot;)&#123;</span><br><span class="line">    console.log( typeof new.target); //&quot;function&quot;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw  new Error(&quot;必须通过new关键字来调用person&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&quot;Nick&quot;);</span><br><span class="line">var notAPerson = Person.call(person, &quot;Michael&quot;); // 抛出错误</span><br></pre></td></tr></table></figure>
+
+<p>举一反三,可以利用元属性.检查是否被某个特性的构造函数所调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">  if (new.target == Person)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw  new Error(&quot;必须通过new关键字来调用person&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function AnotherPerson(name)&#123;</span><br><span class="line">  Person.call(this, name);</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&quot;Nick&quot;);</span><br><span class="line">var AnotherPerson = new AnotherPerson(&quot;Michael&quot;); // 抛出错误</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在函数外使用new.target时一个语法错误</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赚钱养自己</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload_images/wechatpay.jpg" alt="iwits 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload_images/alipay.jpg" alt="iwits 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwits
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/" title="深入理解ES6-函数(1)">https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/29/Understanding_ECMAScript6_String-and-Regular-expression/" rel="next" title="深入理解ES6-字符串与正则表达式">
+                <i class="fa fa-chevron-left"></i> 深入理解ES6-字符串与正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload_images/Me.jpg" alt="iwits">
+            
+              <p class="site-author-name" itemprop="name">iwits</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iwits" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:hvergelmir07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数形参的默认值"><span class="nav-number">1.</span> <span class="nav-text">函数形参的默认值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5模拟默认参数与ES6默认参数"><span class="nav-number">1.1.</span> <span class="nav-text">ES5模拟默认参数与ES6默认参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在ECMAScript5中模拟默认参数"><span class="nav-number">1.1.1.</span> <span class="nav-text">在ECMAScript5中模拟默认参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在ECMAScript6中默认参数"><span class="nav-number">1.1.2.</span> <span class="nav-text">在ECMAScript6中默认参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认参数值对arguments对象的影响"><span class="nav-number">1.2.</span> <span class="nav-text">默认参数值对arguments对象的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认参数表达式"><span class="nav-number">1.3.</span> <span class="nav-text">默认参数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#默认参数的临时死区"><span class="nav-number">1.4.</span> <span class="nav-text">默认参数的临时死区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理无命名参数"><span class="nav-number">2.</span> <span class="nav-text">处理无命名参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不定参数"><span class="nav-number">2.1.</span> <span class="nav-text">不定参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不定参数的使用限制"><span class="nav-number">2.2.</span> <span class="nav-text">不定参数的使用限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不定参数对arguments对象的影响"><span class="nav-number">2.3.</span> <span class="nav-text">不定参数对arguments对象的影响</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增强的Function构造函数"><span class="nav-number">3.</span> <span class="nav-text">增强的Function构造函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#展开运算符"><span class="nav-number">4.</span> <span class="nav-text">展开运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#name属性"><span class="nav-number">5.</span> <span class="nav-text">name属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何选择合适的名称"><span class="nav-number">5.1.</span> <span class="nav-text">如何选择合适的名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name属性的特殊情况"><span class="nav-number">5.2.</span> <span class="nav-text">name属性的特殊情况</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#明确函数的多重用途"><span class="nav-number">6.</span> <span class="nav-text">明确函数的多重用途</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript5中判断函数被调用的方法"><span class="nav-number">6.1.</span> <span class="nav-text">ECMAScript5中判断函数被调用的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元属性-metaproperty-new-target"><span class="nav-number">6.2.</span> <span class="nav-text">元属性(metaproperty) new.target</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iwits</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">11.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/src/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

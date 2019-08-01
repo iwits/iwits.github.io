@@ -634,7 +634,7 @@
 <h2 id="localhost正常-部署后自定义域名访问为404或空白"><a href="#localhost正常-部署后自定义域名访问为404或空白" class="headerlink" title="localhost正常,部署后自定义域名访问为404或空白"></a>localhost正常,部署后自定义域名访问为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
 <p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
 <h2 id="Localhost正常-部署后页面没有无主题样式-只有文字"><a href="#Localhost正常-部署后页面没有无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后页面没有无主题样式,只有文字."></a>Localhost正常,部署后页面没有无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></table></figure></p>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
     
@@ -811,7 +811,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -822,7 +822,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -833,7 +833,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -923,7 +923,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11.9k</span>
+    <span title="Site words total count">12k</span>
   
 </div>
 

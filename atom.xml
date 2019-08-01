@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-07-15T13:51:21.302Z</updated>
+  <updated>2019-08-01T13:08:46.691Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&lt;玩得就是会计&gt;读书笔记</title>
+    <link href="https://iwits.com.cn/2019/07/28/Just_Play_Accounting/"/>
+    <id>https://iwits.com.cn/2019/07/28/Just_Play_Accounting/</id>
+    <published>2019-07-28T02:19:35.000Z</published>
+    <updated>2019-08-01T13:08:46.691Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;lt;玩得就是会计&amp;gt;读书笔记&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本的会计概念&lt;/li&gt;
+&lt;li&gt;自己记录备用&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解ES6-函数(1)</title>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-04T16:46:30.299Z</updated>
+  <updated>2019-08-04T16:50:31.764Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Understanding-ECMAScript6-Function_2</title>
+    <title>深入理解ES6-函数(2)</title>
     <link href="https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/"/>
     <id>https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/</id>
     <published>2019-08-04T14:54:02.000Z</published>
-    <updated>2019-08-04T16:46:30.299Z</updated>
+    <updated>2019-08-04T16:50:31.764Z</updated>
     
     <summary type="html">
     

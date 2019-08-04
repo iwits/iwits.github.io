@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta name="description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
 <meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解ES6-变量作用域">
-<meta property="og:url" content="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/index.html">
+<meta property="og:title" content="Understanding-ECMAScript6-Function_2">
+<meta property="og:url" content="https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/index.html">
 <meta property="og:site_name" content="I'wits">
-<meta property="og:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta property="og:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-29T08:40:59.074Z">
+<meta property="og:updated_time" content="2019-08-04T16:46:30.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解ES6-变量作用域">
-<meta name="twitter:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta name="twitter:title" content="Understanding-ECMAScript6-Function_2">
+<meta name="twitter:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/">
+  <link rel="canonical" href="https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/">
 
 
 
 
 
-  <title>深入理解ES6-变量作用域 | I'wits</title>
+  <title>Understanding-ECMAScript6-Function_2 | I'wits</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解ES6-变量作用域</h1>
+          <h1 class="post-title" itemprop="name headline">Understanding-ECMAScript6-Function_2</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T20:46:32+08:00">
-                2019-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T22:54:02+08:00">
+                2019-08-04
               </time>
             
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/29/Understanding_ECMAScript6_Variable_Scope/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/29/Understanding_ECMAScript6_Variable_Scope/" itemprop="commentsCount"></span>
+                <a href="/2019/08/04/Understanding-ECMAScript6-Function-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/04/Understanding-ECMAScript6-Function-2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  2k
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -453,69 +453,100 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p>深入理解ES6-变量作用域</p>
+        <meta name="generator" content="Hexo 3.9.0"><p>为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.</p>
 <ul>
-<li>最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var</li>
+<li>块级函数</li>
+<li>箭头函数</li>
+<li>尾调用的优化</li>
 </ul>
 <a id="more"></a>
+
 <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
 
+<h1 id="块级函数"><a href="#块级函数" class="headerlink" title="块级函数"></a>块级函数</h1><h2 id="历史溯源"><a href="#历史溯源" class="headerlink" title="历史溯源"></a>历史溯源</h2><p>在 ES3和早期的版本中,在代码块中声明一个块级函数严格来说一个错误,但是所有的浏览器仍然支持了这个特性,且每个浏览器对这个特性的支持成都都不同.(推荐的方式是使用函数表达式[不会发生声明提前]).</p>
+<p>为了抑制这种相互不兼容的行为,ES5在严格模式中引入了错误提示,挡在代码块内部声明函数是会抛出错误:</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>){</span><br><span class="line">    <span class="comment">//在ES5中会抛出语法错误</span></span><br><span class="line">    <span class="comment">//在ES6中不会,ES6会将其视为一个块级声明,从而可以在定义该函数的代码块内访问和调用它</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//空函数</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。</p>
-<h2 id="var声明及Hoisting机制"><a href="#var声明及Hoisting机制" class="headerlink" title="var声明及Hoisting机制"></a>var声明及Hoisting机制</h2><ul>
-<li>使用var关键字来声明变量</li>
-<li>无论在哪里声明，都会被当成在当前作用域顶部声明的变量</li>
-<li>声明提前，初始化操作依旧留在原处执行</li>
-</ul>
-<h2 id="块级声明"><a href="#块级声明" class="headerlink" title="块级声明"></a>块级声明</h2><blockquote>
-<p>块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量。存在于：</p>
-<blockquote>
-<ul>
-<li>函数内部</li>
-<li>块（{}）中</li>
-</ul>
-</blockquote>
-</blockquote>
-<ul>
-<li>使用let关键字声明块级元素，将变量的作用域限制在当前代码块中</li>
-<li>let声明不会提前，因此通常把let声明语句在封闭代码块的顶部</li>
-<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
-<li>const也是块级标识符</li>
-<li>块级作用标识符特点是声明不会hoisting，一旦执行到块外就被销毁。</li>
-</ul>
-<h2 id="禁止重声明"><a href="#禁止重声明" class="headerlink" title="禁止重声明"></a>禁止重声明</h2><p>   同一作用域中不能用let重复定义已经存在的标识符。但是如果当前作用域内嵌另一作用域，则可以在内嵌的作用域中使用let声明同名变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例子1</span><br><span class="line">var count = 20;</span><br><span class="line"></span><br><span class="line">//下面语句会抛出错误</span><br><span class="line">let count =40;</span><br><span class="line"></span><br><span class="line">//例子2</span><br><span class="line">var count = 20;</span><br><span class="line">if (conditon){</span><br><span class="line">   //不会抛出错误，内部作用域的count会屏蔽全局作用域的count</span><br><span class="line">   let count = 40;</span><br><span class="line">   Alert(count); //40</span><br><span class="line">}</span><br><span class="line">Alert(count); //20</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p>  和其他语言一样，const声明的是常量，一旦被设定之后不可修改，每个使用const定义的常量必须进行初始化。一旦不初始化，则会抛出错误。</p>
-<ul>
-<li><p>const和let都是块级作用标识符</p>
-</li>
-<li><p>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</p>
-</li>
-<li><p>无论在严格模式还是非严格模式下，都不可以为const定义的常量再赋值。一旦赋值就会抛出错误。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不能重声明， 被let声明过的不能用const声明</span><br><span class="line">var count = 20;</span><br><span class="line">let age = 10;</span><br><span class="line">const price = 100;</span><br><span class="line"></span><br><span class="line">//以下语句都会抛出错误</span><br><span class="line">const count = 40;</span><br><span class="line">const age = 12;</span><br><span class="line">let price = 200;</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>const声明不允许修改绑定，但是允许修改值。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const person = {</span><br><span class="line">  name: "Nick"</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">//可以修改值</span><br><span class="line">person.name = "Greg";</span><br><span class="line"></span><br><span class="line">//不可以修改绑定</span><br><span class="line">person = {</span><br><span class="line">  name: "Greg"</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<p>在ES6中的调用如下</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>){</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> doSomething); <span class="comment">//"function"</span></span><br><span class="line">    <span class="comment">//在定义函数的代码块内,块级函数会被提升至顶部,但是if一旦执行结束,dosomething函数将不存在</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//空函数</span></span><br><span class="line">    }</span><br><span class="line">    doSomething();</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> doSomething); <span class="comment">//"undefined"</span></span><br></pre></td></tr></tbody></table></figure>
 
-</li>
-</ul>
-<h2 id="临界死区（Temporal-Dead-Zone）"><a href="#临界死区（Temporal-Dead-Zone）" class="headerlink" title="临界死区（Temporal Dead Zone）"></a>临界死区（Temporal Dead Zone）</h2><p>   由于声明不会被提前，在作用域外访问变量会抛出错误。即使是相对安全的typeof.</p>
-<p>   Javascript引擎在扫描代码发现变量声明时，要么将它们提升至作用域顶部（var），要么将声明放到TDZ中（let、const）。访问TDZ中的变量会触发运行时错误。只有执行过变量声明语句后，变量才会从TDZ中移出，然后方可访问。</p>
-   <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof value); // undefined</span><br><span class="line">if (condition) {</span><br><span class="line">   console.log(typeof value); //引用错误</span><br><span class="line">   let value = "blue";</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="循环中的块级作用域绑定"><a href="#循环中的块级作用域绑定" class="headerlink" title="循环中的块级作用域绑定"></a>循环中的块级作用域绑定</h2><p>  块级作用域最经典的应用场景就是在循环中，将计数器变量使用块级声明。保证一旦循环结束，，其他地方不可以访问计数器。</p>
-<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><p>   var声明因为变量共享的问题，使得在循环中创建函数非常困难<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//var声明的i被共享存储在funcs里面。执行下面操作会输出10个10</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">    console.log(i);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   IIFE解决了这个问题，它的思路是通过强制生成计数器变量的副本，规避共享变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//每次接收到i都创建一个新的副本并存储为value  foreach循环调用的时候就会输出0到9</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push((function(value){</span><br><span class="line">     return function() {</span><br><span class="line">       console.log(value);</span><br><span class="line">     }</span><br><span class="line">    }(i)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   ES6支持了块级声明之后，可以使用块级声明达到同样的效果。这是因为块级标识符利用了块级标识符一旦离开了作用域会自动销毁的特性。使用块级标识符声明声明计数器变量，每次循环中都会创建一个新的变量，并以之前循环中同名变量的值将其初始化。【aka.自动副本】</p>
-<p>   对于for 循环，let和const两种块级标识符是有差别的。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// **********方案一****************</span><br><span class="line"> var funcs = [];</span><br><span class="line"></span><br><span class="line"> for (let i = 0; i < 10; i++){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">     console.log(i);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });</span><br><span class="line"></span><br><span class="line"> // **********方案二****************</span><br><span class="line">  var funcs = [];</span><br><span class="line"></span><br><span class="line">   //完成一次循环之后，会抛出报错。因为i被定义为常量，i++中尝试修改i的绑定，抛出错误</span><br><span class="line">  for (const i = 0; i < 10; i++){</span><br><span class="line">    funcs.push(function(){</span><br><span class="line">      console.log(i);</span><br><span class="line">      });</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  funcs.forEach(function(func){</span><br><span class="line">     func();</span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   对于for-in或者for-of循环，只要循环中不涉及对计数器变量绑定的修改，表现就是无差异。每次循环都会创建一个新的key绑定，因此每个函数都有一个变量key的副本。于是不同的函数输出不同的值。正是因为每次都会创建一个新的绑定。在不修改计数器变量的请况下。const声明也不会抛出错误。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//**************let*********</span><br><span class="line"> var funcs = [],</span><br><span class="line">     object = {</span><br><span class="line">       a: true,</span><br><span class="line">       b: true,</span><br><span class="line">       c: true</span><br><span class="line">     };</span><br><span class="line"></span><br><span class="line"> for (let key in object){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">        console.log(key);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });   </span><br><span class="line">//************const*********q</span><br><span class="line">var funcs = [],</span><br><span class="line">    object = {</span><br><span class="line">      a: true,</span><br><span class="line">      b: true,</span><br><span class="line">      c: true</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">for (const key in object){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">       console.log(key);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h2 id="全局块作用域绑定"><a href="#全局块作用域绑定" class="headerlink" title="全局块作用域绑定"></a>全局块作用域绑定</h2><p>   块级标识符和var声明另一个很大的区别，在于他们在全局作用域中的行为。</p>
+<h2 id="块级函数的使用场景"><a href="#块级函数的使用场景" class="headerlink" title="块级函数的使用场景"></a>块级函数的使用场景</h2><p>块级函数与let函数表达式相似,一旦执行过成流出代码块,函数定义立即被移除.二者的区别在于</p>
 <ul>
-<li>当var被作用域全局作用域的时候，他会创建一个新的全局变量作为全局对象[我们所说的全局对象是window对象]的属性。这意味着var可能会覆盖一个已经存在的全局属性。</li>
-<li>在全局作用域下使用块级标识符，则是会在全局作用域下创建一个新的绑定，该绑定不会成为全局对象的一个属性。换句话说，块级作用域不能覆盖全局变量，只能遮蔽它。</li>
+<li>在该代码块中,块级函数声明会被提升至该块的顶部</li>
+<li>使用let定义的函数表达式则不会发生声明提升的情况</li>
+</ul>
+<p>所以按需使用这两种写法吧</p>
+<h2 id="非严格模式下的块级函数"><a href="#非严格模式下的块级函数" class="headerlink" title="非严格模式下的块级函数"></a>非严格模式下的块级函数</h2><p>在ES6中, 严格模式与非严格模式下的块级函数略有不同.</p>
+<ul>
+<li>在严格模式下,块级函数会被提升至代码块顶部</li>
+<li>在非严格模式下,会被提升指外围函数或全局作用于的顶部</li>
+</ul>
+<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><h2 id="为什么要有箭头函数"><a href="#为什么要有箭头函数" class="headerlink" title="为什么要有箭头函数?"></a>为什么要有箭头函数?</h2><p>this绑定是javascript程序产生错误的一个常见来源,在函数内很容易对this的值失去控制.箭头函数为了限制this值,减少错误和模糊不清的地方而生.</p>
+<h2 id="箭头函数与传统函数的差异"><a href="#箭头函数与传统函数的差异" class="headerlink" title="箭头函数与传统函数的差异"></a>箭头函数与传统函数的差异</h2><p>ES6中新增了箭头函数这个特性-使用<b>=></b>定义函数的新语法.但是它和传统的JavaScript函数有些不同.主要表现在:</p>
+<ul>
+<li>没有this\super\arguments\new.target绑定. 箭头函数中的这些值由外围最近一层的非箭头函数决定</li>
+<li>不能通过new关键字调用. 箭头函数没有[[Construct]]方法,所以不能被用作构造函数,如果通过new关键字调用箭头函数,程序会抛出错误.</li>
+<li>没有原型. 由于不能通过new关键字嗲用箭头函数,因而没有构造原型的需求,因此箭头函数不存在prototype这个属性</li>
+<li>不可以改变this的绑定. 函数内部的this值不可被改变,在函数的声明周期内始终保持一致.</li>
+<li>不支持arguments对象. 箭头函数没有arguments绑定,所以必须通过命名参数和不定参数的形式的去访问函数的参数</li>
+<li>不支持重复的命名参数.无论在严格还是非严格模式下,箭头函数都不支持重复的命名参数.</li>
 </ul>
 <blockquote>
-<p>如果不想对全局对象创建属性，则使用let和const 要安全。如果希望在全局对象下定义变量，仍然可以使用var。这种情况创建于在浏览器中跨frame或者跨window访问代码。</p>
+<p>箭头函数同样有name属性,这点与其余函数规则一致.</p>
 </blockquote>
+<h2 id="箭头函数的语法"><a href="#箭头函数的语法" class="headerlink" title="箭头函数的语法"></a>箭头函数的语法</h2><p>箭头函数的语法有多种形式,主要归纳为函数参数\箭头\函数体三种表达</p>
+<ol>
+<li><p>单一参数,并且只是简单的返回了参数值</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reflect = <span class="function"><span class="params">value</span> =></span> value;</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> reflect = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>当需要传入两个或两个以上参数的时候</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">num1, num2</span>) =></span> num1 + num2;</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>没有参数的时候</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getName = <span class="function"><span class="params">()</span> =></span> <span class="string">"Nick"</span>;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>函数体包含多个语句,这时候需要显示的返回值</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">num1, num2</span>) =></span> {</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>空函数</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let nothing = () => {};</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>箭头函数需要返回一个字面量的时候,把字面量包裹在一个()里面</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getItem = <span class="function"><span class="params">id</span> =></span> ({<span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"temp"</span>});</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"><span class="keyword">let</span> getItem = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        id: id,</span><br><span class="line">        name: <span class="string">"temp"</span></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="创建立即执行函数表达式"><a href="#创建立即执行函数表达式" class="headerlink" title="创建立即执行函数表达式"></a>创建立即执行函数表达式</h2><p>JavaScript函数中一个流行的使用方式是创建立即执行函数表达式(IIFE),你可以定义一个匿名函数并立即调用,自始自终不保存对该函数的引用.当你想要创建一个与其他程序隔离的作用于时,这种模式非常方便.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = functiton(name){</span><br><span class="line">  <span class="keyword">return</span>{</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line">  };</span><br><span class="line">}(<span class="string">"nick"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName()); <span class="comment">//"nick";</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>只要把箭头函数包裹在(),就是使用箭头函数完成相同功能.</p>
+<blockquote>
+<p>需要注意的是,()只包裹箭头函数定义的部分,没有包含(“nick”),这一点与正常函数有所不同,由正常函数定义的立即执行函数表达式既可以用()包裹函数体,也可以额外包裹函数的调用部分.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="function">(<span class="params">(name</span>) =></span> {</span><br><span class="line">  <span class="keyword">return</span>{</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line">  };</span><br><span class="line">})(<span class="string">"nick"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName()); <span class="comment">//"nick";</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="箭头函数没有this绑定"><a href="#箭头函数没有this绑定" class="headerlink" title="箭头函数没有this绑定"></a>箭头函数没有this绑定</h2><p>如果箭头函数被非箭头函数包含,则this绑定的是最近一层非箭头函数的this,否则this的值会被设置成为全局对象.且this的值不能被更改.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PageHandler = {</span><br><span class="line">    id: <span class="string">"123456"</span>,</span><br><span class="line">    init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>, event=> <span class="keyword">this</span>.doSomething(event,type), <span class="literal">false</span>);</span><br><span class="line">    },</span><br><span class="line">    dosomething: <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>{</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Handling "</span> + type + <span class="string">"for "</span> + <span class="keyword">this</span>.id);  </span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="箭头函数与数组"><a href="#箭头函数与数组" class="headerlink" title="箭头函数与数组"></a>箭头函数与数组</h2><p>箭头函数的语法非常简单,非常适合用来处理数组.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function">(<span class="params">a, b</span>) =></span> { a-b});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>sort(),map(),reduce()等可以接受回调凹函数的数组方法,都可以通过箭头函数语法简化编码过程.</p>
+<h2 id="箭头函数没有arguments绑定"><a href="#箭头函数没有arguments绑定" class="headerlink" title="箭头函数没有arguments绑定"></a>箭头函数没有arguments绑定</h2><p>箭头函数没有自己的arguments对象,且未来无论函数在哪个上下文中执行,箭头函数使用可以访问外围的arguments对象.</p>
+<h2 id="箭头函数的辨识方法"><a href="#箭头函数的辨识方法" class="headerlink" title="箭头函数的辨识方法"></a>箭头函数的辨识方法</h2><p>使用typeof和instanceof 操作符调用箭头函数与调用其他函数并没有差别.不过我们还是可以同一些技巧将其辨识 出来.</p>
+<p>箭头函数使用call(),apply(),bind()这些方法,函数this值不受影响.</p>
+<h2 id="什么地方适合用箭头函数"><a href="#什么地方适合用箭头函数" class="headerlink" title="什么地方适合用箭头函数"></a>什么地方适合用箭头函数</h2><p>包括回到函数在内所有使用匿名表达式的地方都合适用箭头函数来改写.</p>
+<h1 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h1><h2 id="什么是尾调用"><a href="#什么是尾调用" class="headerlink" title="什么是尾调用?"></a>什么是尾调用?</h2><p>函数作为另外一个函数的最后一条语句被调用.</p>
+<h2 id="尾调用会有什么问题"><a href="#尾调用会有什么问题" class="headerlink" title="尾调用会有什么问题?"></a>尾调用会有什么问题?</h2><p>在ES5中,尾调用和其他函数调用的实现类似: 创建一个新的stack frame,将其推入调用栈来表示函数调用.当出现循环调用的时候,每一个未用完的stack frame 都会被保存在内存中,当调用栈编得过大的时候会带来程序问题.</p>
+<h2 id="ES6中的尾调用优化"><a href="#ES6中的尾调用优化" class="headerlink" title="ES6中的尾调用优化"></a>ES6中的尾调用优化</h2><p>ES6中缩减了严格模式下(非严格模式不受影响)尾调用栈的大小,如果满足以下条件,尾调用不再创造新的stack frame,而是清除并重用当前stack frame</p>
+<ul>
+<li>尾调用不访问当前stack frame的变量(也就是说函数不是一个闭包)</li>
+<li>在函数内部,尾调用是最后一条语句</li>
+<li>尾调用的结果作为函数值返回.</li>
+</ul>
+<h2 id="如何利用尾调用"><a href="#如何利用尾调用" class="headerlink" title="如何利用尾调用"></a>如何利用尾调用</h2><p>实际上,尾调用的优化发生在引擎背后,除非尝试优化一个函数,否则无须思考此类问题.递归函数是最重要的应用场景,优化效果显著.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无法优化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">factorial</span>(<span class="params">n</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span> (n <= <span class="number">1<!--=--></span>){<br><span class="line">        retrun <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span>  n * factorial(n);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//优化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">factorial</span>(<span class="params">n, p = <span class="number">1</span></span>)</span>{</span><br><span class="line">    <span class="keyword">if</span> (n <= <span class="number">1<!--=--></span>){<br><span class="line">        retrun <span class="number">1</span> * p;</span><br><span class="line">    }<span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">let</span> result = n * p;</span><br><span class="line">        <span class="keyword">return</span>  factorial(n <span class="number">-1</span>, result);</span><br><span class="line">    }</span><br><span class="line">}</span><br></span></span></pre></td></tr></tbody></table></figure>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
@@ -565,7 +596,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/" title="深入理解ES6-变量作用域">https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/</a>
+    <a href="https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/" title="Understanding-ECMAScript6-Function_2">https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,19 +628,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/04/Hexo_GitHub_Pages_Build_blog/" rel="next" title="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
-                <i class="fa fa-chevron-left"></i> Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)
-              </a>
+              <a href="/2019/07/28/Just_Play_Accounting/" rel="next" title="<玩得就是会计>读书笔记">
+                <i class="fa fa-chevron-left"></i> <玩得就是会计>读书笔记
+              <!--玩得就是会计--></a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/29/Understanding_ECMAScript6_String-and-Regular-expression/" rel="prev" title="深入理解ES6-字符串与正则表达式">
-                深入理解ES6-字符串与正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -773,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳实践"><span class="nav-number">1.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var声明及Hoisting机制"><span class="nav-number">2.</span> <span class="nav-text">var声明及Hoisting机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级声明"><span class="nav-number">3.</span> <span class="nav-text">块级声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止重声明"><span class="nav-number">4.</span> <span class="nav-text">禁止重声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const声明"><span class="nav-number">5.</span> <span class="nav-text">const声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#临界死区（Temporal-Dead-Zone）"><span class="nav-number">6.</span> <span class="nav-text">临界死区（Temporal Dead Zone）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的块级作用域绑定"><span class="nav-number">7.</span> <span class="nav-text">循环中的块级作用域绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的函数"><span class="nav-number">8.</span> <span class="nav-text">循环中的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局块作用域绑定"><span class="nav-number">9.</span> <span class="nav-text">全局块作用域绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#块级函数"><span class="nav-number">1.</span> <span class="nav-text">块级函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史溯源"><span class="nav-number">1.1.</span> <span class="nav-text">历史溯源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级函数的使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">块级函数的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非严格模式下的块级函数"><span class="nav-number">1.3.</span> <span class="nav-text">非严格模式下的块级函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有箭头函数"><span class="nav-number">2.1.</span> <span class="nav-text">为什么要有箭头函数?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数与传统函数的差异"><span class="nav-number">2.2.</span> <span class="nav-text">箭头函数与传统函数的差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数的语法"><span class="nav-number">2.3.</span> <span class="nav-text">箭头函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建立即执行函数表达式"><span class="nav-number">2.4.</span> <span class="nav-text">创建立即执行函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数没有this绑定"><span class="nav-number">2.5.</span> <span class="nav-text">箭头函数没有this绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数与数组"><span class="nav-number">2.6.</span> <span class="nav-text">箭头函数与数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数没有arguments绑定"><span class="nav-number">2.7.</span> <span class="nav-text">箭头函数没有arguments绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数的辨识方法"><span class="nav-number">2.8.</span> <span class="nav-text">箭头函数的辨识方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么地方适合用箭头函数"><span class="nav-number">2.9.</span> <span class="nav-text">什么地方适合用箭头函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尾调用"><span class="nav-number">3.</span> <span class="nav-text">尾调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是尾调用"><span class="nav-number">3.1.</span> <span class="nav-text">什么是尾调用?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾调用会有什么问题"><span class="nav-number">3.2.</span> <span class="nav-text">尾调用会有什么问题?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中的尾调用优化"><span class="nav-number">3.3.</span> <span class="nav-text">ES6中的尾调用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何利用尾调用"><span class="nav-number">3.4.</span> <span class="nav-text">如何利用尾调用</span></a></li></ol></li></ol></div>
             
 
           </div>

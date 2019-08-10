@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-10T12:31:33.298Z</updated>
+  <updated>2019-08-10T12:33:29.553Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Understanding-ECMAScript6-Extend-the-functionality-of-an-object</title>
+    <title>深入理解ES6-扩展对象的功能性</title>
     <link href="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/"/>
     <id>https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/</id>
     <published>2019-08-10T09:38:43.000Z</published>
-    <updated>2019-08-10T12:31:33.298Z</updated>
+    <updated>2019-08-10T12:33:29.553Z</updated>
     
     <summary type="html">
     

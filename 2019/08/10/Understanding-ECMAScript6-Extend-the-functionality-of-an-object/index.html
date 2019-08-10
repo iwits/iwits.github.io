@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta name="description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
 <meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解ES6-变量作用域">
-<meta property="og:url" content="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/index.html">
+<meta property="og:title" content="Understanding-ECMAScript6-Extend-the-functionality-of-an-object">
+<meta property="og:url" content="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/index.html">
 <meta property="og:site_name" content="I'wits">
-<meta property="og:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta property="og:description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-29T08:40:59.074Z">
+<meta property="og:updated_time" content="2019-08-10T12:31:33.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解ES6-变量作用域">
-<meta name="twitter:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
+<meta name="twitter:title" content="Understanding-ECMAScript6-Extend-the-functionality-of-an-object">
+<meta name="twitter:description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/">
+  <link rel="canonical" href="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/">
 
 
 
 
 
-  <title>深入理解ES6-变量作用域 | I'wits</title>
+  <title>Understanding-ECMAScript6-Extend-the-functionality-of-an-object | I'wits</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解ES6-变量作用域</h1>
+          <h1 class="post-title" itemprop="name headline">Understanding-ECMAScript6-Extend-the-functionality-of-an-object</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T20:46:32+08:00">
-                2019-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T17:38:43+08:00">
+                2019-08-10
               </time>
             
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/29/Understanding_ECMAScript6_Variable_Scope/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/29/Understanding_ECMAScript6_Variable_Scope/" itemprop="commentsCount"></span>
+                <a href="/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  1.2k
                 </span>
               
 
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  6
+                  4
                 </span>
               
             </div>
@@ -453,69 +453,70 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p>深入理解ES6-变量作用域</p>
-<ul>
-<li>最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var</li>
+        <meta name="generator" content="Hexo 3.9.0"><ul>
+<li>ES6为对象新增很多很好用的属性和方法</li>
+<li>增加了super引用</li>
+<li>清晰定义了自由属性的枚举顺序</li>
 </ul>
 <a id="more"></a>
+
 <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
 
 
-<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。</p>
-<h2 id="var声明及Hoisting机制"><a href="#var声明及Hoisting机制" class="headerlink" title="var声明及Hoisting机制"></a>var声明及Hoisting机制</h2><ul>
-<li>使用var关键字来声明变量</li>
-<li>无论在哪里声明，都会被当成在当前作用域顶部声明的变量</li>
-<li>声明提前，初始化操作依旧留在原处执行</li>
-</ul>
-<h2 id="块级声明"><a href="#块级声明" class="headerlink" title="块级声明"></a>块级声明</h2><blockquote>
-<p>块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量。存在于：</p>
-<blockquote>
-<ul>
-<li>函数内部</li>
-<li>块（{}）中</li>
-</ul>
-</blockquote>
-</blockquote>
-<ul>
-<li>使用let关键字声明块级元素，将变量的作用域限制在当前代码块中</li>
-<li>let声明不会提前，因此通常把let声明语句在封闭代码块的顶部</li>
-<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
-<li>const也是块级标识符</li>
-<li>块级作用标识符特点是声明不会hoisting，一旦执行到块外就被销毁。</li>
-</ul>
-<h2 id="禁止重声明"><a href="#禁止重声明" class="headerlink" title="禁止重声明"></a>禁止重声明</h2><p>   同一作用域中不能用let重复定义已经存在的标识符。但是如果当前作用域内嵌另一作用域，则可以在内嵌的作用域中使用let声明同名变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例子1</span><br><span class="line">var count = 20;</span><br><span class="line"></span><br><span class="line">//下面语句会抛出错误</span><br><span class="line">let count =40;</span><br><span class="line"></span><br><span class="line">//例子2</span><br><span class="line">var count = 20;</span><br><span class="line">if (conditon){</span><br><span class="line">   //不会抛出错误，内部作用域的count会屏蔽全局作用域的count</span><br><span class="line">   let count = 40;</span><br><span class="line">   Alert(count); //40</span><br><span class="line">}</span><br><span class="line">Alert(count); //20</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p>  和其他语言一样，const声明的是常量，一旦被设定之后不可修改，每个使用const定义的常量必须进行初始化。一旦不初始化，则会抛出错误。</p>
-<ul>
-<li><p>const和let都是块级作用标识符</p>
-</li>
-<li><p>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</p>
-</li>
-<li><p>无论在严格模式还是非严格模式下，都不可以为const定义的常量再赋值。一旦赋值就会抛出错误。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不能重声明， 被let声明过的不能用const声明</span><br><span class="line">var count = 20;</span><br><span class="line">let age = 10;</span><br><span class="line">const price = 100;</span><br><span class="line"></span><br><span class="line">//以下语句都会抛出错误</span><br><span class="line">const count = 40;</span><br><span class="line">const age = 12;</span><br><span class="line">let price = 200;</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>const声明不允许修改绑定，但是允许修改值。</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const person = {</span><br><span class="line">  name: "Nick"</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">//可以修改值</span><br><span class="line">person.name = "Greg";</span><br><span class="line"></span><br><span class="line">//不可以修改绑定</span><br><span class="line">person = {</span><br><span class="line">  name: "Greg"</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
-</li>
+<h1 id="对象类别"><a href="#对象类别" class="headerlink" title="对象类别"></a>对象类别</h1><ul>
+<li>普通对象: 具有JavaScript对象多有的默认内部行为.</li>
+<li>特异对象: 具有某些与默认行为不符的内部行为.</li>
+<li>标准对象: ECMAScript 6 规范中定义的对象.eg, Array, Date等.标准对象既可以是普通对象,也可以是特异对象.</li>
+<li>内建对象:脚本开始执行时存在于Javascript执行环境中的对象,所有标准对象都是内建对象</li>
 </ul>
-<h2 id="临界死区（Temporal-Dead-Zone）"><a href="#临界死区（Temporal-Dead-Zone）" class="headerlink" title="临界死区（Temporal Dead Zone）"></a>临界死区（Temporal Dead Zone）</h2><p>   由于声明不会被提前，在作用域外访问变量会抛出错误。即使是相对安全的typeof.</p>
-<p>   Javascript引擎在扫描代码发现变量声明时，要么将它们提升至作用域顶部（var），要么将声明放到TDZ中（let、const）。访问TDZ中的变量会触发运行时错误。只有执行过变量声明语句后，变量才会从TDZ中移出，然后方可访问。</p>
-   <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof value); // undefined</span><br><span class="line">if (condition) {</span><br><span class="line">   console.log(typeof value); //引用错误</span><br><span class="line">   let value = "blue";</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="对象字面量语法扩展"><a href="#对象字面量语法扩展" class="headerlink" title="对象字面量语法扩展"></a>对象字面量语法扩展</h1><h2 id="属性初始值的简写"><a href="#属性初始值的简写" class="headerlink" title="属性初始值的简写"></a>属性初始值的简写</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        name: name,</span><br><span class="line">        age: age</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法-支持了简写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span>{</span><br><span class="line">        name,</span><br><span class="line">        age</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="循环中的块级作用域绑定"><a href="#循环中的块级作用域绑定" class="headerlink" title="循环中的块级作用域绑定"></a>循环中的块级作用域绑定</h2><p>  块级作用域最经典的应用场景就是在循环中，将计数器变量使用块级声明。保证一旦循环结束，，其他地方不可以访问计数器。</p>
-<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><p>   var声明因为变量共享的问题，使得在循环中创建函数非常困难<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//var声明的i被共享存储在funcs里面。执行下面操作会输出10个10</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">    console.log(i);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   IIFE解决了这个问题，它的思路是通过强制生成计数器变量的副本，规避共享变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//每次接收到i都创建一个新的副本并存储为value  foreach循环调用的时候就会输出0到9</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push((function(value){</span><br><span class="line">     return function() {</span><br><span class="line">       console.log(value);</span><br><span class="line">     }</span><br><span class="line">    }(i)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   ES6支持了块级声明之后，可以使用块级声明达到同样的效果。这是因为块级标识符利用了块级标识符一旦离开了作用域会自动销毁的特性。使用块级标识符声明声明计数器变量，每次循环中都会创建一个新的变量，并以之前循环中同名变量的值将其初始化。【aka.自动副本】</p>
-<p>   对于for 循环，let和const两种块级标识符是有差别的。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// **********方案一****************</span><br><span class="line"> var funcs = [];</span><br><span class="line"></span><br><span class="line"> for (let i = 0; i < 10; i++){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">     console.log(i);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });</span><br><span class="line"></span><br><span class="line"> // **********方案二****************</span><br><span class="line">  var funcs = [];</span><br><span class="line"></span><br><span class="line">   //完成一次循环之后，会抛出报错。因为i被定义为常量，i++中尝试修改i的绑定，抛出错误</span><br><span class="line">  for (const i = 0; i < 10; i++){</span><br><span class="line">    funcs.push(function(){</span><br><span class="line">      console.log(i);</span><br><span class="line">      });</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  funcs.forEach(function(func){</span><br><span class="line">     func();</span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>   对于for-in或者for-of循环，只要循环中不涉及对计数器变量绑定的修改，表现就是无差异。每次循环都会创建一个新的key绑定，因此每个函数都有一个变量key的副本。于是不同的函数输出不同的值。正是因为每次都会创建一个新的绑定。在不修改计数器变量的请况下。const声明也不会抛出错误。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//**************let*********</span><br><span class="line"> var funcs = [],</span><br><span class="line">     object = {</span><br><span class="line">       a: true,</span><br><span class="line">       b: true,</span><br><span class="line">       c: true</span><br><span class="line">     };</span><br><span class="line"></span><br><span class="line"> for (let key in object){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">        console.log(key);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });   </span><br><span class="line">//************const*********q</span><br><span class="line">var funcs = [],</span><br><span class="line">    object = {</span><br><span class="line">      a: true,</span><br><span class="line">      b: true,</span><br><span class="line">      c: true</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">for (const key in object){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">       console.log(key);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h2 id="全局块作用域绑定"><a href="#全局块作用域绑定" class="headerlink" title="全局块作用域绑定"></a>全局块作用域绑定</h2><p>   块级标识符和var声明另一个很大的区别，在于他们在全局作用域中的行为。</p>
-<ul>
-<li>当var被作用域全局作用域的时候，他会创建一个新的全局变量作为全局对象[我们所说的全局对象是window对象]的属性。这意味着var可能会覆盖一个已经存在的全局属性。</li>
-<li>在全局作用域下使用块级标识符，则是会在全局作用域下创建一个新的绑定，该绑定不会成为全局对象的一个属性。换句话说，块级作用域不能覆盖全局变量，只能遮蔽它。</li>
+<h2 id="对象方法的简写语法"><a href="#对象方法的简写语法" class="headerlink" title="对象方法的简写语法"></a>对象方法的简写语法</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"person"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"person"</span>,</span><br><span class="line">    sayName(){</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两种写法的差别在于,简写的方法可以使用super.</p>
+<h2 id="可计算属性名-Computed-Property-Name"><a href="#可计算属性名-Computed-Property-Name" class="headerlink" title="可计算属性名(Computed Property Name)"></a>可计算属性名(Computed Property Name)</h2><p>在ES6中支持了在对象字面量中使用可计算的属性名称,其语法于引用对象实例的可计算属性名称相同,也是使用方括号.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lastName = <span class="string">"last name"</span>;</span><br><span class="line"><span class="keyword">var</span> suffix = <span class="string">"name"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    <span class="string">"first name"</span>: <span class="string">"Nick"</span>,</span><br><span class="line">    [LastName]: <span class="string">"Zakas"</span>,</span><br><span class="line">    [<span class="string">"Second"</span> + suffix]: <span class="string">"Nicky"</span>,</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"first name"</span>]); <span class="comment">//"Nick"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"last name"</span>]);  <span class="comment">//Zakas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"Secondname"</span>]); <span class="comment">//"Nicky"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="新增方法"><a href="#新增方法" class="headerlink" title="新增方法"></a>新增方法</h1><p>ESCMAScript其中一个设计目标是:不再闯进新的全局函数,也不在Object.prototype上创建新的方法.为了简化某些操作,在Object上新增了一些方法.</p>
+<h2 id="Object-is-方法"><a href="#Object-is-方法" class="headerlink" title="Object.is()方法"></a>Object.is()方法</h2><ul>
+<li>用于比较两个值</li>
+<li>和===最大的不同在于, === 认为(+0=== -0, NaN === NaN)的结果是false, 而is()可以弥补全等运算符的不准确运算.</li>
+<li>is()判定的准则: 如果两个参数的类型相同且具有相同的值,则返回true.</li>
 </ul>
+<h2 id="Object-assign-方法"><a href="#Object-assign-方法" class="headerlink" title="Object.assign()方法"></a>Object.assign()方法</h2><ul>
+<li>是浅拷贝,拷贝的是指针</li>
+<li>这个方法接受一个接受对象和任意数量的源对象,最终返回接受对象.同名情况,后覆盖前</li>
+<li>Object.assign()方法不能将提供者的访问器属性复制到接收器对象中.访问器属性最终会因为先调用方法变成一个值存储在接收对象中.</li>
+</ul>
+<h2 id="重复的对象字面量属性"><a href="#重复的对象字面量属性" class="headerlink" title="重复的对象字面量属性"></a>重复的对象字面量属性</h2><ul>
+<li>ES6中,无论是严格模式还是非严格模式,都不再检查重复属性,对于重复属性,取最后一个值.</li>
+</ul>
+<h2 id="自有属性枚举顺序"><a href="#自有属性枚举顺序" class="headerlink" title="自有属性枚举顺序"></a>自有属性枚举顺序</h2><p>原先的对象属性枚举顺序是有引擎厂商定义的.ES6中严格规定了对象的自由属性被枚举时的返回顺序,这会影响到Object.getOwnPropertyNames()方法及Reflect.ownKeys返回属性的方式,Object.assign()方法处理属性的顺序也将随之改变.</p>
+<p>自有属性的枚举顺序为</p>
+<ol>
+<li>所有数字键按升序排序</li>
+<li>所有字符串键按照他们被加入对象的顺序排序</li>
+<li>所有symbol键按照他们被加入对象的顺序排序</li>
+</ol>
 <blockquote>
-<p>如果不想对全局对象创建属性，则使用let和const 要安全。如果希望在全局对象下定义变量，仍然可以使用var。这种情况创建于在浏览器中跨frame或者跨window访问代码。</p>
+<p>虽然如此但是,for-in, object.keys(), JSON.stringify()方法的顺序未明.</p>
 </blockquote>
+<h1 id="增强对象原型"><a href="#增强对象原型" class="headerlink" title="增强对象原型"></a>增强对象原型</h1><h2 id="改变对象的原型"><a href="#改变对象的原型" class="headerlink" title="改变对象的原型"></a>改变对象的原型</h2><p>ES6中增加了Object.setPrototypeOf()方法来改变任意指定对象的原型,它接受两个参数:被改变原型的对象及替代第一个参数原型的对象.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        retrun  <span class="string">"woof"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> friend = object.create(person);</span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">//"Hello";</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.getPrototype(friend) === person); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//原型设置为dog</span></span><br><span class="line"><span class="built_in">Object</span>.setPrototyeOf(friend. dog);</span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">//"woof";</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.getPrototype(friend) === dog); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>不过这不是操作[[prototype]]的唯一方法.</p>
+<h2 id="简化原型访问的Super引用"><a href="#简化原型访问的Super引用" class="headerlink" title="简化原型访问的Super引用"></a>简化原型访问的Super引用</h2><p>ES6中引入的Super引用,使用它可以简单快捷的访问对象的原型.尤其再重写对象实例的方法中调用与它同名的原型方法.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="comment">// return object.getPrototypeOf(this).getGreeting.call(this)</span></span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">super</span>.getGreeting() + <span class="string">". hi!"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>需要注意的时,再方法声明中调用super,必须是再使用简写方法的对象中声明,其他写法会导致报错.</p>
+</blockquote>
+<p>Super引用不是动态变化的,它总是能指向正确的对象.再多重继承的代码中,这一特性显得十分好用.</p>
+<h1 id="正式的方法定义"><a href="#正式的方法定义" class="headerlink" title="正式的方法定义"></a>正式的方法定义</h1><p>在ES6中,方法正式被定义为一个函数,它将会有一个[[HomeObject]]属性来容纳这个方法丛书的对象.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    <span class="comment">//是方法</span></span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//不是方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shareGreeting</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hi!"</span>;  </span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Super的所有引用都是通过[[HomeObject]]属性来确定后续的运行过程.第一步实在[[HomeObject]]属性上调用Object.getPrototypeOf()方法来检索原型的引用.然后搜索原型找到同名的函数,最后设置this绑定并且调用相同的方法.</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
@@ -565,7 +566,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/" title="深入理解ES6-变量作用域">https://iwits.com.cn/2019/05/29/Understanding_ECMAScript6_Variable_Scope/</a>
+    <a href="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/" title="Understanding-ECMAScript6-Extend-the-functionality-of-an-object">https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -597,8 +598,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/04/Hexo_GitHub_Pages_Build_blog/" rel="next" title="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
-                <i class="fa fa-chevron-left"></i> Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)
+              <a href="/2019/08/04/Understanding-ECMAScript6-Function-2/" rel="next" title="深入理解ES6-函数(2)">
+                <i class="fa fa-chevron-left"></i> 深入理解ES6-函数(2)
               </a>
             
           </div>
@@ -606,10 +607,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/29/Understanding_ECMAScript6_String-and-Regular-expression/" rel="prev" title="深入理解ES6-字符串与正则表达式">
-                深入理解ES6-字符串与正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -773,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳实践"><span class="nav-number">1.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var声明及Hoisting机制"><span class="nav-number">2.</span> <span class="nav-text">var声明及Hoisting机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级声明"><span class="nav-number">3.</span> <span class="nav-text">块级声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止重声明"><span class="nav-number">4.</span> <span class="nav-text">禁止重声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const声明"><span class="nav-number">5.</span> <span class="nav-text">const声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#临界死区（Temporal-Dead-Zone）"><span class="nav-number">6.</span> <span class="nav-text">临界死区（Temporal Dead Zone）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的块级作用域绑定"><span class="nav-number">7.</span> <span class="nav-text">循环中的块级作用域绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的函数"><span class="nav-number">8.</span> <span class="nav-text">循环中的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局块作用域绑定"><span class="nav-number">9.</span> <span class="nav-text">全局块作用域绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对象类别"><span class="nav-number">1.</span> <span class="nav-text">对象类别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象字面量语法扩展"><span class="nav-number">2.</span> <span class="nav-text">对象字面量语法扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性初始值的简写"><span class="nav-number">2.1.</span> <span class="nav-text">属性初始值的简写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象方法的简写语法"><span class="nav-number">2.2.</span> <span class="nav-text">对象方法的简写语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可计算属性名-Computed-Property-Name"><span class="nav-number">2.3.</span> <span class="nav-text">可计算属性名(Computed Property Name)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新增方法"><span class="nav-number">3.</span> <span class="nav-text">新增方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-is-方法"><span class="nav-number">3.1.</span> <span class="nav-text">Object.is()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign-方法"><span class="nav-number">3.2.</span> <span class="nav-text">Object.assign()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复的对象字面量属性"><span class="nav-number">3.3.</span> <span class="nav-text">重复的对象字面量属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自有属性枚举顺序"><span class="nav-number">3.4.</span> <span class="nav-text">自有属性枚举顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增强对象原型"><span class="nav-number">4.</span> <span class="nav-text">增强对象原型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#改变对象的原型"><span class="nav-number">4.1.</span> <span class="nav-text">改变对象的原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简化原型访问的Super引用"><span class="nav-number">4.2.</span> <span class="nav-text">简化原型访问的Super引用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正式的方法定义"><span class="nav-number">5.</span> <span class="nav-text">正式的方法定义</span></a></li></ol></div>
             
 
           </div>

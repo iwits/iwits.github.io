@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-04T16:50:31.764Z</updated>
+  <updated>2019-08-10T12:31:33.298Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Understanding-ECMAScript6-Extend-the-functionality-of-an-object</title>
+    <link href="https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/"/>
+    <id>https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/</id>
+    <published>2019-08-10T09:38:43.000Z</published>
+    <updated>2019-08-10T12:31:33.298Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;ES6为对象新增很多很好用的属性和方法&lt;/li&gt;
+&lt;li&gt;增加了super引用&lt;/li&gt;
+&lt;li&gt;清晰定义了自由属性的枚举顺序&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="前端学习" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/ES6/"/>
+    
+    
+      <category term="Javascript" scheme="https://iwits.com.cn/tags/Javascript/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/tags/ES6/"/>
+    
+      <category term="读书笔记" scheme="https://iwits.com.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解ES6-函数(2)</title>

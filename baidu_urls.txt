@@ -1,5 +1,5 @@
+https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/
 https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/
 https://iwits.com.cn/2019/08/04/Understanding-ECMAScript6-Function-2/
 https://iwits.com.cn/2019/07/28/Just_Play_Accounting/
 https://iwits.com.cn/2019/07/14/Understanding-ECMAScript6-Function_1/
-https://iwits.com.cn/2019/06/29/Understanding_ECMAScript6_String-and-Regular-expression/

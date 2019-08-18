@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/</loc>
+    
+    <lastmod>2019-08-18T12:12:54.205Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://iwits.com.cn/2019/08/10/Understanding-ECMAScript6-Extend-the-functionality-of-an-object/</loc>
     
     <lastmod>2019-08-10T12:33:29.553Z</lastmod>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-10T12:33:29.553Z</updated>
+  <updated>2019-08-18T12:12:54.205Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解ES-解构:使数据访问更便捷</title>
+    <link href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/"/>
+    <id>https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/</id>
+    <published>2019-08-18T08:31:19.000Z</published>
+    <updated>2019-08-18T12:12:54.205Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;深入理解ES6-解构皮:使数据访问更便捷&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解构赋值由对象字面量和数组字面量语法组成,可以用它来简化操作Javascript对象和数组的过程,从数据结构中抽取其中一部分感兴趣的信息&lt;/li&gt;
+&lt;li&gt;在对象和数组解构中,都可以对值为undefined的对象属性或数组元素设置默认值,且赋值表达式右值不可以为null或undefined,否则程序会抛出错误.&lt;/li&gt;
+&lt;li&gt;使用var\const\let来解构声明变量,必须要初始化.&lt;/li&gt;
+&lt;li&gt;可以使用解构赋值代替其他赋值语句,将对象属性和已有的变量解构成更小的数据&lt;/li&gt;
+&lt;li&gt;当定义函数参数时,用解构参数options对象可以将你真正感兴趣的数据于其他命名参数列在一起.&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="前端学习" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/ES6/"/>
+    
+    
+      <category term="Javascript" scheme="https://iwits.com.cn/tags/Javascript/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/tags/ES6/"/>
+    
+      <category term="读书笔记" scheme="https://iwits.com.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解ES6-扩展对象的功能性</title>

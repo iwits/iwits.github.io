@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-18T12:12:54.205Z</updated>
+  <updated>2019-08-18T13:56:45.739Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解ES-Symbol和Symbol属性</title>
+    <link href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/"/>
+    <id>https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/</id>
+    <published>2019-08-18T12:53:16.000Z</published>
+    <updated>2019-08-18T13:56:45.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;&lt;script type=&quot;text/javascript&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解ES-解构:使数据访问更便捷</title>

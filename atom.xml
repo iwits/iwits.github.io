@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-20T15:03:44.758Z</updated>
+  <updated>2019-08-21T15:17:09.863Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -18,10 +18,28 @@
   
   <entry>
     <title>20190820复盘</title>
+    <link href="https://iwits.com.cn/2019/08/21/Review20190821/"/>
+    <id>https://iwits.com.cn/2019/08/21/Review20190821/</id>
+    <published>2019-08-21T05:16:21.000Z</published>
+    <updated>2019-08-21T15:17:09.863Z</updated>
+    
+    <summary type="html">
+    
+      Something was encrypted, please enter password to read.
+    
+    </summary>
+    
+    
+      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>20190820复盘</title>
     <link href="https://iwits.com.cn/2019/08/20/Review20190820/"/>
     <id>https://iwits.com.cn/2019/08/20/Review20190820/</id>
     <published>2019-08-20T14:52:22.000Z</published>
-    <updated>2019-08-20T15:03:44.758Z</updated>
+    <updated>2019-08-21T14:19:44.301Z</updated>
     
     <summary type="html">
     

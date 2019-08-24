@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Javascript,ES6,读书笔记,">
 
 
 
@@ -80,14 +80,18 @@
 
 
 
+<meta name="description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
+<meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解ES-Symbol和Symbol属性">
-<meta property="og:url" content="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/index.html">
+<meta property="og:url" content="https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/index.html">
 <meta property="og:site_name" content="I'wits">
+<meta property="og:description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-18T13:56:45.739Z">
+<meta property="og:updated_time" content="2019-08-24T15:48:45.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解ES-Symbol和Symbol属性">
+<meta name="twitter:description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
 
 
 
@@ -117,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/">
+  <link rel="canonical" href="https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/">
 
 
 
@@ -303,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -332,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T20:53:16+08:00">
-                2019-08-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T20:51:45+08:00">
+                2019-08-24
               </time>
             
 
@@ -343,6 +347,39 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -351,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/18/Understanding-ECMAScript6-Symbol/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/18/Understanding-ECMAScript6-Symbol/" itemprop="commentsCount"></span>
+                <a href="/2019/08/24/Understanding-ECMAScript6-Symbol/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/24/Understanding-ECMAScript6-Symbol/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -379,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  0
+                  1.6k
                 </span>
               
 
@@ -395,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -416,7 +453,86 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+        <meta name="generator" content="Hexo 3.9.0"><p>symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.</p>
+<ul>
+<li><p>Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                 </p>
+</li>
+<li><p>Symbol值通过Symbol函数生成                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+</li>
+<li><p>可以为symbol增加描述.在全局作用域中有一个symbol注册表,在代码的不同位置,总是可以通过相同的描述字符串获取到同一个symbol,从而可以共享symbol.</p>
+</li>
+<li><p>ES6中提供了Object.getOwnProperty-Symbols(),来检索symbol属性</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
+
+
+
+<h1 id="为什么需要Symbol属性"><a href="#为什么需要Symbol属性" class="headerlink" title="为什么需要Symbol属性?"></a>为什么需要Symbol属性?</h1><p>我们在使用mixin模式的时候,很容易出现新增属性名与现有属性名冲突的情况.如果有一种计制,能够保证每个属性名都是独一无二的,这样就能从根源上解决冲突的问题.这就是Symbol类型出现的原因.</p>
+<p>ES6开始引入Symbol作为一种原始类型.(原始类型: 字符串型\数字型\布尔型\Null\Undefined\Symbol)</p>
+<h1 id="创建Symbol"><a href="#创建Symbol" class="headerlink" title="创建Symbol"></a>创建Symbol</h1><h2 id="创建的语法"><a href="#创建的语法" class="headerlink" title="创建的语法"></a>创建的语法</h2><p>所有的原始值除了symbol都有自己的字面形式.Symbol值通过Symbol函数创建</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstname = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> person = {};</span><br><span class="line"></span><br><span class="line">person[firstname] = <span class="string">'nick'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[firstname]); <span class="comment">//"nick"</span></span><br><span class="line"><span class="keyword">typeof</span> firstname ;<span class="string">''</span><span class="comment">//"symbol"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>Symbol因为是原始值,所以不能使用new来调用,否则会程序报错.此外Symbol值不是对象,不能添加属性.</p>
+<p>本质上来说Symbol是一种类似string的数据类型.</p>
+</blockquote>
+<h2 id="Symbol-接受一个可选参数"><a href="#Symbol-接受一个可选参数" class="headerlink" title="Symbol()接受一个可选参数"></a>Symbol()接受一个可选参数</h2><p>传入一段文本描述.这段描述不可以用于属性访问.但是建议创建的时候都加上,增加代码可读性.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>(<span class="string">'Test string'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里是隐式的调用了toString()</span></span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//"Test string"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>Symbol的描述被存储在内部的[[Description]]属性之中,只有调用Symbol的同String()方法的时候,才可以读取这个属性.</p>
+<h2 id="作为属性名的symbol"><a href="#作为属性名的symbol" class="headerlink" title="作为属性名的symbol"></a>作为属性名的symbol</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySym = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="comment">//No.1</span></span><br><span class="line"><span class="keyword">let</span> a = {};</span><br><span class="line">a[mySym] = <span class="string">"hi"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//No.2</span></span><br><span class="line"><span class="keyword">let</span> a ={</span><br><span class="line">    [mySym]: <span class="string">"Hi"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//No.3</span></span><br><span class="line"><span class="keyword">let</span> a = {};</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, mySym, {<span class="attr">value</span>: <span class="string">"hi"</span>});</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上写法</span></span><br><span class="line">a[mySym];<span class="comment">//"hi"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>需要注意的是:</p>
+<ul>
+<li>当Symbol作为对象属性名的时候,是不可以使用点运算符的(.)</li>
+<li>Symbol值作为属性名的时候,该属性是公开属性,不是私有属性</li>
+</ul>
+</blockquote>
+<h1 id="Symbol的使用方法"><a href="#Symbol的使用方法" class="headerlink" title="Symbol的使用方法"></a>Symbol的使用方法</h1><p><font color="#FF0000">所有使用可计算属性名的地方,都可以使用Symbol,或者Object.defineProperty()方法和Object.defineProperties()方法的调用过程中 </font></p>
+<h1 id="Symbol-共享体系"><a href="#Symbol-共享体系" class="headerlink" title="Symbol 共享体系"></a>Symbol 共享体系</h1><p>有时候我们希望在不同的代码段里面共享同一个Symbol.ES6提供了一个可以随时访问你的Symbol注册表.</p>
+<p>如果像创建一个可以共享的Symbol.要使用Symbol.for()方法.它只接受一个参数,也就是即将创建有的Symbol的字符串标识符,这个参数通用也被用作Symbol的描述.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> object = {};</span><br><span class="line"></span><br><span class="line">object[uid] = <span class="string">"123"</span>;</span><br><span class="line">consle.log(object[uid]); <span class="comment">//'123'</span></span><br><span class="line"><span class="built_in">console</span>.log(uid); <span class="comment">//"symbol(uid)"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uid2 = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uid === uid2);<span class="comment">// True</span></span><br><span class="line">consle.log(object[uid2]); <span class="comment">//'123'</span></span><br><span class="line"><span class="built_in">console</span>.log(uid2); <span class="comment">//"symbol(uid)"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>Symbol.for()方法首先会在全局Symbol注册表中搜索键为”uid”的Symbol是否存在.如果存在,直接返回已有的Symbol.否则,创建一个新的Symbol,并使用这个键在Symbol全局注册表中注册,随机返回新创建的Symbol.</p>
+<p>除此之外还可以使用Symbo了.keyFor()方法在Symbol全局注册表中检索与Symbol有关的键</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> uid2 = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> uid3 = <span class="built_in">Symbol</span>(<span class="string">"uid"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid)); <span class="comment">//"uid"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid2)); <span class="comment">//"uid"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid3)); <span class="comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>尽量使用命名空间来减少命名冲突</p>
+</blockquote>
+<h1 id="Symbol与类型强制转换"><a href="#Symbol与类型强制转换" class="headerlink" title="Symbol与类型强制转换"></a>Symbol与类型强制转换</h1><blockquote>
+<p>切记:不能将Symbol转化为字符串和数字类型,否则如果不小心将其作为对象属性,最终会导致不一样的执行结果</p>
+</blockquote>
+<ul>
+<li>将symbol与一个字符串拼接,会触发隐式类型转换,导致报错</li>
+<li>将Symbol与数字类型进行运算,会触发隐式类型转化,导致报错.</li>
+<li>Symbol式可以作为逻辑运算值的, 它的值等价布尔值true</li>
+</ul>
+<h1 id="Symbol属性检索"><a href="#Symbol属性检索" class="headerlink" title="Symbol属性检索"></a>Symbol属性检索</h1><p>Object.keys()和Object.GetOwnPropertyName()方法可以检索对象中所有的属性名,前一个方法返回所有可枚举的属性名,后一个方法则返回所有属性名.</p>
+<p>但是这两个方法都是不是支持Symbol属性的.</p>
+<p>ES6增加了方法Object.getOwnPropertySymbols()方法用来检索Symbol属性,方法的返回值式一个包含所有Symbol自有属性的数组.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> object = {</span><br><span class="line">     [uid]: <span class="string">"123"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> symbols = object.getOwnPropertySymbols(object);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(symbols.length);<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>,log(symbols[<span class="number">0</span>]); <span class="comment">//"Symbols(uid)"</span></span><br><span class="line"><span class="built_in">console</span>.log(object[symbols[<span class="number">0</span>]]);<span class="comment">//"123"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>所有对象一开始都没有自己独有的属性,但是对象可以从圆形脸肿继承Symbol属性.ES通过一些well-know Symbol与定义了这些属性(暂不展开,如有笔要,以后更新).</p>
+<h1 id="Symbol的巧用"><a href="#Symbol的巧用" class="headerlink" title="Symbol的巧用"></a>Symbol的巧用</h1><h2 id="用在单例模式中-防止全局变量被改写"><a href="#用在单例模式中-防止全局变量被改写" class="headerlink" title="用在单例模式中,防止全局变量被改写"></a>用在单例模式中,防止全局变量被改写</h2><p>单例模式中,为了每次都能返回同一个实例.我们往往会把实例放在顶层对象global上面</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Mod.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">A</span>(<span class="params"></span>)</span>{ </span><br><span class="line">    <span class="keyword">this</span>.foo = <span class="string">"Hi"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!global._foo){</span><br><span class="line">    global._foo = <span class="keyword">new</span> A();</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = global._foo;</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载mod.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br><span class="line"><span class="built_in">console</span>(a.foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">//任意文件都可以随便写global.foo</span></span><br><span class="line">global._foo = {<span class="attr">foo</span>: <span class="string">"world"</span>};</span><br><span class="line"><span class="keyword">const</span> b = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br><span class="line"><span class="built_in">console</span>(b.foo);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在这个例子里面变量a任何时候加载的都是A的同一个实例,但是问题在于这里的global._foo是可写的,任何文件都可以对其进行修改,这是一种不安全的行为.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mod.js</span></span><br><span class="line"><span class="keyword">const</span> FOO_KEY = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.foo = <span class="string">'hello'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!global[FOO_KEY]) {</span><br><span class="line">  global[FOO_KEY] = <span class="keyword">new</span> A();</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这样global[FOO_KEY]不会被无意覆盖,但是还是可以被改写</span></span><br><span class="line"><span class="built_in">module</span>.exports = global[FOO_KEY];</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样global[FOO_KEY]不会被无意覆盖,但是还是可以被改写</span></span><br><span class="line">global[<span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>)] = { <span class="attr">foo</span>: <span class="string">'world'</span> };</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果希望无法被改写可以是使用symbol(‘foo’)来定义.</p>
+<blockquote>
+<p>这里需要注意的是,当你使用symbol(‘foo’)来定义的时候.如果多次执行这个脚本,每次得到的不一样的Foo_KEY,虽然一般情况下不会多次执行(Node会把脚本执行结果缓存),但是手动清除缓存之后,这种写法并不可靠.</p>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
     
@@ -465,7 +581,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/" title="深入理解ES-Symbol和Symbol属性">https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/</a>
+    <a href="https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/" title="深入理解ES-Symbol和Symbol属性">https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -478,6 +594,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          
+        </div>
+      
 
       
       
@@ -487,8 +613,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/" rel="next" title="深入理解ES-解构:使数据访问更便捷">
-                <i class="fa fa-chevron-left"></i> 深入理解ES-解构:使数据访问更便捷
+              <a href="/2019/08/22/Review20190822/" rel="next" title="20190822复盘">
+                <i class="fa fa-chevron-left"></i> 20190822复盘
               </a>
             
           </div>
@@ -496,10 +622,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/20/Review20190820/" rel="prev" title="20190820复盘">
-                20190820复盘 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,8 +680,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -645,6 +776,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么需要Symbol属性"><span class="nav-number">1.</span> <span class="nav-text">为什么需要Symbol属性?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Symbol"><span class="nav-number">2.</span> <span class="nav-text">创建Symbol</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建的语法"><span class="nav-number">2.1.</span> <span class="nav-text">创建的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symbol-接受一个可选参数"><span class="nav-number">2.2.</span> <span class="nav-text">Symbol()接受一个可选参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为属性名的symbol"><span class="nav-number">2.3.</span> <span class="nav-text">作为属性名的symbol</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol的使用方法"><span class="nav-number">3.</span> <span class="nav-text">Symbol的使用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol-共享体系"><span class="nav-number">4.</span> <span class="nav-text">Symbol 共享体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol与类型强制转换"><span class="nav-number">5.</span> <span class="nav-text">Symbol与类型强制转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol属性检索"><span class="nav-number">6.</span> <span class="nav-text">Symbol属性检索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol的巧用"><span class="nav-number">7.</span> <span class="nav-text">Symbol的巧用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用在单例模式中-防止全局变量被改写"><span class="nav-number">7.1.</span> <span class="nav-text">用在单例模式中,防止全局变量被改写</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -672,7 +819,7 @@
     
       <span class="post-meta-item-text">Site words total count:</span>
     
-    <span title="Site words total count">18.8k</span>
+    <span title="Site words total count">20.3k</span>
   
 </div>
 

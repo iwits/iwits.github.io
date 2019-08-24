@@ -1,5 +1,5 @@
+https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/
 https://iwits.com.cn/2019/08/22/Review20190822/
 https://iwits.com.cn/2019/08/21/Review20190821/
 https://iwits.com.cn/2019/08/20/Review20190820/
-https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/
 https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-destructuring-assignment/

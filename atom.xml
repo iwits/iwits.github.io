@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-22T16:14:30.988Z</updated>
+  <updated>2019-08-24T15:48:45.572Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解ES-Symbol和Symbol属性</title>
+    <link href="https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/"/>
+    <id>https://iwits.com.cn/2019/08/24/Understanding-ECMAScript6-Symbol/</id>
+    <published>2019-08-24T12:51:45.000Z</published>
+    <updated>2019-08-24T15:48:45.572Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                 &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Symbol值通过Symbol函数生成                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可以为symbol增加描述.在全局作用域中有一个symbol注册表,在代码的不同位置,总是可以通过相同的描述字符串获取到同一个symbol,从而可以共享symbol.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ES6中提供了Object.getOwnProperty-Symbols(),来检索symbol属性&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="前端学习" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/ES6/"/>
+    
+    
+      <category term="Javascript" scheme="https://iwits.com.cn/tags/Javascript/"/>
+    
+      <category term="ES6" scheme="https://iwits.com.cn/tags/ES6/"/>
+    
+      <category term="读书笔记" scheme="https://iwits.com.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>20190822复盘</title>
@@ -67,28 +103,6 @@
     
     
       <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入理解ES-Symbol和Symbol属性</title>
-    <link href="https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/"/>
-    <id>https://iwits.com.cn/2019/08/18/Understanding-ECMAScript6-Symbol/</id>
-    <published>2019-08-18T12:53:16.000Z</published>
-    <updated>2019-08-18T13:56:45.739Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;&lt;script type=&quot;text/javascript&quot;
-        
-      
-    
-    </summary>
-    
     
   </entry>
   

@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="Javascript,ES6,读书笔记,">
+  <meta name="keywords" content="复盘,">
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
-<meta name="keywords" content="Javascript,ES6,读书笔记">
+<meta name="description" content="Something was encrypted, please enter password to read.">
+<meta name="keywords" content="复盘">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解ES6-函数(2)">
-<meta property="og:url" content="https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html">
+<meta property="og:title" content="20190822复盘">
+<meta property="og:url" content="https://iwits.com.cn/_post/2019-08-22-Review/Review20190822.html">
 <meta property="og:site_name" content="I'wits">
-<meta property="og:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
+<meta property="og:description" content="Something was encrypted, please enter password to read.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-04T16:50:31.764Z">
+<meta property="og:updated_time" content="2020-02-04T10:36:58.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解ES6-函数(2)">
-<meta name="twitter:description" content="为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.  块级函数 箭头函数 尾调用的优化">
+<meta name="twitter:title" content="20190822复盘">
+<meta name="twitter:description" content="Something was encrypted, please enter password to read.">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html">
+  <link rel="canonical" href="https://iwits.com.cn/_post/2019-08-22-Review/Review20190822.html">
 
 
 
 
 
-  <title>深入理解ES6-函数(2) | I'wits</title>
+  <title>20190822复盘 | I'wits</title><meta name="robots" content="noindex">
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/_post/2019-08-22-Review/Review20190822.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解ES6-函数(2)</h1>
+          <h1 class="post-title" itemprop="name headline">20190822复盘</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T22:54:02+08:00">
-                2019-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-22T22:16:21+08:00">
+                2019-08-22
               </time>
             
 
@@ -347,39 +347,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端学习/" itemprop="url" rel="index">
-                    <span itemprop="name">前端学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端学习/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -388,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019-08-04-Understanding-ECMAScript6-Function-2.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019-08-04-Understanding-ECMAScript6-Function-2.html" itemprop="commentsCount"></span>
+                <a href="/_post/2019-08-22-Review/Review20190822.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/_post/2019-08-22-Review/Review20190822.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -416,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  2k
+                  781
                 </span>
               
 
@@ -432,7 +399,7 @@
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  7
+                  4
                 </span>
               
             </div>
@@ -453,102 +420,19 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p>为了修正很多函数问题,避免基本功能重复编码,ES6大力度的更新的函数特性.</p>
-<ul>
-<li>块级函数</li>
-<li>箭头函数</li>
-<li>尾调用的优化</li>
-</ul>
-<a id="more"></a>
-
-<blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
-#  块级函数
-
-<h2 id="历史溯源"><a href="#历史溯源" class="headerlink" title="历史溯源"></a>历史溯源</h2><p>在 ES3和早期的版本中,在代码块中声明一个块级函数严格来说一个错误,但是所有的浏览器仍然支持了这个特性,且每个浏览器对这个特性的支持成都都不同.(推荐的方式是使用函数表达式[不会发生声明提前]).</p>
-<p>为了抑制这种相互不兼容的行为,ES5在严格模式中引入了错误提示,挡在代码块内部声明函数是会抛出错误:</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>){</span><br><span class="line">    <span class="comment">//在ES5中会抛出语法错误</span></span><br><span class="line">    <span class="comment">//在ES6中不会,ES6会将其视为一个块级声明,从而可以在定义该函数的代码块内访问和调用它</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//空函数</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>在ES6中的调用如下</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>){</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> doSomething); <span class="comment">//"function"</span></span><br><span class="line">    <span class="comment">//在定义函数的代码块内,块级函数会被提升至顶部,但是if一旦执行结束,dosomething函数将不存在</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">//空函数</span></span><br><span class="line">    }</span><br><span class="line">    doSomething();</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> doSomething); <span class="comment">//"undefined"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="块级函数的使用场景"><a href="#块级函数的使用场景" class="headerlink" title="块级函数的使用场景"></a>块级函数的使用场景</h2><p>块级函数与let函数表达式相似,一旦执行过成流出代码块,函数定义立即被移除.二者的区别在于</p>
-<ul>
-<li>在该代码块中,块级函数声明会被提升至该块的顶部</li>
-<li>使用let定义的函数表达式则不会发生声明提升的情况</li>
-</ul>
-<p>所以按需使用这两种写法吧</p>
-<h2 id="非严格模式下的块级函数"><a href="#非严格模式下的块级函数" class="headerlink" title="非严格模式下的块级函数"></a>非严格模式下的块级函数</h2><p>在ES6中, 严格模式与非严格模式下的块级函数略有不同.</p>
-<ul>
-<li>在严格模式下,块级函数会被提升至代码块顶部</li>
-<li>在非严格模式下,会被提升指外围函数或全局作用于的顶部</li>
-</ul>
-<h1 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h1><h2 id="为什么要有箭头函数"><a href="#为什么要有箭头函数" class="headerlink" title="为什么要有箭头函数?"></a>为什么要有箭头函数?</h2><p>this绑定是javascript程序产生错误的一个常见来源,在函数内很容易对this的值失去控制.箭头函数为了限制this值,减少错误和模糊不清的地方而生.</p>
-<h2 id="箭头函数与传统函数的差异"><a href="#箭头函数与传统函数的差异" class="headerlink" title="箭头函数与传统函数的差异"></a>箭头函数与传统函数的差异</h2><p>ES6中新增了箭头函数这个特性-使用<b>=></b>定义函数的新语法.但是它和传统的JavaScript函数有些不同.主要表现在:</p>
-<ul>
-<li>没有this\super\arguments\new.target绑定. 箭头函数中的这些值由外围最近一层的非箭头函数决定</li>
-<li>不能通过new关键字调用. 箭头函数没有[[Construct]]方法,所以不能被用作构造函数,如果通过new关键字调用箭头函数,程序会抛出错误.</li>
-<li>没有原型. 由于不能通过new关键字嗲用箭头函数,因而没有构造原型的需求,因此箭头函数不存在prototype这个属性</li>
-<li>不可以改变this的绑定. 函数内部的this值不可被改变,在函数的声明周期内始终保持一致.</li>
-<li>不支持arguments对象. 箭头函数没有arguments绑定,所以必须通过命名参数和不定参数的形式的去访问函数的参数</li>
-<li>不支持重复的命名参数.无论在严格还是非严格模式下,箭头函数都不支持重复的命名参数.</li>
-</ul>
-<blockquote>
-<p>箭头函数同样有name属性,这点与其余函数规则一致.</p>
-</blockquote>
-<h2 id="箭头函数的语法"><a href="#箭头函数的语法" class="headerlink" title="箭头函数的语法"></a>箭头函数的语法</h2><p>箭头函数的语法有多种形式,主要归纳为函数参数\箭头\函数体三种表达</p>
-<ol>
-<li><p>单一参数,并且只是简单的返回了参数值</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reflect = <span class="function"><span class="params">value</span> =></span> value;</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> reflect = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>当需要传入两个或两个以上参数的时候</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">num1, num2</span>) =></span> num1 + num2;</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>没有参数的时候</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getName = <span class="function"><span class="params">()</span> =></span> <span class="string">"Nick"</span>;</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>函数体包含多个语句,这时候需要显示的返回值</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">num1, num2</span>) =></span> {</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>空函数</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let nothing = () => {};</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>箭头函数需要返回一个字面量的时候,把字面量包裹在一个()里面</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getItem = <span class="function"><span class="params">id</span> =></span> ({<span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"temp"</span>});</span><br><span class="line"></span><br><span class="line"><span class="comment">//效果相当于</span></span><br><span class="line"><span class="keyword">let</span> getItem = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        id: id,</span><br><span class="line">        name: <span class="string">"temp"</span></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ol>
-<h2 id="创建立即执行函数表达式"><a href="#创建立即执行函数表达式" class="headerlink" title="创建立即执行函数表达式"></a>创建立即执行函数表达式</h2><p>JavaScript函数中一个流行的使用方式是创建立即执行函数表达式(IIFE),你可以定义一个匿名函数并立即调用,自始自终不保存对该函数的引用.当你想要创建一个与其他程序隔离的作用于时,这种模式非常方便.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = functiton(name){</span><br><span class="line">  <span class="keyword">return</span>{</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line">  };</span><br><span class="line">}(<span class="string">"nick"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName()); <span class="comment">//"nick";</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>只要把箭头函数包裹在(),就是使用箭头函数完成相同功能.</p>
-<blockquote>
-<p>需要注意的是,()只包裹箭头函数定义的部分,没有包含(“nick”),这一点与正常函数有所不同,由正常函数定义的立即执行函数表达式既可以用()包裹函数体,也可以额外包裹函数的调用部分.</p>
-</blockquote>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="function">(<span class="params">(name</span>) =></span> {</span><br><span class="line">  <span class="keyword">return</span>{</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    }</span><br><span class="line">  };</span><br><span class="line">})(<span class="string">"nick"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.getName()); <span class="comment">//"nick";</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="箭头函数没有this绑定"><a href="#箭头函数没有this绑定" class="headerlink" title="箭头函数没有this绑定"></a>箭头函数没有this绑定</h2><p>如果箭头函数被非箭头函数包含,则this绑定的是最近一层非箭头函数的this,否则this的值会被设置成为全局对象.且this的值不能被更改.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> PageHandler = {</span><br><span class="line">    id: <span class="string">"123456"</span>,</span><br><span class="line">    init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>, event=> <span class="keyword">this</span>.doSomething(event,type), <span class="literal">false</span>);</span><br><span class="line">    },</span><br><span class="line">    dosomething: <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>{</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Handling "</span> + type + <span class="string">"for "</span> + <span class="keyword">this</span>.id);  </span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="箭头函数与数组"><a href="#箭头函数与数组" class="headerlink" title="箭头函数与数组"></a>箭头函数与数组</h2><p>箭头函数的语法非常简单,非常适合用来处理数组.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function">(<span class="params">a, b</span>) =></span> { a-b});</span><br></pre></td></tr></tbody></table></figure>
-
-<p>sort(),map(),reduce()等可以接受回调凹函数的数组方法,都可以通过箭头函数语法简化编码过程.</p>
-<h2 id="箭头函数没有arguments绑定"><a href="#箭头函数没有arguments绑定" class="headerlink" title="箭头函数没有arguments绑定"></a>箭头函数没有arguments绑定</h2><p>箭头函数没有自己的arguments对象,且未来无论函数在哪个上下文中执行,箭头函数使用可以访问外围的arguments对象.</p>
-<h2 id="箭头函数的辨识方法"><a href="#箭头函数的辨识方法" class="headerlink" title="箭头函数的辨识方法"></a>箭头函数的辨识方法</h2><p>使用typeof和instanceof 操作符调用箭头函数与调用其他函数并没有差别.不过我们还是可以同一些技巧将其辨识 出来.</p>
-<p>箭头函数使用call(),apply(),bind()这些方法,函数this值不受影响.</p>
-<h2 id="什么地方适合用箭头函数"><a href="#什么地方适合用箭头函数" class="headerlink" title="什么地方适合用箭头函数"></a>什么地方适合用箭头函数</h2><p>包括回到函数在内所有使用匿名表达式的地方都合适用箭头函数来改写.</p>
-<h1 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h1><h2 id="什么是尾调用"><a href="#什么是尾调用" class="headerlink" title="什么是尾调用?"></a>什么是尾调用?</h2><p>函数作为另外一个函数的最后一条语句被调用.</p>
-<h2 id="尾调用会有什么问题"><a href="#尾调用会有什么问题" class="headerlink" title="尾调用会有什么问题?"></a>尾调用会有什么问题?</h2><p>在ES5中,尾调用和其他函数调用的实现类似: 创建一个新的stack frame,将其推入调用栈来表示函数调用.当出现循环调用的时候,每一个未用完的stack frame 都会被保存在内存中,当调用栈编得过大的时候会带来程序问题.</p>
-<h2 id="ES6中的尾调用优化"><a href="#ES6中的尾调用优化" class="headerlink" title="ES6中的尾调用优化"></a>ES6中的尾调用优化</h2><p>ES6中缩减了严格模式下(非严格模式不受影响)尾调用栈的大小,如果满足以下条件,尾调用不再创造新的stack frame,而是清除并重用当前stack frame</p>
-<ul>
-<li>尾调用不访问当前stack frame的变量(也就是说函数不是一个闭包)</li>
-<li>在函数内部,尾调用是最后一条语句</li>
-<li>尾调用的结果作为函数值返回.</li>
-</ul>
-<h2 id="如何利用尾调用"><a href="#如何利用尾调用" class="headerlink" title="如何利用尾调用"></a>如何利用尾调用</h2><p>实际上,尾调用的优化发生在引擎背后,除非尝试优化一个函数,否则无须思考此类问题.递归函数是最重要的应用场景,优化效果显著.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无法优化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">factorial</span>(<span class="params">n</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span> (n <= <span class="number">1<!--=--></span>){<br><span class="line">        retrun <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span>  n * factorial(n);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//优化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">factorial</span>(<span class="params">n, p = <span class="number">1</span></span>)</span>{</span><br><span class="line">    <span class="keyword">if</span> (n <= <span class="number">1<!--=--></span>){<br><span class="line">        retrun <span class="number">1</span> * p;</span><br><span class="line">    }<span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">let</span> result = n * p;</span><br><span class="line">        <span class="keyword">return</span>  factorial(n <span class="number">-1</span>, result);</span><br><span class="line">    }</span><br><span class="line">}</span><br></span></span></pre></td></tr></tbody></table></figure>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+        <meta name="generator" content="Hexo 3.9.0"><div id="hbe-security">
+  <div class="hbe-input-container">
+  <input type="password" class="hbe-form-control" id="pass" placeholder="此路不通,请出示令牌">
+    <label for="pass">此路不通,请出示令牌</label>
+    <div class="bottom-line"></div>
+  </div>
+</div>
+<div id="decryptionError" style="display: none;">Incorrect Password!</div>
+<div id="noContentError" style="display: none;">No content to display!</div>
+<div id="encrypt-blog" style="display:none">
+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
+</div>
+<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css"><!-- flag of hidden posts --><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
     
@@ -597,7 +481,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html" title="深入理解ES6-函数(2)">https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html</a>
+    <a href="https://iwits.com.cn/_post/2019-08-22-Review/Review20190822.html" title="20190822复盘">https://iwits.com.cn/_post/2019-08-22-Review/Review20190822.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -612,11 +496,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
-          
-            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
-          
-            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+            <a href="/tags/复盘/" rel="tag"><i class="fa fa-tag"></i> 复盘</a>
           
         </div>
       
@@ -625,26 +505,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019-07-28-Just_Play_Accounting.html" rel="next" title="<玩得就是会计>读书笔记">
-                <i class="fa fa-chevron-left"></i> <玩得就是会计>读书笔记
-              <!--玩得就是会计--></a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html" rel="prev" title="深入理解ES6-扩展对象的功能性">
-                深入理解ES6-扩展对象的功能性 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -700,17 +560,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -795,22 +646,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史溯源"><span class="nav-number">1.</span> <span class="nav-text">历史溯源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级函数的使用场景"><span class="nav-number">2.</span> <span class="nav-text">块级函数的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非严格模式下的块级函数"><span class="nav-number">3.</span> <span class="nav-text">非严格模式下的块级函数</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#箭头函数"><span class="nav-number"></span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要有箭头函数"><span class="nav-number">1.</span> <span class="nav-text">为什么要有箭头函数?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数与传统函数的差异"><span class="nav-number">2.</span> <span class="nav-text">箭头函数与传统函数的差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数的语法"><span class="nav-number">3.</span> <span class="nav-text">箭头函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建立即执行函数表达式"><span class="nav-number">4.</span> <span class="nav-text">创建立即执行函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数没有this绑定"><span class="nav-number">5.</span> <span class="nav-text">箭头函数没有this绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数与数组"><span class="nav-number">6.</span> <span class="nav-text">箭头函数与数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数没有arguments绑定"><span class="nav-number">7.</span> <span class="nav-text">箭头函数没有arguments绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数的辨识方法"><span class="nav-number">8.</span> <span class="nav-text">箭头函数的辨识方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么地方适合用箭头函数"><span class="nav-number">9.</span> <span class="nav-text">什么地方适合用箭头函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尾调用"><span class="nav-number"></span> <span class="nav-text">尾调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是尾调用"><span class="nav-number">1.</span> <span class="nav-text">什么是尾调用?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾调用会有什么问题"><span class="nav-number">2.</span> <span class="nav-text">尾调用会有什么问题?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中的尾调用优化"><span class="nav-number">3.</span> <span class="nav-text">ES6中的尾调用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何利用尾调用"><span class="nav-number">4.</span> <span class="nav-text">如何利用尾调用</span></a></li></ol></li></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

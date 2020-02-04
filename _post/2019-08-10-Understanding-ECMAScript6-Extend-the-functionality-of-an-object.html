@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="hexo,环境搭建,GitHub pages,NextT,">
+  <meta name="keywords" content="Javascript,ES6,读书笔记,">
 
 
 
@@ -80,23 +80,18 @@
 
 
 
-<meta name="description" content="仅以此文记录我自己搭建hexo博客的过程以及踩到的坑.  本地操作系统为为Win10.  使用的hexo版本为3.0后的版本(NexT对其支持较好,2.0+版本未实验) 托管位置:github">
-<meta name="keywords" content="hexo,环境搭建,GitHub pages,NextT">
+<meta name="description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
+<meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
-<meta property="og:url" content="https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html">
+<meta property="og:title" content="深入理解ES6-扩展对象的功能性">
+<meta property="og:url" content="https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html">
 <meta property="og:site_name" content="I'wits">
-<meta property="og:description" content="仅以此文记录我自己搭建hexo博客的过程以及踩到的坑.  本地操作系统为为Win10.  使用的hexo版本为3.0后的版本(NexT对其支持较好,2.0+版本未实验) 托管位置:github">
+<meta property="og:description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://iwits.com.cn/upload_images/create_a_new_repository.png">
-<meta property="og:image" content="https://iwits.com.cn/upload_images/SSH_Key.png">
-<meta property="og:image" content="https://iwits.com.cn/upload_images/DNS.png">
-<meta property="og:image" content="https://iwits.com.cn/upload_images/CNAME.png">
-<meta property="og:updated_time" content="2019-05-29T13:28:03.145Z">
+<meta property="og:updated_time" content="2019-08-10T12:33:29.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
-<meta name="twitter:description" content="仅以此文记录我自己搭建hexo博客的过程以及踩到的坑.  本地操作系统为为Win10.  使用的hexo版本为3.0后的版本(NexT对其支持较好,2.0+版本未实验) 托管位置:github">
-<meta name="twitter:image" content="https://iwits.com.cn/upload_images/create_a_new_repository.png">
+<meta name="twitter:title" content="深入理解ES6-扩展对象的功能性">
+<meta name="twitter:description" content="ES6为对象新增很多很好用的属性和方法 增加了super引用 清晰定义了自由属性的枚举顺序">
 
 
 
@@ -126,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html">
+  <link rel="canonical" href="https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html">
 
 
 
 
 
-  <title>Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略) | I'wits</title>
+  <title>深入理解ES6-扩展对象的功能性 | I'wits</title>
   
 
 
@@ -312,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -329,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解ES6-扩展对象的功能性</h1>
         
 
         <div class="post-meta">
@@ -341,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T22:42:42+08:00">
-                2019-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T17:38:43+08:00">
+                2019-08-10
               </time>
             
 
@@ -364,8 +359,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">博客搭建</span>
+                  <a href="/categories/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
                   </a>
                 </span>
 
@@ -382,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019-05-04-Hexo_GitHub_Pages_Build_blog.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019-05-04-Hexo_GitHub_Pages_Build_blog.html" itemprop="commentsCount"></span>
+                <a href="/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -410,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.2k
                 </span>
               
 
@@ -426,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  6
+                  4
                 </span>
               
             </div>
@@ -447,11 +453,10 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p>仅以此文记录我自己搭建hexo博客的过程以及踩到的坑.</p>
-<ul>
-<li>本地操作系统为为Win10. </li>
-<li>使用的hexo版本为3.0后的版本(NexT对其支持较好,2.0+版本未实验)</li>
-<li>托管位置:github</li>
+        <meta name="generator" content="Hexo 3.9.0"><ul>
+<li>ES6为对象新增很多很好用的属性和方法</li>
+<li>增加了super引用</li>
+<li>清晰定义了自由属性的枚举顺序</li>
 </ul>
 <a id="more"></a>
 
@@ -459,173 +464,59 @@
 
 
 
+<h1 id="对象类别"><a href="#对象类别" class="headerlink" title="对象类别"></a>对象类别</h1><ul>
+<li>普通对象: 具有JavaScript对象多有的默认内部行为.</li>
+<li>特异对象: 具有某些与默认行为不符的内部行为.</li>
+<li>标准对象: ECMAScript 6 规范中定义的对象.eg, Array, Date等.标准对象既可以是普通对象,也可以是特异对象.</li>
+<li>内建对象:脚本开始执行时存在于Javascript执行环境中的对象,所有标准对象都是内建对象</li>
+</ul>
+<h1 id="对象字面量语法扩展"><a href="#对象字面量语法扩展" class="headerlink" title="对象字面量语法扩展"></a>对象字面量语法扩展</h1><h2 id="属性初始值的简写"><a href="#属性初始值的简写" class="headerlink" title="属性初始值的简写"></a>属性初始值的简写</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES5写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        name: name,</span><br><span class="line">        age: age</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6写法-支持了简写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span>{</span><br><span class="line">        name,</span><br><span class="line">        age</span><br><span class="line">    };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><blockquote>
-<p><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="对象方法的简写语法"><a href="#对象方法的简写语法" class="headerlink" title="对象方法的简写语法"></a>对象方法的简写语法</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"person"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"person"</span>,</span><br><span class="line">    sayName(){</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>两种写法的差别在于,简写的方法可以使用super.</p>
+<h2 id="可计算属性名-Computed-Property-Name"><a href="#可计算属性名-Computed-Property-Name" class="headerlink" title="可计算属性名(Computed Property Name)"></a>可计算属性名(Computed Property Name)</h2><p>在ES6中支持了在对象字面量中使用可计算的属性名称,其语法于引用对象实例的可计算属性名称相同,也是使用方括号.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lastName = <span class="string">"last name"</span>;</span><br><span class="line"><span class="keyword">var</span> suffix = <span class="string">"name"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    <span class="string">"first name"</span>: <span class="string">"Nick"</span>,</span><br><span class="line">    [LastName]: <span class="string">"Zakas"</span>,</span><br><span class="line">    [<span class="string">"Second"</span> + suffix]: <span class="string">"Nicky"</span>,</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"first name"</span>]); <span class="comment">//"Nick"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"last name"</span>]);  <span class="comment">//Zakas"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">"Secondname"</span>]); <span class="comment">//"Nicky"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="新增方法"><a href="#新增方法" class="headerlink" title="新增方法"></a>新增方法</h1><p>ESCMAScript其中一个设计目标是:不再闯进新的全局函数,也不在Object.prototype上创建新的方法.为了简化某些操作,在Object上新增了一些方法.</p>
+<h2 id="Object-is-方法"><a href="#Object-is-方法" class="headerlink" title="Object.is()方法"></a>Object.is()方法</h2><ul>
+<li>用于比较两个值</li>
+<li>和===最大的不同在于, === 认为(+0=== -0, NaN === NaN)的结果是false, 而is()可以弥补全等运算符的不准确运算.</li>
+<li>is()判定的准则: 如果两个参数的类型相同且具有相同的值,则返回true.</li>
+</ul>
+<h2 id="Object-assign-方法"><a href="#Object-assign-方法" class="headerlink" title="Object.assign()方法"></a>Object.assign()方法</h2><ul>
+<li>是浅拷贝,拷贝的是指针</li>
+<li>这个方法接受一个接受对象和任意数量的源对象,最终返回接受对象.同名情况,后覆盖前</li>
+<li>Object.assign()方法不能将提供者的访问器属性复制到接收器对象中.访问器属性最终会因为先调用方法变成一个值存储在接收对象中.</li>
+</ul>
+<h2 id="重复的对象字面量属性"><a href="#重复的对象字面量属性" class="headerlink" title="重复的对象字面量属性"></a>重复的对象字面量属性</h2><ul>
+<li>ES6中,无论是严格模式还是非严格模式,都不再检查重复属性,对于重复属性,取最后一个值.</li>
+</ul>
+<h2 id="自有属性枚举顺序"><a href="#自有属性枚举顺序" class="headerlink" title="自有属性枚举顺序"></a>自有属性枚举顺序</h2><p>原先的对象属性枚举顺序是有引擎厂商定义的.ES6中严格规定了对象的自由属性被枚举时的返回顺序,这会影响到Object.getOwnPropertyNames()方法及Reflect.ownKeys返回属性的方式,Object.assign()方法处理属性的顺序也将随之改变.</p>
+<p>自有属性的枚举顺序为</p>
+<ol>
+<li>所有数字键按升序排序</li>
+<li>所有字符串键按照他们被加入对象的顺序排序</li>
+<li>所有symbol键按照他们被加入对象的顺序排序</li>
+</ol>
+<blockquote>
+<p>虽然如此但是,for-in, object.keys(), JSON.stringify()方法的顺序未明.</p>
 </blockquote>
-<p> 选择Hexo的理由很简单.</p>
-<ul>
-<li>支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件</li>
-<li>支持一键部署</li>
-<li>有丰富的插件和主题</li>
-<li>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
-<li>内容物为静态网页,可以轻松的托管再GitHub上,管理和更新方便.</li>
-</ul>
-<h2 id="什么是Github-Pages"><a href="#什么是Github-Pages" class="headerlink" title="什么是Github Pages?"></a>什么是Github Pages?</h2><p>  <a href="https://zh.wikipedia.org/wiki/GitHub" target="_blank" rel="noopener">Github</a>是世界上最大的代码存放网站和开源社区.<a href="https://pages.github.com/" target="_blank" rel="noopener">Githubpages</a>功能的推出,让用户有机会自定义项目首页,用来替代默认的源码列表.它是一种被用户编写\托管再Github上面的静态网页.</p>
-<h1 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h1><p>  “工欲善其事,必先利其器”</p>
-<h2 id="工具类安装"><a href="#工具类安装" class="headerlink" title="工具类安装"></a>工具类安装</h2><ul>
-<li>下载安装<a href="https://www.npmjs.com/get-npm" target="_blank" rel="noopener">npm</a></li>
-<li>下载并安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a></li>
-<li>下载并安装<a href="https://nodejs.org/en/download/current/" target="_blank" rel="noopener">Node.js</a></li>
-</ul>
-<h2 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a><span id="create_a_new_repository">Create a new repository</span></h2><blockquote>
-<p>特别提醒:我已经拥有Github账户.如果你没有,请移步官网注册.</p>
+<h1 id="增强对象原型"><a href="#增强对象原型" class="headerlink" title="增强对象原型"></a>增强对象原型</h1><h2 id="改变对象的原型"><a href="#改变对象的原型" class="headerlink" title="改变对象的原型"></a>改变对象的原型</h2><p>ES6中增加了Object.setPrototypeOf()方法来改变任意指定对象的原型,它接受两个参数:被改变原型的对象及替代第一个参数原型的对象.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        retrun  <span class="string">"woof"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> friend = object.create(person);</span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">//"Hello";</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.getPrototype(friend) === person); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//原型设置为dog</span></span><br><span class="line"><span class="built_in">Object</span>.setPrototyeOf(friend. dog);</span><br><span class="line"><span class="built_in">console</span>.log(friend.getGreeting()); <span class="comment">//"woof";</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.getPrototype(friend) === dog); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>不过这不是操作[[prototype]]的唯一方法.</p>
+<h2 id="简化原型访问的Super引用"><a href="#简化原型访问的Super引用" class="headerlink" title="简化原型访问的Super引用"></a>简化原型访问的Super引用</h2><p>ES6中引入的Super引用,使用它可以简单快捷的访问对象的原型.尤其再重写对象实例的方法中调用与它同名的原型方法.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = {</span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="comment">// return object.getPrototypeOf(this).getGreeting.call(this)</span></span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">super</span>.getGreeting() + <span class="string">". hi!"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>需要注意的时,再方法声明中调用super,必须是再使用简写方法的对象中声明,其他写法会导致报错.</p>
 </blockquote>
-<p>  这里一定要把项目名字定义成以下样式.<br>  </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{username}.github.io</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>  <img src="/upload_images/create_a_new_repository.png" alt></p>
-<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="本地环境搭建Hexo"><a href="#本地环境搭建Hexo" class="headerlink" title="本地环境搭建Hexo"></a>本地环境搭建Hexo</h2><ol>
-<li><p>本机新建一个文件夹,如blog</p>
-</li>
-<li><p>进入该文件夹.鼠标右键选择”Git Bash Here”.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>执行上述步骤成功后,输入</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>生成静态页面,启动本地hexo服务进行本机测试.依次执行以下命令</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo server</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>打开<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>, 测试安装是否成功.看见页面即为成功.</p>
-</li>
-</ol>
-<h2 id="关联到Github"><a href="#关联到Github" class="headerlink" title="关联到Github"></a>关联到Github</h2><ol>
-<li><p><a href="#create_a_new_repository">Create a New respository</a></p>
-</li>
-<li><p><span id="Git_Deployer">安装Hexo的Git Deployer插件</span></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>本地生成静态文件</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>将静态文件推送到Github.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
+<p>Super引用不是动态变化的,它总是能指向正确的对象.再多重继承的代码中,这一特性显得十分好用.</p>
+<h1 id="正式的方法定义"><a href="#正式的方法定义" class="headerlink" title="正式的方法定义"></a>正式的方法定义</h1><p>在ES6中,方法正式被定义为一个函数,它将会有一个[[HomeObject]]属性来容纳这个方法丛书的对象.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = {</span><br><span class="line">    <span class="comment">//是方法</span></span><br><span class="line">    getGreeting(){</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//不是方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shareGreeting</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"Hi!"</span>;  </span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
-</li>
-</ol>
-<h2 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h2><p>  使用SSH key避免执行Hexo d部署时频繁的密码输入.</p>
-<ul>
-<li><p>测试是否有已存在的SSH key<br>任意位置打开Git Bash</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>本地生成密钥</p>
-<p>如果没有,那么我们在本地生成密钥.输入的邮箱是github注册邮箱.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "your_email@example.com"</span><br></pre></td></tr></tbody></table></figure>
-
-<p>根据提示按下三次回车.可以看到以下文字则表示密钥生成成功.(生成的id_rsa.pub文件默认在系统盘个人文件夹下的.ssh文件夹中.)</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  Your identification has been saved in ~/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in ~/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<ul>
-<li><p>设置GitHub项目的deploy Keys,粘贴进去就好了.<br><img src="/upload_images/SSH_Key.png" alt></p>
-</li>
-<li><p>测试配置是否成功</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></tbody></table></figure>
-
-<p>出现以下样式的配置则表示成功</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> Hi username! You've successfully authenticated, but GitHub does not</span><br><span class="line">provide shell access.</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p><span id="Set_SSH">修改部署协议为SSH</span></p>
-<p>进入blog文件夹,使用记事本类工具打开_config.yml文件,设置deploy属性.</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: git@github.com:chengjianhua/chengjianhua.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></tbody></table></figure>
-
-</li>
-</ul>
-<h1 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h1><ul>
-<li><p>购买域名(我用的阿里云购买,大家可以根据自己的喜好)</p>
-</li>
-<li><p>域名备案</p>
-</li>
-<li><p>设置DNS云解析(域名解析生效需要时间,我直接隔天查看了)<br><img src="/upload_images/DNS.png" alt></p>
-</li>
-<li><p>依次进入本地文件夹Blog->source,新建一个文件名为CNAME<br><img src="/upload_images/CNAME.png" alt></p>
-</li>
-<li><p><span id="cgd">执行”cgd”操作将CNAME文件提交到服务器上</span></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></tbody></table></figure>
-
-<p>使用网址访问是否正常.</p>
-</li>
-</ul>
-<h1 id="Hexo使用指南-Next"><a href="#Hexo使用指南-Next" class="headerlink" title="Hexo使用指南(Next)"></a>Hexo使用指南(Next)</h1><h2 id="Hexo主题设置-Next"><a href="#Hexo主题设置-Next" class="headerlink" title="Hexo主题设置(Next)"></a>Hexo主题设置(Next)</h2><ol>
-<li><p>下载主题<br>我使用的是star数量最多的<a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">Next</a>主题,你也可以访问<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题列表</a>选择自己喜欢的主题.</p>
-<p>进入blog页面,Git Bash here输入以下命令以下载next主题.(我是无脑最新,稳定版下载请访问Next官网查找最新稳定版本)</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></tbody></table></figure>
-
-<p>下载完成之后,会在\bolg\themes中看到next 文件夹.</p>
-</li>
-<li><p>找到blog底下的_config.yml文件,修改theme</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>执行<a href="#cgd">“cgd操作”</a> 提交到服务器.<br>如果你想在本地查看,那执行完cg操作之后,使用</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>启动本地服务,在浏览器中使用<a href="http://localhost:4000" target="_blank" rel="noopener">localhost:4000</a>查看本地页面.</p>
-</li>
-</ol>
-<h2 id="Next-设置语言"><a href="#Next-设置语言" class="headerlink" title="Next 设置语言"></a>Next 设置语言</h2><p> 实名感谢Hexo支持中文.<br> 修改blog下的_config.yml文件中的language</p>
-<table>
-<thead>
-<tr>
-<th>语言</th>
-<th>代码</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>English</td>
-<td>en</td>
-</tr>
-<tr>
-<td>简体中文</td>
-<td>zh-Hans</td>
-</tr>
-<tr>
-<td>Français</td>
-<td>fr-FR</td>
-</tr>
-<tr>
-<td>Português</td>
-<td>pt</td>
-</tr>
-<tr>
-<td>繁體中文(Hk)</td>
-<td>zh-hk</td>
-</tr>
-<tr>
-<td>繁體中文(tw)</td>
-<td>zh-tw</td>
-</tr>
-<tr>
-<td>Русский язык</td>
-<td>ru</td>
-</tr>
-<tr>
-<td>日本語</td>
-<td>ja</td>
-</tr>
-<tr>
-<td>Korean</td>
-<td>ko</td>
-</tr>
-<tr>
-<td>Next更多使用说明可以查看<a href="https://theme-next.iissnan.com/getting-started.html#select-scheme" target="_blank" rel="noopener">Next官网</a>.或者期待我的不定期更新的日常</td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="遇到的坑与解决措施"><a href="#遇到的坑与解决措施" class="headerlink" title="遇到的坑与解决措施"></a>遇到的坑与解决措施</h1><h2 id="SSH-协议设置不生效"><a href="#SSH-协议设置不生效" class="headerlink" title="SSH 协议设置不生效"></a>SSH 协议设置不生效</h2><p>SSH协议传输设置最开始使用网上的<br> </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> #切入到包含 .git 文件夹的文件夹</span><br><span class="line"> cd .deploy/</span><br><span class="line"></span><br><span class="line"> #查看当前的传输协议</span><br><span class="line">  git remote -v</span><br><span class="line"></span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)</span><br><span class="line"> origin  https://github.com/USERNAME/REPOSITORY.git (push)</span><br><span class="line"></span><br><span class="line">#修改 https 协议为 ssh 协议</span><br><span class="line"> git remote set-url origin git@github.com:USERNAME/REPOSITORY2.git</span><br><span class="line"></span><br><span class="line">#或者</span><br><span class="line"> git remote add origin git@github.com:username/username.github.io.gi</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p> 然而并没有生效,最后使用了上文所述<a href="#Set_SSH">SSH设置方法</a>,才生效.原因未知,google了以下,也有很多人和我一样.</p>
-<h2 id="localhost正常-部署后自定义域名访问为404或空白"><a href="#localhost正常-部署后自定义域名访问为404或空白" class="headerlink" title="localhost正常,部署后自定义域名访问为404或空白"></a>localhost正常,部署后自定义域名访问为404或空白</h2><p> localhost页面正常,然而部署到github之后页面不是空白就是404</p>
-<p>  查看github上面的文件,发现index.html文件中都是空白,怀疑是提交插件安装有问题.我重装<a href="#Git_Deployer">Git Deployer插件</a>后正常.具体猜测是因为第一次装该插件有依赖包版本不正确.回滚数个版本仍异常,干脆卸载重装,重装后正常.</p>
-<h2 id="Localhost正常-部署后页面没有无主题样式-只有文字"><a href="#Localhost正常-部署后页面没有无主题样式-只有文字" class="headerlink" title="Localhost正常,部署后页面没有无主题样式,只有文字."></a>Localhost正常,部署后页面没有无主题样式,只有文字.</h2><p>   看了下页面的html文件,主要是加载的script位置不正确.具体的配置跟blog下的_config.yml有关.<br>   修改期中url与root设置后正常.(切记冒号后要有空格,不然编译出错)<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url: https://github.com/iwits/iwits.github.io/</span><br><span class="line">root: /</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>Super的所有引用都是通过[[HomeObject]]属性来确定后续的运行过程.第一步实在[[HomeObject]]属性上调用Object.getPrototypeOf()方法来检索原型的引用.然后搜索原型找到同名的函数,最后设置this绑定并且调用相同的方法.</p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
     </div>
@@ -675,7 +566,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html" title="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html</a>
+    <a href="https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html" title="深入理解ES6-扩展对象的功能性">https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -690,13 +581,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
           
-            <a href="/tags/环境搭建/" rel="tag"><i class="fa fa-tag"></i> 环境搭建</a>
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
           
-            <a href="/tags/GitHub-pages/" rel="tag"><i class="fa fa-tag"></i> GitHub pages</a>
-          
-            <a href="/tags/NextT/" rel="tag"><i class="fa fa-tag"></i> NextT</a>
+            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
           
         </div>
       
@@ -709,14 +598,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/_post/2019-08-04-Understanding-ECMAScript6-Function-2.html" rel="next" title="深入理解ES6-函数(2)">
+                <i class="fa fa-chevron-left"></i> 深入理解ES6-函数(2)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html" rel="prev" title="深入理解ES6-变量作用域">
-                深入理解ES6-变量作用域 <i class="fa fa-chevron-right"></i>
+              <a href="/_post/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html" rel="prev" title="深入理解ES-解构:使数据访问更便捷">
+                深入理解ES-解构:使数据访问更便捷 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -881,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hexo"><span class="nav-number">1.</span> <span class="nav-text">什么是Hexo?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Github-Pages"><span class="nav-number">2.</span> <span class="nav-text">什么是Github Pages?</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工具"><span class="nav-number"></span> <span class="nav-text">准备工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类安装"><span class="nav-number">1.</span> <span class="nav-text">工具类安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-new-repository"><span class="nav-number">2.</span> <span class="nav-text">Create a new repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number"></span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地环境搭建Hexo"><span class="nav-number">1.</span> <span class="nav-text">本地环境搭建Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联到Github"><span class="nav-number">2.</span> <span class="nav-text">关联到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-Key"><span class="nav-number">3.</span> <span class="nav-text">SSH Key</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置域名"><span class="nav-number"></span> <span class="nav-text">设置域名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo使用指南-Next"><span class="nav-number"></span> <span class="nav-text">Hexo使用指南(Next)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo主题设置-Next"><span class="nav-number">1.</span> <span class="nav-text">Hexo主题设置(Next)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-设置语言"><span class="nav-number">2.</span> <span class="nav-text">Next 设置语言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的坑与解决措施"><span class="nav-number"></span> <span class="nav-text">遇到的坑与解决措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-协议设置不生效"><span class="nav-number">1.</span> <span class="nav-text">SSH 协议设置不生效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localhost正常-部署后自定义域名访问为404或空白"><span class="nav-number">2.</span> <span class="nav-text">localhost正常,部署后自定义域名访问为404或空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Localhost正常-部署后页面没有无主题样式-只有文字"><span class="nav-number">3.</span> <span class="nav-text">Localhost正常,部署后页面没有无主题样式,只有文字.</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对象类别"><span class="nav-number">1.</span> <span class="nav-text">对象类别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象字面量语法扩展"><span class="nav-number">2.</span> <span class="nav-text">对象字面量语法扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性初始值的简写"><span class="nav-number">2.1.</span> <span class="nav-text">属性初始值的简写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象方法的简写语法"><span class="nav-number">2.2.</span> <span class="nav-text">对象方法的简写语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可计算属性名-Computed-Property-Name"><span class="nav-number">2.3.</span> <span class="nav-text">可计算属性名(Computed Property Name)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新增方法"><span class="nav-number">3.</span> <span class="nav-text">新增方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-is-方法"><span class="nav-number">3.1.</span> <span class="nav-text">Object.is()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-assign-方法"><span class="nav-number">3.2.</span> <span class="nav-text">Object.assign()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复的对象字面量属性"><span class="nav-number">3.3.</span> <span class="nav-text">重复的对象字面量属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自有属性枚举顺序"><span class="nav-number">3.4.</span> <span class="nav-text">自有属性枚举顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增强对象原型"><span class="nav-number">4.</span> <span class="nav-text">增强对象原型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#改变对象的原型"><span class="nav-number">4.1.</span> <span class="nav-text">改变对象的原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简化原型访问的Super引用"><span class="nav-number">4.2.</span> <span class="nav-text">简化原型访问的Super引用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正式的方法定义"><span class="nav-number">5.</span> <span class="nav-text">正式的方法定义</span></a></li></ol></div>
             
 
           </div>

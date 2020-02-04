@@ -18,8 +18,8 @@
   
   <entry>
     <title>深入理解ES-Symbol和Symbol属性</title>
-    <link href="https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html"/>
-    <id>https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html</id>
+    <link href="https://iwits.com.cn/_post/2019-08-24-Understanding-ECMAScript6-Symbol.html"/>
+    <id>https://iwits.com.cn/_post/2019-08-24-Understanding-ECMAScript6-Symbol.html</id>
     <published>2019-08-24T12:51:45.000Z</published>
     <updated>2019-08-24T15:48:45.572Z</updated>
     
@@ -54,8 +54,8 @@
   
   <entry>
     <title>深入理解ES-解构:使数据访问更便捷</title>
-    <link href="https://iwits.com.cn/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html"/>
-    <id>https://iwits.com.cn/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html</id>
+    <link href="https://iwits.com.cn/_post/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html"/>
+    <id>https://iwits.com.cn/_post/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html</id>
     <published>2019-08-18T08:31:19.000Z</published>
     <updated>2019-08-18T12:12:54.205Z</updated>
     
@@ -87,8 +87,8 @@
   
   <entry>
     <title>深入理解ES6-扩展对象的功能性</title>
-    <link href="https://iwits.com.cn/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html"/>
-    <id>https://iwits.com.cn/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html</id>
+    <link href="https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html"/>
+    <id>https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html</id>
     <published>2019-08-10T09:38:43.000Z</published>
     <updated>2019-08-10T12:33:29.553Z</updated>
     
@@ -117,8 +117,8 @@
   
   <entry>
     <title>深入理解ES6-函数(2)</title>
-    <link href="https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html"/>
-    <id>https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html</id>
+    <link href="https://iwits.com.cn/_post/2019-08-04-Understanding-ECMAScript6-Function-2.html"/>
+    <id>https://iwits.com.cn/_post/2019-08-04-Understanding-ECMAScript6-Function-2.html</id>
     <published>2019-08-04T14:54:02.000Z</published>
     <updated>2019-08-04T16:50:31.764Z</updated>
     
@@ -148,8 +148,8 @@
   
   <entry>
     <title>&lt;玩得就是会计&gt;读书笔记</title>
-    <link href="https://iwits.com.cn/2019-07-28-Just_Play_Accounting.html"/>
-    <id>https://iwits.com.cn/2019-07-28-Just_Play_Accounting.html</id>
+    <link href="https://iwits.com.cn/_post/2019-07-28-Just_Play_Accounting.html"/>
+    <id>https://iwits.com.cn/_post/2019-07-28-Just_Play_Accounting.html</id>
     <published>2019-07-28T02:19:35.000Z</published>
     <updated>2019-08-01T13:31:59.571Z</updated>
     
@@ -168,8 +168,8 @@
   
   <entry>
     <title>深入理解ES6-函数(1)</title>
-    <link href="https://iwits.com.cn/2019-07-14-Understanding-ECMAScript6-Function_1.html"/>
-    <id>https://iwits.com.cn/2019-07-14-Understanding-ECMAScript6-Function_1.html</id>
+    <link href="https://iwits.com.cn/_post/2019-07-14-Understanding-ECMAScript6-Function_1.html"/>
+    <id>https://iwits.com.cn/_post/2019-07-14-Understanding-ECMAScript6-Function_1.html</id>
     <published>2019-07-14T14:54:08.000Z</published>
     <updated>2019-07-15T13:51:21.302Z</updated>
     
@@ -202,8 +202,8 @@
   
   <entry>
     <title>深入理解ES6-字符串与正则表达式</title>
-    <link href="https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html"/>
-    <id>https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html</id>
+    <link href="https://iwits.com.cn/_post/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html"/>
+    <id>https://iwits.com.cn/_post/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html</id>
     <published>2019-06-29T08:39:22.000Z</published>
     <updated>2019-07-01T15:47:18.760Z</updated>
     
@@ -233,8 +233,8 @@
   
   <entry>
     <title>深入理解ES6-变量作用域</title>
-    <link href="https://iwits.com.cn/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html"/>
-    <id>https://iwits.com.cn/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html</id>
+    <link href="https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html"/>
+    <id>https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html</id>
     <published>2019-05-29T12:46:32.000Z</published>
     <updated>2019-06-29T08:40:59.074Z</updated>
     
@@ -262,8 +262,8 @@
   
   <entry>
     <title>Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)</title>
-    <link href="https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html"/>
-    <id>https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html</id>
+    <link href="https://iwits.com.cn/_post/2019-05-04-Hexo_GitHub_Pages_Build_blog.html"/>
+    <id>https://iwits.com.cn/_post/2019-05-04-Hexo_GitHub_Pages_Build_blog.html</id>
     <published>2019-05-04T14:42:42.000Z</published>
     <updated>2019-05-29T13:28:03.145Z</updated>
     

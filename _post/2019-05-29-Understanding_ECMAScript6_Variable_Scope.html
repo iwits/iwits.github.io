@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
+<meta name="description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 <meta name="keywords" content="Javascript,ES6,读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解ES-Symbol和Symbol属性">
-<meta property="og:url" content="https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html">
+<meta property="og:title" content="深入理解ES6-变量作用域">
+<meta property="og:url" content="https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html">
 <meta property="og:site_name" content="I'wits">
-<meta property="og:description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
+<meta property="og:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-24T15:48:45.572Z">
+<meta property="og:updated_time" content="2019-06-29T08:40:59.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解ES-Symbol和Symbol属性">
-<meta name="twitter:description" content="symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.  Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                   Symbol值通过Symbol函数生成">
+<meta name="twitter:title" content="深入理解ES6-变量作用域">
+<meta name="twitter:description" content="深入理解ES6-变量作用域  最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html">
+  <link rel="canonical" href="https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html">
 
 
 
 
 
-  <title>深入理解ES-Symbol和Symbol属性 | I'wits</title>
+  <title>深入理解ES6-变量作用域 | I'wits</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iwits">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解ES-Symbol和Symbol属性</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解ES6-变量作用域</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T20:51:45+08:00">
-                2019-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T20:46:32+08:00">
+                2019-05-29
               </time>
             
 
@@ -388,8 +388,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019-08-24-Understanding-ECMAScript6-Symbol.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019-08-24-Understanding-ECMAScript6-Symbol.html" itemprop="commentsCount"></span>
+                <a href="/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -416,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  1.7k
                 </span>
               
 
@@ -453,84 +453,68 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p>symbol 类型从机制上保证了每个属性名字都是独一无二的.这能有效的避免我们使用mixin模式时候,新增方法和现有方法的人冲突.</p>
+        <meta name="generator" content="Hexo 3.9.0"><p>深入理解ES6-变量作用域</p>
 <ul>
-<li><p>Symbol是JavaScript中的一割新的原始类型,用于创建必须通过Symbol才能引用的属性                 </p>
-</li>
-<li><p>Symbol值通过Symbol函数生成                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
-</li>
-<li><p>可以为symbol增加描述.在全局作用域中有一个symbol注册表,在代码的不同位置,总是可以通过相同的描述字符串获取到同一个symbol,从而可以共享symbol.</p>
-</li>
-<li><p>ES6中提供了Object.getOwnProperty-Symbols(),来检索symbol属性</p>
-</li>
+<li>最佳实践: 默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var</li>
 </ul>
 <a id="more"></a>
-
 <blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
 
 
-
-<h1 id="为什么需要Symbol属性"><a href="#为什么需要Symbol属性" class="headerlink" title="为什么需要Symbol属性?"></a>为什么需要Symbol属性?</h1><p>我们在使用mixin模式的时候,很容易出现新增属性名与现有属性名冲突的情况.如果有一种计制,能够保证每个属性名都是独一无二的,这样就能从根源上解决冲突的问题.这就是Symbol类型出现的原因.</p>
-<p>ES6开始引入Symbol作为一种原始类型.(原始类型: 字符串型\数字型\布尔型\Null\Undefined\Symbol)</p>
-<h1 id="创建Symbol"><a href="#创建Symbol" class="headerlink" title="创建Symbol"></a>创建Symbol</h1><h2 id="创建的语法"><a href="#创建的语法" class="headerlink" title="创建的语法"></a>创建的语法</h2><p>所有的原始值除了symbol都有自己的字面形式.Symbol值通过Symbol函数创建</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> firstname = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> person = {};</span><br><span class="line"></span><br><span class="line">person[firstname] = <span class="string">'nick'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[firstname]); <span class="comment">//"nick"</span></span><br><span class="line"><span class="keyword">typeof</span> firstname ;<span class="string">''</span><span class="comment">//"symbol"</span></span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>  默认使用const,只在确实需要改变变量的值的时候使用let。在需要覆盖全局变量的时候使用var。</p>
+<h2 id="var声明及Hoisting机制"><a href="#var声明及Hoisting机制" class="headerlink" title="var声明及Hoisting机制"></a>var声明及Hoisting机制</h2><ul>
+<li>使用var关键字来声明变量</li>
+<li>无论在哪里声明，都会被当成在当前作用域顶部声明的变量</li>
+<li>声明提前，初始化操作依旧留在原处执行</li>
+</ul>
+<h2 id="块级声明"><a href="#块级声明" class="headerlink" title="块级声明"></a>块级声明</h2><blockquote>
+<p>块级作用域（又称词法作用域），用于声明在指定块的作用域之外无法访问的变量。存在于：</p>
 <blockquote>
-<p>Symbol因为是原始值,所以不能使用new来调用,否则会程序报错.此外Symbol值不是对象,不能添加属性.</p>
-<p>本质上来说Symbol是一种类似string的数据类型.</p>
-</blockquote>
-<h2 id="Symbol-接受一个可选参数"><a href="#Symbol-接受一个可选参数" class="headerlink" title="Symbol()接受一个可选参数"></a>Symbol()接受一个可选参数</h2><p>传入一段文本描述.这段描述不可以用于属性访问.但是建议创建的时候都加上,增加代码可读性.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>(<span class="string">'Test string'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里是隐式的调用了toString()</span></span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//"Test string"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>Symbol的描述被存储在内部的[[Description]]属性之中,只有调用Symbol的同String()方法的时候,才可以读取这个属性.</p>
-<h2 id="作为属性名的symbol"><a href="#作为属性名的symbol" class="headerlink" title="作为属性名的symbol"></a>作为属性名的symbol</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySym = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="comment">//No.1</span></span><br><span class="line"><span class="keyword">let</span> a = {};</span><br><span class="line">a[mySym] = <span class="string">"hi"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//No.2</span></span><br><span class="line"><span class="keyword">let</span> a ={</span><br><span class="line">    [mySym]: <span class="string">"Hi"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">//No.3</span></span><br><span class="line"><span class="keyword">let</span> a = {};</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, mySym, {<span class="attr">value</span>: <span class="string">"hi"</span>});</span><br><span class="line"></span><br><span class="line"><span class="comment">//以上写法</span></span><br><span class="line">a[mySym];<span class="comment">//"hi"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>需要注意的是:</p>
 <ul>
-<li>当Symbol作为对象属性名的时候,是不可以使用点运算符的(.)</li>
-<li>Symbol值作为属性名的时候,该属性是公开属性,不是私有属性</li>
+<li>函数内部</li>
+<li>块（{}）中</li>
 </ul>
 </blockquote>
-<h1 id="Symbol的使用方法"><a href="#Symbol的使用方法" class="headerlink" title="Symbol的使用方法"></a>Symbol的使用方法</h1><p><font color="#FF0000">所有使用可计算属性名的地方,都可以使用Symbol,或者Object.defineProperty()方法和Object.defineProperties()方法的调用过程中 </font></p>
-<h1 id="Symbol-共享体系"><a href="#Symbol-共享体系" class="headerlink" title="Symbol 共享体系"></a>Symbol 共享体系</h1><p>有时候我们希望在不同的代码段里面共享同一个Symbol.ES6提供了一个可以随时访问你的Symbol注册表.</p>
-<p>如果像创建一个可以共享的Symbol.要使用Symbol.for()方法.它只接受一个参数,也就是即将创建有的Symbol的字符串标识符,这个参数通用也被用作Symbol的描述.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> object = {};</span><br><span class="line"></span><br><span class="line">object[uid] = <span class="string">"123"</span>;</span><br><span class="line">consle.log(object[uid]); <span class="comment">//'123'</span></span><br><span class="line"><span class="built_in">console</span>.log(uid); <span class="comment">//"symbol(uid)"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uid2 = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uid === uid2);<span class="comment">// True</span></span><br><span class="line">consle.log(object[uid2]); <span class="comment">//'123'</span></span><br><span class="line"><span class="built_in">console</span>.log(uid2); <span class="comment">//"symbol(uid)"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>Symbol.for()方法首先会在全局Symbol注册表中搜索键为”uid”的Symbol是否存在.如果存在,直接返回已有的Symbol.否则,创建一个新的Symbol,并使用这个键在Symbol全局注册表中注册,随机返回新创建的Symbol.</p>
-<p>除此之外还可以使用Symbo了.keyFor()方法在Symbol全局注册表中检索与Symbol有关的键</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> uid2 = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> uid3 = <span class="built_in">Symbol</span>(<span class="string">"uid"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid)); <span class="comment">//"uid"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid2)); <span class="comment">//"uid"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Symbol</span>.keyFor(uid3)); <span class="comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure>
-
-<blockquote>
-<p>尽量使用命名空间来减少命名冲突</p>
-</blockquote>
-<h1 id="Symbol与类型强制转换"><a href="#Symbol与类型强制转换" class="headerlink" title="Symbol与类型强制转换"></a>Symbol与类型强制转换</h1><blockquote>
-<p>切记:不能将Symbol转化为字符串和数字类型,否则如果不小心将其作为对象属性,最终会导致不一样的执行结果</p>
 </blockquote>
 <ul>
-<li>将symbol与一个字符串拼接,会触发隐式类型转换,导致报错</li>
-<li>将Symbol与数字类型进行运算,会触发隐式类型转化,导致报错.</li>
-<li>Symbol式可以作为逻辑运算值的, 它的值等价布尔值true</li>
+<li>使用let关键字声明块级元素，将变量的作用域限制在当前代码块中</li>
+<li>let声明不会提前，因此通常把let声明语句在封闭代码块的顶部</li>
+<li>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</li>
+<li>const也是块级标识符</li>
+<li>块级作用标识符特点是声明不会hoisting，一旦执行到块外就被销毁。</li>
 </ul>
-<h1 id="Symbol属性检索"><a href="#Symbol属性检索" class="headerlink" title="Symbol属性检索"></a>Symbol属性检索</h1><p>Object.keys()和Object.GetOwnPropertyName()方法可以检索对象中所有的属性名,前一个方法返回所有可枚举的属性名,后一个方法则返回所有属性名.</p>
-<p>但是这两个方法都是不是支持Symbol属性的.</p>
-<p>ES6增加了方法Object.getOwnPropertySymbols()方法用来检索Symbol属性,方法的返回值式一个包含所有Symbol自有属性的数组.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> uid = <span class="built_in">Symbol</span>.for(<span class="string">"uid"</span>);</span><br><span class="line"><span class="keyword">let</span> object = {</span><br><span class="line">     [uid]: <span class="string">"123"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> symbols = object.getOwnPropertySymbols(object);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(symbols.length);<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>,log(symbols[<span class="number">0</span>]); <span class="comment">//"Symbols(uid)"</span></span><br><span class="line"><span class="built_in">console</span>.log(object[symbols[<span class="number">0</span>]]);<span class="comment">//"123"</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="禁止重声明"><a href="#禁止重声明" class="headerlink" title="禁止重声明"></a>禁止重声明</h2><p>   同一作用域中不能用let重复定义已经存在的标识符。但是如果当前作用域内嵌另一作用域，则可以在内嵌的作用域中使用let声明同名变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//例子1</span><br><span class="line">var count = 20;</span><br><span class="line"></span><br><span class="line">//下面语句会抛出错误</span><br><span class="line">let count =40;</span><br><span class="line"></span><br><span class="line">//例子2</span><br><span class="line">var count = 20;</span><br><span class="line">if (conditon){</span><br><span class="line">   //不会抛出错误，内部作用域的count会屏蔽全局作用域的count</span><br><span class="line">   let count = 40;</span><br><span class="line">   Alert(count); //40</span><br><span class="line">}</span><br><span class="line">Alert(count); //20</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="const声明"><a href="#const声明" class="headerlink" title="const声明"></a>const声明</h2><p>  和其他语言一样，const声明的是常量，一旦被设定之后不可修改，每个使用const定义的常量必须进行初始化。一旦不初始化，则会抛出错误。</p>
+<ul>
+<li><p>const和let都是块级作用标识符</p>
+</li>
+<li><p>假设当前作用域已存在某个标识符（无论是全局或函数作用域），再次使用块级标识符声明会抛出错误。</p>
+</li>
+<li><p>无论在严格模式还是非严格模式下，都不可以为const定义的常量再赋值。一旦赋值就会抛出错误。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不能重声明， 被let声明过的不能用const声明</span><br><span class="line">var count = 20;</span><br><span class="line">let age = 10;</span><br><span class="line">const price = 100;</span><br><span class="line"></span><br><span class="line">//以下语句都会抛出错误</span><br><span class="line">const count = 40;</span><br><span class="line">const age = 12;</span><br><span class="line">let price = 200;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>const声明不允许修改绑定，但是允许修改值。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const person = {</span><br><span class="line">  name: "Nick"</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">//可以修改值</span><br><span class="line">person.name = "Greg";</span><br><span class="line"></span><br><span class="line">//不可以修改绑定</span><br><span class="line">person = {</span><br><span class="line">  name: "Greg"</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
-<p>所有对象一开始都没有自己独有的属性,但是对象可以从圆形脸肿继承Symbol属性.ES通过一些well-know Symbol与定义了这些属性(暂不展开,如有笔要,以后更新).</p>
-<h1 id="Symbol的巧用"><a href="#Symbol的巧用" class="headerlink" title="Symbol的巧用"></a>Symbol的巧用</h1><h2 id="用在单例模式中-防止全局变量被改写"><a href="#用在单例模式中-防止全局变量被改写" class="headerlink" title="用在单例模式中,防止全局变量被改写"></a>用在单例模式中,防止全局变量被改写</h2><p>单例模式中,为了每次都能返回同一个实例.我们往往会把实例放在顶层对象global上面</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Mod.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">A</span>(<span class="params"></span>)</span>{ </span><br><span class="line">    <span class="keyword">this</span>.foo = <span class="string">"Hi"</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!global._foo){</span><br><span class="line">    global._foo = <span class="keyword">new</span> A();</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = global._foo;</span><br></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<h2 id="临界死区（Temporal-Dead-Zone）"><a href="#临界死区（Temporal-Dead-Zone）" class="headerlink" title="临界死区（Temporal Dead Zone）"></a>临界死区（Temporal Dead Zone）</h2><p>   由于声明不会被提前，在作用域外访问变量会抛出错误。即使是相对安全的typeof.</p>
+<p>   Javascript引擎在扫描代码发现变量声明时，要么将它们提升至作用域顶部（var），要么将声明放到TDZ中（let、const）。访问TDZ中的变量会触发运行时错误。只有执行过变量声明语句后，变量才会从TDZ中移出，然后方可访问。</p>
+   <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof value); // undefined</span><br><span class="line">if (condition) {</span><br><span class="line">   console.log(typeof value); //引用错误</span><br><span class="line">   let value = "blue";</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载mod.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br><span class="line"><span class="built_in">console</span>(a.foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">//任意文件都可以随便写global.foo</span></span><br><span class="line">global._foo = {<span class="attr">foo</span>: <span class="string">"world"</span>};</span><br><span class="line"><span class="keyword">const</span> b = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br><span class="line"><span class="built_in">console</span>(b.foo);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>在这个例子里面变量a任何时候加载的都是A的同一个实例,但是问题在于这里的global._foo是可写的,任何文件都可以对其进行修改,这是一种不安全的行为.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mod.js</span></span><br><span class="line"><span class="keyword">const</span> FOO_KEY = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.foo = <span class="string">'hello'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!global[FOO_KEY]) {</span><br><span class="line">  global[FOO_KEY] = <span class="keyword">new</span> A();</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这样global[FOO_KEY]不会被无意覆盖,但是还是可以被改写</span></span><br><span class="line"><span class="built_in">module</span>.exports = global[FOO_KEY];</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样global[FOO_KEY]不会被无意覆盖,但是还是可以被改写</span></span><br><span class="line">global[<span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>)] = { <span class="attr">foo</span>: <span class="string">'world'</span> };</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">'./mod.js'</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果希望无法被改写可以是使用symbol(‘foo’)来定义.</p>
+<h2 id="循环中的块级作用域绑定"><a href="#循环中的块级作用域绑定" class="headerlink" title="循环中的块级作用域绑定"></a>循环中的块级作用域绑定</h2><p>  块级作用域最经典的应用场景就是在循环中，将计数器变量使用块级声明。保证一旦循环结束，，其他地方不可以访问计数器。</p>
+<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><p>   var声明因为变量共享的问题，使得在循环中创建函数非常困难<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//var声明的i被共享存储在funcs里面。执行下面操作会输出10个10</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">    console.log(i);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>   IIFE解决了这个问题，它的思路是通过强制生成计数器变量的副本，规避共享变量。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var funcs = [];</span><br><span class="line"></span><br><span class="line">//每次接收到i都创建一个新的副本并存储为value  foreach循环调用的时候就会输出0到9</span><br><span class="line">for (var i = 0; i < 10; i++){</span><br><span class="line">  funcs.push((function(value){</span><br><span class="line">     return function() {</span><br><span class="line">       console.log(value);</span><br><span class="line">     }</span><br><span class="line">    }(i)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>   ES6支持了块级声明之后，可以使用块级声明达到同样的效果。这是因为块级标识符利用了块级标识符一旦离开了作用域会自动销毁的特性。使用块级标识符声明声明计数器变量，每次循环中都会创建一个新的变量，并以之前循环中同名变量的值将其初始化。【aka.自动副本】</p>
+<p>   对于for 循环，let和const两种块级标识符是有差别的。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// **********方案一****************</span><br><span class="line"> var funcs = [];</span><br><span class="line"></span><br><span class="line"> for (let i = 0; i < 10; i++){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">     console.log(i);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });</span><br><span class="line"></span><br><span class="line"> // **********方案二****************</span><br><span class="line">  var funcs = [];</span><br><span class="line"></span><br><span class="line">   //完成一次循环之后，会抛出报错。因为i被定义为常量，i++中尝试修改i的绑定，抛出错误</span><br><span class="line">  for (const i = 0; i < 10; i++){</span><br><span class="line">    funcs.push(function(){</span><br><span class="line">      console.log(i);</span><br><span class="line">      });</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  funcs.forEach(function(func){</span><br><span class="line">     func();</span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>   对于for-in或者for-of循环，只要循环中不涉及对计数器变量绑定的修改，表现就是无差异。每次循环都会创建一个新的key绑定，因此每个函数都有一个变量key的副本。于是不同的函数输出不同的值。正是因为每次都会创建一个新的绑定。在不修改计数器变量的请况下。const声明也不会抛出错误。<br>   </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//**************let*********</span><br><span class="line"> var funcs = [],</span><br><span class="line">     object = {</span><br><span class="line">       a: true,</span><br><span class="line">       b: true,</span><br><span class="line">       c: true</span><br><span class="line">     };</span><br><span class="line"></span><br><span class="line"> for (let key in object){</span><br><span class="line">   funcs.push(function(){</span><br><span class="line">        console.log(key);</span><br><span class="line">     });</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"> funcs.forEach(function(func){</span><br><span class="line">    func();</span><br><span class="line">   });   </span><br><span class="line">//************const*********q</span><br><span class="line">var funcs = [],</span><br><span class="line">    object = {</span><br><span class="line">      a: true,</span><br><span class="line">      b: true,</span><br><span class="line">      c: true</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">for (const key in object){</span><br><span class="line">  funcs.push(function(){</span><br><span class="line">       console.log(key);</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">funcs.forEach(function(func){</span><br><span class="line">   func();</span><br><span class="line">  });</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="全局块作用域绑定"><a href="#全局块作用域绑定" class="headerlink" title="全局块作用域绑定"></a>全局块作用域绑定</h2><p>   块级标识符和var声明另一个很大的区别，在于他们在全局作用域中的行为。</p>
+<ul>
+<li>当var被作用域全局作用域的时候，他会创建一个新的全局变量作为全局对象[我们所说的全局对象是window对象]的属性。这意味着var可能会覆盖一个已经存在的全局属性。</li>
+<li>在全局作用域下使用块级标识符，则是会在全局作用域下创建一个新的绑定，该绑定不会成为全局对象的一个属性。换句话说，块级作用域不能覆盖全局变量，只能遮蔽它。</li>
+</ul>
 <blockquote>
-<p>这里需要注意的是,当你使用symbol(‘foo’)来定义的时候.如果多次执行这个脚本,每次得到的不一样的Foo_KEY,虽然一般情况下不会多次执行(Node会把脚本执行结果缓存),但是手动清除缓存之后,这种写法并不可靠.</p>
+<p>如果不想对全局对象创建属性，则使用let和const 要安全。如果希望在全局对象下定义变量，仍然可以使用var。这种情况创建于在浏览器中跨frame或者跨window访问代码。</p>
 </blockquote>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
       
@@ -581,7 +565,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html" title="深入理解ES-Symbol和Symbol属性">https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html</a>
+    <a href="https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html" title="深入理解ES6-变量作用域">https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -613,8 +597,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html" rel="next" title="深入理解ES-解构:使数据访问更便捷">
-                <i class="fa fa-chevron-left"></i> 深入理解ES-解构:使数据访问更便捷
+              <a href="/_post/2019-05-04-Hexo_GitHub_Pages_Build_blog.html" rel="next" title="Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)">
+                <i class="fa fa-chevron-left"></i> Hexo + GitHub Pages搭建博客教程(附带踩坑+攻略)
               </a>
             
           </div>
@@ -622,6 +606,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/_post/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html" rel="prev" title="深入理解ES6-字符串与正则表达式">
+                深入理解ES6-字符串与正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -785,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么需要Symbol属性"><span class="nav-number">1.</span> <span class="nav-text">为什么需要Symbol属性?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Symbol"><span class="nav-number">2.</span> <span class="nav-text">创建Symbol</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建的语法"><span class="nav-number">2.1.</span> <span class="nav-text">创建的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Symbol-接受一个可选参数"><span class="nav-number">2.2.</span> <span class="nav-text">Symbol()接受一个可选参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为属性名的symbol"><span class="nav-number">2.3.</span> <span class="nav-text">作为属性名的symbol</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol的使用方法"><span class="nav-number">3.</span> <span class="nav-text">Symbol的使用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol-共享体系"><span class="nav-number">4.</span> <span class="nav-text">Symbol 共享体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol与类型强制转换"><span class="nav-number">5.</span> <span class="nav-text">Symbol与类型强制转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol属性检索"><span class="nav-number">6.</span> <span class="nav-text">Symbol属性检索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Symbol的巧用"><span class="nav-number">7.</span> <span class="nav-text">Symbol的巧用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用在单例模式中-防止全局变量被改写"><span class="nav-number">7.1.</span> <span class="nav-text">用在单例模式中,防止全局变量被改写</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳实践"><span class="nav-number">1.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#var声明及Hoisting机制"><span class="nav-number">2.</span> <span class="nav-text">var声明及Hoisting机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级声明"><span class="nav-number">3.</span> <span class="nav-text">块级声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#禁止重声明"><span class="nav-number">4.</span> <span class="nav-text">禁止重声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const声明"><span class="nav-number">5.</span> <span class="nav-text">const声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#临界死区（Temporal-Dead-Zone）"><span class="nav-number">6.</span> <span class="nav-text">临界死区（Temporal Dead Zone）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的块级作用域绑定"><span class="nav-number">7.</span> <span class="nav-text">循环中的块级作用域绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的函数"><span class="nav-number">8.</span> <span class="nav-text">循环中的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局块作用域绑定"><span class="nav-number">9.</span> <span class="nav-text">全局块作用域绑定</span></a></li></ol></div>
             
 
           </div>

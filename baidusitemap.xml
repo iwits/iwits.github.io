@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://iwits.com.cn/2019-08-24-Understanding-ECMAScript6-Symbol.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-08-24-Understanding-ECMAScript6-Symbol.html</loc>
     <lastmod>2019-08-24</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-08-18-Understanding-ECMAScript6-destructuring-assignment.html</loc>
     <lastmod>2019-08-18</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-08-10-Understanding-ECMAScript6-Extend-the-functionality-of-an-object.html</loc>
     <lastmod>2019-08-10</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-08-04-Understanding-ECMAScript6-Function-2.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-08-04-Understanding-ECMAScript6-Function-2.html</loc>
     <lastmod>2019-08-04</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-07-28-Just_Play_Accounting.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-07-28-Just_Play_Accounting.html</loc>
     <lastmod>2019-08-01</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-07-14-Understanding-ECMAScript6-Function_1.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-07-14-Understanding-ECMAScript6-Function_1.html</loc>
     <lastmod>2019-07-15</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html</loc>
     <lastmod>2019-07-01</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html</loc>
     <lastmod>2019-06-29</lastmod>
   </url>  <url>
-    <loc>https://iwits.com.cn/2019-05-04-Hexo_GitHub_Pages_Build_blog.html</loc>
+    <loc>https://iwits.com.cn/_post/2019-05-04-Hexo_GitHub_Pages_Build_blog.html</loc>
     <lastmod>2019-05-29</lastmod>
   </url>
 </urlset>

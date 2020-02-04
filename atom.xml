@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-12-07T10:29:08.442Z</updated>
+  <updated>2019-08-24T15:48:45.572Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,86 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>冲高不走,利润回吐-201909010复盘</title>
-    <link href="https://iwits.com.cn/2019/09/10/Review20190910/"/>
-    <id>https://iwits.com.cn/2019/09/10/Review20190910/</id>
-    <published>2019-09-10T15:11:21.000Z</published>
-    <updated>2019-12-07T10:29:08.442Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-      <category term="复盘" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/"/>
-    
-      <category term="股票" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/%E8%82%A1%E7%A5%A8/"/>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>心跳的一天,似乎这回踏对了节奏-20190906复盘</title>
-    <link href="https://iwits.com.cn/2019/09/08/Review20190906/"/>
-    <id>https://iwits.com.cn/2019/09/08/Review20190906/</id>
-    <published>2019-09-08T13:16:21.000Z</published>
-    <updated>2019-12-07T10:29:14.756Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-      <category term="复盘" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/"/>
-    
-      <category term="股票" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/%E8%82%A1%E7%A5%A8/"/>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>心跳的一天,似乎这回踏对了节奏-20190906复盘</title>
-    <link href="https://iwits.com.cn/2019/09/04/Review20190905/"/>
-    <id>https://iwits.com.cn/2019/09/04/Review20190905/</id>
-    <published>2019-09-04T15:16:21.000Z</published>
-    <updated>2019-09-08T14:13:31.637Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>感谢港资爸爸救我-20190904复盘</title>
-    <link href="https://iwits.com.cn/2019/09/04/Review20190904/"/>
-    <id>https://iwits.com.cn/2019/09/04/Review20190904/</id>
-    <published>2019-09-04T15:16:21.000Z</published>
-    <updated>2019-09-04T16:28:36.880Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
   
   <entry>
     <title>深入理解ES-Symbol和Symbol属性</title>
@@ -129,64 +49,6 @@
       <category term="ES6" scheme="https://iwits.com.cn/tags/ES6/"/>
     
       <category term="读书笔记" scheme="https://iwits.com.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20190822复盘</title>
-    <link href="https://iwits.com.cn/2019/08/22/Review20190822/"/>
-    <id>https://iwits.com.cn/2019/08/22/Review20190822/</id>
-    <published>2019-08-22T14:16:21.000Z</published>
-    <updated>2019-08-22T16:14:30.988Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20190821复盘</title>
-    <link href="https://iwits.com.cn/2019/08/21/Review20190821/"/>
-    <id>https://iwits.com.cn/2019/08/21/Review20190821/</id>
-    <published>2019-08-21T15:16:21.000Z</published>
-    <updated>2019-08-22T14:16:17.719Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>20190820复盘</title>
-    <link href="https://iwits.com.cn/2019/08/20/Review20190820/"/>
-    <id>https://iwits.com.cn/2019/08/20/Review20190820/</id>
-    <published>2019-08-20T14:52:22.000Z</published>
-    <updated>2019-12-07T10:29:51.016Z</updated>
-    
-    <summary type="html">
-    
-      Something was encrypted, please enter password to read.
-    
-    </summary>
-    
-      <category term="复盘" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/"/>
-    
-      <category term="股票" scheme="https://iwits.com.cn/categories/%E5%A4%8D%E7%9B%98/%E8%82%A1%E7%A5%A8/"/>
-    
-    
-      <category term="复盘" scheme="https://iwits.com.cn/tags/%E5%A4%8D%E7%9B%98/"/>
     
   </entry>
   

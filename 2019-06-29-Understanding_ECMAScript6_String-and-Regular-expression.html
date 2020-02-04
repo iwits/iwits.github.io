@@ -1,0 +1,1476 @@
+<!DOCTYPE html><html class="theme-next muse use-motion" lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/upload_images/BlogIcon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/upload_images/BlogIcon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/upload_images/BlogIconMini.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Javascript,ES6,读书笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="I'wits" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="深入理解ES6-字符串与正则表达式  ES6完全支持了Unicode从而让Javascipt能够合理地处理UTF-16字符. ES6为字符串和正则表达时添加了新的方法 ES6新增了一个重要特性-模板字面量,为JavaScript带来多行字符串的内建支持,并且它支持字符串占位符写法.">
+<meta name="keywords" content="Javascript,ES6,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解ES6-字符串与正则表达式">
+<meta property="og:url" content="https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html">
+<meta property="og:site_name" content="I'wits">
+<meta property="og:description" content="深入理解ES6-字符串与正则表达式  ES6完全支持了Unicode从而让Javascipt能够合理地处理UTF-16字符. ES6为字符串和正则表达时添加了新的方法 ES6新增了一个重要特性-模板字面量,为JavaScript带来多行字符串的内建支持,并且它支持字符串占位符写法.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-01T15:47:18.760Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解ES6-字符串与正则表达式">
+<meta name="twitter:description" content="深入理解ES6-字符串与正则表达式  ES6完全支持了Unicode从而让Javascipt能够合理地处理UTF-16字符. ES6为字符串和正则表达时添加了新的方法 ES6新增了一个重要特性-模板字面量,为JavaScript带来多行字符串的内建支持,并且它支持字符串占位符写法.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html">
+
+
+
+
+
+  <title>深入理解ES6-字符串与正则表达式 | I'wits</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+	  <a href="https://github.com/iwits" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I'wits</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iwits">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/upload_images/Me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I'wits">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深入理解ES6-字符串与正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T16:39:22+08:00">
+                2019-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/" itemprop="url" rel="index">
+                    <span itemprop="name">前端学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端学习/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计:</span>
+                
+                <span title="字数统计">
+                  5.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 ≈</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="generator" content="Hexo 3.9.0"><p>深入理解ES6-字符串与正则表达式</p>
+<ul>
+<li>ES6完全支持了Unicode从而让Javascipt能够合理地处理UTF-16字符.</li>
+<li>ES6为字符串和正则表达时添加了新的方法</li>
+<li>ES6新增了一个重要特性-模板字面量,为JavaScript带来多行字符串的内建支持,并且它支持字符串占位符写法.</li>
+</ul>
+<a id="more"></a>
+<blockquote class="blockquote-center">过去,现在,将来,一代又一代,直到时间的消失</blockquote>
+
+<h1 id="字符的编码"><a href="#字符的编码" class="headerlink" title="字符的编码"></a>字符的编码</h1><h2 id="字符集与字符编码"><a href="#字符集与字符编码" class="headerlink" title="字符集与字符编码"></a>字符集与字符编码</h2><p>  计算机中存储的信息都是使用二进制表示的.将我们熟悉的文字符号以既有的规则(如二进制)表示,这就称之为编码.与其对应的过程称之为解码.</p>
+<ul>
+<li>字符集(Charset): 将所有字符汇总起来的集合.</li>
+<li>字符编码(Character encoding):是一套规则.使用该规则可以实现自然语言中的一个集合,与其他规则集合(如电脉冲/数字)建立映射关系.</li>
+<li>码位(Code Point):全球唯一的标识符,是从0开始的字符</li>
+</ul>
+<h2 id="utf-8-utf-16-utf-32"><a href="#utf-8-utf-16-utf-32" class="headerlink" title="utf-8/utf-16/utf-32"></a>utf-8/utf-16/utf-32</h2><p>早期的计算集使用Ascii码对英文字符进行编码.但是随着计算机的普及发展,使用其他语言的国家为了对自己语言字符进行表达,纷纷推出了自己编码规则(即字符编码).比较典型的有表示简体中的gb2312,表示繁体中文的BIG5.</p>
+<p>这种为了适合当地的语言和字符,设计新字符编码规则的做法,在本地使用没有任何问题,但是相         io互访问就会出现乱码现象.</p>
+<p>为了解决乱码问题,一个伟大的创想-<a href="https://zh.wikipedia.org/wiki/Unicode" target="_blank" rel="noopener">Unicode</a>诞生了.Unicode是一个<b>字符集</b>,它是基于通用字符集的标准发展而来,所致力的目标位位全世界每一个字符提供全球唯一的标识符,目前已经成为计算机科学领域里的一项业界标准.XML/Java编程语言/现代的操作系统都采用了Unicode字符集.我们常说的utf-8/utf-16/utf-32是针对Unicode字符集的三种字符编码方案.</p>
+<p>utf-32使用4个字节来表示每一个字符,优点是编码规律(第N个字符一定是从4的N次方个字节开始).但是就空间而言,完全没有效率.</p>
+<p>Utf-16使用两个字节表示0~65535个字符,65535范围被成为基本多文种平面[BMP, Basic Multilingual Plane])的字符,而对于超出65525范围(辅助平面(supplementary plane))则需要一些特殊的技巧来实现.为此uft-16引入了代理对(surrogate pair),其规定两个16位编码单元表示一个码位.</p>
+<p>uft-8使用一至四个字节位每个字符编码.是一种针对Unicode的可变长度字符编码(定长码),也是一种前缀码.他可以用来表示Unicode标准中的任何字符,并且其编码的第一个字节仍与ASCII兼容,这使得它逐渐成电子邮件/网页或传输文字的应用中最优先采用的编码.IETF要求所有的互联网协议都必须支持utf-8编码.</p>
+<p>这也就是说在utf-16中有两种字符</p>
+<ul>
+<li>使用一个编码单元16位表示的BMP字符</li>
+<li>使用两个编码单元32位表示的辅助屏幕面字符<blockquote>
+<p>值得一提的是,除了多种编码方式,不同操作系统之间的大小字节序也影响着对字节的编码与解码.为了解决这个问题，多字节的Unicode编码方式定义了一个”字节顺序标记(Byte Order Mark)”，它是一个特殊的非打印字符，你可以把它包含在文档的开头来指示你所使用的字节顺序。对于UTF-16，字节顺序标记是U+FEFF。如果收到一个以字节FF FE开头的UTF-16编码的文档，你就能确定它的字节顺序是单向的(one way)的了；如果它以FE FF开头，则可以确定字节顺序反向了。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="ES6对utf-16的支持"><a href="#ES6对utf-16的支持" class="headerlink" title="ES6对utf-16的支持"></a>ES6对utf-16的支持</h1><p>在ES5中,所有的字符串操作都是基于16位编码单元.这时候如果使用对使用了两个编码单元32位表示的字符使用对应的方法,则会导致得到的结果与预期不符合.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let text = "𠮷";</span><br><span class="line"></span><br><span class="line">console.log(text.length); //2 长度实际位1,但是length位2</span><br><span class="line">console.log(/^.$/.test(text)); //false 正则表达式是用来判定单一字符的.因此失效.</span><br><span class="line">console.log(text.charAt(0)); //"" 前16位不包含可打印字符</span><br><span class="line">console.log(text.charAt(1)); //"" 后16位不包含可答应字符</span><br><span class="line">console.log(text.charCodeAt(0)); //55362  charCodeAt()会返回每16个编码单元对应的数值.</span><br><span class="line">console.log(text.charCodeAt(1)); //57271</span><br></pre></td></tr></tbody></table></figure>
+
+<p>正是因为以上的种种的问题,ES6中强制使用utf-16编码来解决上诉问题,并按照这种字符编码来标准准话字符串操作,在Javascript中增加专门针对代理对的功能.</p>
+<h2 id="codePointAt-方法"><a href="#codePointAt-方法" class="headerlink" title="codePointAt()方法"></a>codePointAt()方法</h2><p>ES6新增完全支持UTF-16的codePointAt()方法,这个方法接受的编码单元的位置,而非字符位置作为参数,返回与字符串中给定位置对应的码位,即一个整数值.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let text = "𠮷a";</span><br><span class="line"></span><br><span class="line">console.log(text.charCodeAt(0)); //55362  </span><br><span class="line">console.log(text.charCodeAt(1)); //57271</span><br><span class="line">console.log(text.charCodeAt(2)); //97</span><br><span class="line"></span><br><span class="line">console.log(text.codePointAt(0)); //134071</span><br><span class="line">console.log(text.codePointAt(1)); //57271</span><br><span class="line">console.log(text.codePointAt(2)); //97</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>最佳实践:要检测一个字符占用的编码单元数量,最简单的方法是调用字的codePointAt()方法.</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function is32Bit(c){</span><br><span class="line">  return c.codePointAt(0) > oxFFFF;</span><br><span class="line">}</span><br><span class="line">console.log(is32Bit("𠮷")); //true</span><br><span class="line">console.log(is32Bit("a")); //false</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="String-formCodePoint-方法"><a href="#String-formCodePoint-方法" class="headerlink" title="String.formCodePoint()方法"></a>String.formCodePoint()方法</h2><p>ES6中提供的String.formCodePoint()方法是codePointAt()的反向方法,用于根据制定码位生成一个字符.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(String.formCodePoint(134071));</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="normalize-方法"><a href="#normalize-方法" class="headerlink" title="normalize()方法"></a>normalize()方法</h2><p>Unicode的另一个有趣之处在于,如果我们要对不同字符进行排序或比较操作,会存在一种可能,他们是等效的.所谓的规范等效存在两种情况:</p>
+<ul>
+<li>无论从哪个角度来看,两个序列的码位都是没有区别的</li>
+<li>两个互相兼容的码位序列看起来不同,但是在特定的条件下可以被互相交换使用.其本质是通过特定的方法把等效标准化.</li>
+</ul>
+<p>ES6为字符串添加了一个normalize()方法,它可以提供Unicode的标准化形式.这个方法接受一个可选的字符串参数,指明应用以下的Unicode标准化形式.</p>
+<ul>
+<li>以标准等价方式分解,然后以标准等价方式重组(‘NFC’),</li>
+<li>以标准等价方式分解(‘NFD’)</li>
+<li>以兼容等价方式分解(‘NFKC’)</li>
+<li>以兼容等价方式分解,然后以标准等价方式重装(‘NFKD’)  </li>
+</ul>
+<blockquote>
+<p>最佳实践: 在对比字符串之前一定要先把他们标准化为同一形式.在国际化的开发中应用广泛.</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//对数组中的每一个字符串进行比较</span><br><span class="line">let normalize = values.map(function(text){</span><br><span class="line">  return text.normalize();</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">normalize.sort(function(first, second){</span><br><span class="line">  if (first < second){</span><br><span class="line">    return -1;</span><br><span class="line">  } else if (first = second){</span><br><span class="line">    return 0;</span><br><span class="line">  } else {</span><br><span class="line">    return 1;</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">//比较原始数组</span><br><span class="line">values.sort(function(first, second){</span><br><span class="line">  let firstNormalized = first.normalize(),</span><br><span class="line">      secondNormalized = second.normalize();  </span><br><span class="line">  if(firstNormalized < secondNormalized){</span><br><span class="line">    return -1;</span><br><span class="line">  } else if (firstNormalized = secondNormalized){</span><br><span class="line">    return 0;</span><br><span class="line">  } else {</span><br><span class="line">    return 1;</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="正则表达式u修饰符"><a href="#正则表达式u修饰符" class="headerlink" title="正则表达式u修饰符"></a>正则表达式u修饰符</h2><p>正则表达式是应用非常广泛,有很多好用的<a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">在线正则表达式网站</a>.正则表达式默认将字符串的每一个字符按照16位编码单元处理.当遇到32位编码单元时就就出现错误.为了解决这个问题,ES6中引入了正则表达式u修饰符.</p>
+<p>当一个正则表达式添加了u修饰符,他就会从编码操作模式切换为字符模式,如此一来正则表达式就不会视代理对为两个字符,从而完全按照预期正常运行.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let text = "𠮷";</span><br><span class="line">console.log(text.length); //2</span><br><span class="line">console.log(/^.$/.test(text)); //false /^.$/表示匹配所有但字符字符串,没有用U时会匹配编码单元.使用u时会切换到匹配字符模式</span><br><span class="line">console.log(/^.$/u.test(text)); //false</span><br></pre></td></tr></tbody></table></figure>
+
+<p>虽然ES6中并没有支持字符串码位数量的检测,但是有了u修饰符之后,可以用正则表达式来解决这个问题.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function codePointLength(text){</span><br><span class="line">  let result = text.match(/[\s\S]/gu); //[\s\S]保证名匹配到新行</span><br><span class="line">  return result ? result.length : 0;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">console.log(codePointLength('𠮷bc')); // 3</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>最佳实践:因为u修饰符时语法层面的变更,尝试在不兼容ES6的JavaScript引擎中使用它会导致语法错误.如果要检测当前引擎是否支持u修饰符,最安全的方式时通过以下这个函数:</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//代码工作在老式的JavaScript引擎中,那么在使用u修饰符时,切记</span><br><span class="line">//要使用RegExp构造函数,这样可以避免发生语法错误,并且可以有选择的</span><br><span class="line">//检测和使用u修饰符</span><br><span class="line">function hasRegExpU(){</span><br><span class="line">  try {</span><br><span class="line">    var pattern = new RegExp(".", "u");</span><br><span class="line">    return true;  </span><br><span class="line">  } catch (ex){</span><br><span class="line">    retun false;  </span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="其他字符串变更"><a href="#其他字符串变更" class="headerlink" title="其他字符串变更"></a>其他字符串变更</h1><h2 id="字符串中的子串识别"><a href="#字符串中的子串识别" class="headerlink" title="字符串中的子串识别"></a>字符串中的子串识别</h2><p>之前的版本中我们一直使用indexOf()方法在一段字符串中检测另一端子字符串,他们一直希望能通过更简单的方法来识别字串.</p>
+<p>ES6 中增加3个类似的方法可以达到相同的效果.</p>
+<ul>
+<li>includes()方法,如果在字符串中检测到指定文本则返回true,否则返回false</li>
+<li>startsWith()方法,如果在字符串的起始部分检测到指定文本则返回true,否则返回false</li>
+<li>endsWith()方法,如果在字符串的结束部分检测到指定文本则返回true,否则返回false</li>
+</ul>
+<p>以上三种方法都支持两个参数(searchText,[startIndex]).</p>
+<blockquote>
+<p>实践注意:</p>
+<ul>
+<li>如果需要获得子串在字符串中的实际位置还是得用indexOf()或lastIndexOf()</li>
+<li>indexOf()或lastIndexOf()的参数中可以传入正则表达式(他们会把正则表达转化为一个字符串并搜索它).但是在以上三个方法中,第一个参数传入正则表达式则会出发一个错误.</li>
+</ul>
+</blockquote>
+<h2 id="repeat-方法"><a href="#repeat-方法" class="headerlink" title="repeat()方法"></a>repeat()方法</h2><p>ES6为字符串增加了repeat()方法,其接受一个number类型的参数,表示该字符串重复的次数,返回值时当前字符串重复一定次数后的新字符串.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log("x".repeat(3)); //xxx</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>最佳实践,可以用这个方法来控制缩进</p>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let indent = " ".repeat(4),</span><br><span class="line">    indentLevel =0;</span><br><span class="line"></span><br><span class="line">//当需要增加缩进的时候</span><br><span class="line">let newIndent = indent.repeat(++indentLevel);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="其他正则表达式语法变更"><a href="#其他正则表达式语法变更" class="headerlink" title="其他正则表达式语法变更"></a>其他正则表达式语法变更</h1><h2 id="正则表达式y修饰符"><a href="#正则表达式y修饰符" class="headerlink" title="正则表达式y修饰符"></a>正则表达式y修饰符</h2><p> y修饰符曾在Firefox中被实现过,现在经ES6标准化后正式成为正则表达式的一个专有扩展.它会影响正则表达式搜索过程中的sticky属性.当在字符串中开始字符匹配时,他会通知搜索从正则表达式的lastIndex属性开始进行,如果在指定位置没能成功匹配,则停止继续匹配.</p>
+<blockquote>
+<p>lastIndex属性指明每次搜索开始的位置</p>
+<ul>
+<li>g修饰符从这个位置开始向后搜索直到匹配位置</li>
+<li>y修饰符同样遵守lastIndex属性,但是要求必须在lastIndex指定的位置发现匹配.实际上y修饰符隐含了头部匹配的标志^.y修饰符的设计本意，就是让头部匹配的标志^在全局匹配中都有效。</li>
+<li>当执行操作的时候,y修饰符和g修饰符都会把上一次匹配后面一个字符的索引把偶你在lastIndex中;如果该操作匹配的结果为空,则lastIndex会被重置为0.</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> let text ="hello1 hello2 hello3",</span><br><span class="line">     pattern = /hello\d\s?/,</span><br><span class="line">     result = pattern.exec(text),</span><br><span class="line">     globalPattern = /hello\d\s?/g,</span><br><span class="line">     globalResult = globalPattern.exex(text),</span><br><span class="line">     stickyPattern = /hello\d\s?/y,</span><br><span class="line">     stickyResult = stickyPattern.exec(text);</span><br><span class="line"></span><br><span class="line">console.log(result[0]); //"Hello1"</span><br><span class="line">console.log(globalResult[0]); //"Hello1"</span><br><span class="line">console.log(stickyResult[0]); //"Hello1"</span><br><span class="line"></span><br><span class="line">pattern.lastIndex = 1;</span><br><span class="line">globalPattern.lastIndex = 1;</span><br><span class="line">stickyPattern.lastIndex = 1;</span><br><span class="line"></span><br><span class="line">result = pattern.exec(text);</span><br><span class="line">globalResult = globalPattern.exex(text);</span><br><span class="line">stickyResult = stickyPattern.exec(text);</span><br><span class="line"></span><br><span class="line">console.log(result[0]); //"Hello1"</span><br><span class="line">console.log(globalResult[0]); //"Hello2"</span><br><span class="line">console.log(stickyResult[0]); // 抛出错误</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用y修饰符的时候,还需要记住以下几点:</p>
+<ul>
+<li>sticky 属性时候只读属性,其值由该修饰符的存在性所决定.</li>
+<li>只有调用exec()和test()这些正则表达式对象的方法时才会涉及lastIndex属性;调用字符串的方法,例如match(),则不会触发沾滞行为.</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//单单一个y修饰符对match方法，只能返回第一个匹配，必须与g修饰符联用，才能返回所有匹配。</span><br><span class="line">let text = 'a1a2a3';</span><br><span class="line">text.match(/a\d/y) // ["a1"]</span><br><span class="line">text.match(/a\d/gy) // ["a1", "a2", "a3"]</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>对于沾滞正则表达式而言,如果使用^字符来匹配字符串开端,指挥从字符串的起始位置或多行模式的首行进行匹配.</li>
+<li>若要检测y修饰符是否存在,与检测其他正则表达式修饰符类似,可以通过属性名来检测.sticky属性表示是否设置了y修饰符</li>
+</ul>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//检查sticky属性的存在性</span><br><span class="line">let pattern = /hello\d/y;</span><br><span class="line"></span><br><span class="line">console.log(pattern.sticky); //如果Javasc引擎支持沾滞修饰符,则sticky的属性为true.</span><br><span class="line"></span><br><span class="line">//检查JavaScript引擎对y修饰符的支持,不支持则会报错.在老浏览器里面运行一定要记得增加判断</span><br><span class="line">function hasRegExpY{</span><br><span class="line">  try{</span><br><span class="line">      var pattern = new RegExp(",", "y");</span><br><span class="line">      return true;</span><br><span class="line">    } catch (ex){</span><br><span class="line">      return false;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>g修饰符会忽略非法字符,y修饰符不会,这样容易发现错误.</li>
+</ul>
+<h2 id="正则表达式的复制"><a href="#正则表达式的复制" class="headerlink" title="正则表达式的复制"></a>正则表达式的复制</h2><p>在ES5中可以通过给RegExp构造函数传递正则表达式作为参数来符之这个正则表达式</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var rel1 = /ab/i,</span><br><span class="line">    rel2 = new RegExp(rel1); //在ES5中,此时rel2只是rel1的一份拷贝.但如果给RegExp构造函数提供第二个参数,为正则表达式指定一个修饰符,则代码无法运行.</span><br><span class="line"></span><br><span class="line">   //ES5中报错,ES6中正常运行</span><br><span class="line">   rel3 = new RegExp(rel1, "g");</span><br><span class="line"></span><br><span class="line">   //在ES6 中</span><br><span class="line">   console.log(rel1.tostring());// "/ab/i"</span><br><span class="line">   console.log(rel2.tostring());// "/ab/i"</span><br><span class="line">   console.log(rel3.tostring());// "/ab/g"</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="flags属性"><a href="#flags属性" class="headerlink" title="flags属性"></a>flags属性</h2><p>在ES5中如果想获取正则表达式的文本,可以通过source属性,但是如果想获取使用的修饰符,就需要tostring()来获取输出的文本.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function getFlags(re){</span><br><span class="line">  var text = re.tostring();</span><br><span class="line">  return text.substring(text.lastIndexOf("/") + 1, text.length);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">//tostring()返回值为"/ab/g"</span><br><span class="line">var re = /ab/g</span><br><span class="line">console.log(getFlags(re));</span><br></pre></td></tr></tbody></table></figure>
+
+<p>为了简化这一过程,ES6中使用了flags属性,它与source属性都是制度的原型属性访问器.对其之定义了getter方法,这极大的简化了调试和编写继承代码的复杂度.ES6的版本中,访问flags属性会返回所有应用在当前正则表达式的修饰符字符串.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let re = /ab/g;</span><br><span class="line"></span><br><span class="line">console.log(re.source); //"ab"</span><br><span class="line">console.log(re.flags); //"g"</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="模板字面量"><a href="#模板字面量" class="headerlink" title="模板字面量"></a>模板字面量</h1><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener">模板字面量</a>(前称模板字符串)是允许嵌入表达式的字符串字面量.可以使用多行字符串和字符串插值功能.</p>
+</blockquote>
+<p>ES6模板字面量语法支持创建领域专用语言(DSL,通指为某些具体且头衔的目标设计的语言).它比ES5及早期版本中的解决方案更安全.</p>
+<p>ES6模板字面量这个扩展方案是扩展ECMAScript基础语法的语法糖,其提供一套生成/查询并操作其他自然语言里内容的DSL,并且可以免受注入攻击.例如, XSS, SQL注入等等.</p>
+<p>实际上ES5中的方案缺少许多特性,为ES6通过模板字面量的方式进行了填补:</p>
+<ul>
+<li>多行字符串 一个正式的多行字符串的概念</li>
+<li>基本的字符串格式化 将变量的值嵌入字符串的能力</li>
+<li>HTML转义 向HTML插入经过安全转换后的字符串的能力.</li>
+</ul>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><ul>
+<li><p>使用反撇号(`)替代了单/双引号.在不包含占位的情况下和普通字符串无差别.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\\在模板字符串中使用反撇号可以使用\转义符,而不需要转义单双引号.</span><br><span class="line">let message = `\`Hello\` world!`;</span><br><span class="line"></span><br><span class="line">console.log(message); // "`Hello` world!"</span><br><span class="line">console.log(typeOf message); // "string"</span><br><span class="line">console.log(message.length); //14</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>模板字面量中可以包含特定语法(${expression})的占位符.占位符中的表达式回合周围文本一起传递给一个默认函数,该函数负责将所有的部分连接起来.</p>
+</li>
+<li><p>如果一个人模板字符串由表达式开头,则该字符串被称为带标签的模板字符串,该表达式通常是一个函数,他会在模板字符串处理后被调用,在输出最总接过钱,你都可以通过该函数对模板字符串进行操作处理.</p>
+</li>
+</ul>
+<h2 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h2><p>为了表示多行字符串,ES6之前的版本都是自行插入\n</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//方法一: 插入\n</span><br><span class="line">console.log('string line 1\n +</span><br><span class="line">string line 2');</span><br><span class="line">// "string line 1</span><br><span class="line">// string line 2"</span><br><span class="line"></span><br><span class="line">//方法二 依靠数组或字符串拼接</span><br><span class="line">var message = [</span><br><span class="line">   "Multiline ",</span><br><span class="line">   "String"</span><br><span class="line">].join('\n')</span><br><span class="line">// "Multiline</span><br><span class="line">// string"</span><br><span class="line"></span><br><span class="line">//方法三</span><br><span class="line">//或者利用JS语法bug达到同样的目的,不推荐</span><br><span class="line">console.log('string line 1\n \</span><br><span class="line">string line 2');</span><br><span class="line">// "string line 1</span><br><span class="line">// string line 2"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>ES6中使用模板字面量对多行字符串的表达进行优化</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//换行要小心缩进,缩进会被保留</span><br><span class="line">let message = `Multiline</span><br><span class="line">string`;</span><br><span class="line">console.log(message); //"Multiline</span><br><span class="line">                      //string"</span><br><span class="line">console.log(message,length); // 16</span><br><span class="line"></span><br><span class="line">//使用缩进之后使用trim()移除缩进的方式</span><br><span class="line">let html = `</span><br><span class="line"><div></div></span><br><span class="line">  <h1>Title</h1></span><br><span class="line"></span></pre></td></tr></tbody></table></figure></div>`.trim();<br>
+
+<h2 id="字符串占位符"><a href="#字符串占位符" class="headerlink" title="字符串占位符"></a>字符串占位符</h2><p> 字符串占位符功能是模板字面量与普通字符串的真正的差别.在一个模板字面量中,你可以把任何合法的JavaScript表达式嵌入到占位符中并将其作为字符串的一部分输出到结果中.</p>
+<p> 占位符${(expression)},(expression)可以使用任意javascript表达式替换.<br> </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> let name = "Nick",</span><br><span class="line">     message = `Hello, ${name}.`;</span><br><span class="line"></span><br><span class="line">console.log(message); //"hello,Nick." 之后的message会一直保持这个结果.</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="标签模板"><a href="#标签模板" class="headerlink" title="标签模板"></a>标签模板</h2><p> 一种更高级的使用: 使用代表签的模板字面量.所谓的标签就是在模板字面量中第一个番茄好前标注的字符串<br> </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//应用于模板字面量"Hello world"的模板标签是tag.</span><br><span class="line">let message = tag`Hello world!`;</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="定义标签"><a href="#定义标签" class="headerlink" title="定义标签"></a>定义标签</h3><p>标签可以是一个函数,调用时传入加工过的模板字面量各部分数据作为参数,必须结合每个部分来创造结果.第一个参数是一个数组,包含Javascript解释过后的字面量字符串,它之后的所有参数都是每一个占位符的解释值.函数可以返回处理好的字符串,或者它可以返回完全不同的东西,甚至不一定是一个自符串<br>标签函数通常使用不定参数特性来定义占位符,从而简化数据处理的过程.<br>函数名可以替换成任意名字.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function tag(literals,...substitutions){</span><br><span class="line">  //返回一个字符串</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let count = 10,</span><br><span class="line">    price = 0.25,</span><br><span class="line">    message = passthru`${count} items cost $${(count * price).toFixed(2)}.`</span><br></pre></td></tr></tbody></table></figure>
+
+<p>为了进一步理解传递给tag函数的参数.如果有一个passthru()函数,那么作为一个模板字面量标签,它会接受三个参数:</p>
+<ul>
+<li>首先是一个literals的数组,包含以下元素:<ul>
+<li>第一个占位符前的空字符串(“”)</li>
+<li>第一/二个占位符之间的字符串(“ items cost $”)</li>
+<li>第二个占位符后的字符串(“.”)</li>
+</ul>
+</li>
+<li>下一个参数是变量count的解释之,传入参数位10,它也成为substitutions数组里的第一个元素</li>
+<li>最后一个参数是(count * price).toFixed(2)的解释值,传入参数位0.25,它是substitions数组里面的第二个参数</li>
+</ul>
+<blockquote>
+<ul>
+<li>需要注意的是,literals里的第一个元素是一个空字符串,这确保了literals[0]总是字符串的始端,就像literals[literals.length -1]总是字符串的结尾一样.</li>
+<li>substitutionsde shuliang zongbi literals少一个,这也意味着表达式substitutions.length === literals.length -1的结果总为true.</li>
+<li>基于以上特性,我们可以通过交替取值literals和substitutions两个数组交织在一起重组字符串.</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function passthru(literals,...substitutions){</span><br><span class="line">  let result = "";</span><br><span class="line">  //根据substitutions的数量来确定循环的执行次数  </span><br><span class="line">  for (let i = 0; i < substitutions,length; i++){</span><br><span class="line">    result += literals[i];</span><br><span class="line">    result += substitutions[i];</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  //合并最后一个literral</span><br><span class="line">  result += literals[literals.length - 1];</span><br><span class="line">  return result;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">let count = 10,</span><br><span class="line">    price = 0.25,</span><br><span class="line">    message = passthru`${count} items cost $${(count * price).toFixed(2)}.`;</span><br><span class="line">console.log(message);     //"10 items cost $0.25."</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>这里需要特别说明的是substitutions里面包含的值不一定是字符串,如果一个表达式球之后得到一个数值,那么传入的就是这个数值.</p>
+</blockquote>
+<h3 id="在模板字面量中使用原始值"><a href="#在模板字面量中使用原始值" class="headerlink" title="在模板字面量中使用原始值"></a>在模板字面量中使用原始值</h3><p>模板标签同样可以访问原声字符串信息,也就是说通过模板标签可以访问到字符转义被转换成等价字符前的原声字符串.最简单的例子是使用内建的string.raw()标签:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let message1 = `Multiline\nstring`,</span><br><span class="line">    message2 = String.Raw`Multiline\nstring`;</span><br><span class="line">console.log(message1); //"Multiline</span><br><span class="line">                       //line"</span><br><span class="line">console.log(message2);//"Multiline\\nstring"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>literals数组也有额外的属性raw(literals[0]有一个等价的literals.raw[0]),是一个包含每一个字面值的原声等价信息的数组.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function raw(literals,...substitutions){</span><br><span class="line">  let result = "";</span><br><span class="line">  //根据substitutions的数量来确定循环的执行次数  </span><br><span class="line">  for (let i = 0; i < substitutions,length; i++){</span><br><span class="line">    //使用原生值</span><br><span class="line">    result += literals[i].raw[i];</span><br><span class="line">    result += substitutions[i];</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  //合并最后一个literral</span><br><span class="line">  result += literals.rawliterals.length - 1];</span><br><span class="line">  return result;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+</div></article></div></div></div></div></main></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+      
+    
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赚钱养自己</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/upload_images/wechatpay.jpg" alt="iwits 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/upload_images/alipay.jpg" alt="iwits 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    iwits
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html" title="深入理解ES6-字符串与正则表达式">https://iwits.com.cn/2019-06-29-Understanding_ECMAScript6_String-and-Regular-expression.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+          
+            <a href="/tags/ES6/" rel="tag"><i class="fa fa-tag"></i> ES6</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019-05-29-Understanding_ECMAScript6_Variable_Scope.html" rel="next" title="深入理解ES6-变量作用域">
+                <i class="fa fa-chevron-left"></i> 深入理解ES6-变量作用域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019-07-14-Understanding-ECMAScript6-Function_1.html" rel="prev" title="深入理解ES6-函数(1)">
+                深入理解ES6-函数(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  
+  
+  
+  
+  
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  
+
+
+          
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/upload_images/Me.jpg" alt="iwits">
+            
+              <p class="site-author-name" itemprop="name">iwits</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/iwits" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:hvergelmir07@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符的编码"><span class="nav-number">1.</span> <span class="nav-text">字符的编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符集与字符编码"><span class="nav-number">1.1.</span> <span class="nav-text">字符集与字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#utf-8-utf-16-utf-32"><span class="nav-number">1.2.</span> <span class="nav-text">utf-8/utf-16/utf-32</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ES6对utf-16的支持"><span class="nav-number">2.</span> <span class="nav-text">ES6对utf-16的支持</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#codePointAt-方法"><span class="nav-number">2.1.</span> <span class="nav-text">codePointAt()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-formCodePoint-方法"><span class="nav-number">2.2.</span> <span class="nav-text">String.formCodePoint()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normalize-方法"><span class="nav-number">2.3.</span> <span class="nav-text">normalize()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式u修饰符"><span class="nav-number">2.4.</span> <span class="nav-text">正则表达式u修饰符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他字符串变更"><span class="nav-number">3.</span> <span class="nav-text">其他字符串变更</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串中的子串识别"><span class="nav-number">3.1.</span> <span class="nav-text">字符串中的子串识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repeat-方法"><span class="nav-number">3.2.</span> <span class="nav-text">repeat()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他正则表达式语法变更"><span class="nav-number">4.</span> <span class="nav-text">其他正则表达式语法变更</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式y修饰符"><span class="nav-number">4.1.</span> <span class="nav-text">正则表达式y修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式的复制"><span class="nav-number">4.2.</span> <span class="nav-text">正则表达式的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flags属性"><span class="nav-number">4.3.</span> <span class="nav-text">flags属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板字面量"><span class="nav-number">5.</span> <span class="nav-text">模板字面量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">5.1.</span> <span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多行字符串"><span class="nav-number">5.2.</span> <span class="nav-text">多行字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">Title</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串占位符"><span class="nav-number">6.1.</span> <span class="nav-text">字符串占位符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签模板"><span class="nav-number">6.2.</span> <span class="nav-text">标签模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义标签"><span class="nav-number">6.2.1.</span> <span class="nav-text">定义标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在模板字面量中使用原始值"><span class="nav-number">6.2.2.</span> <span class="nav-text">在模板字面量中使用原始值</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">© <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iwits</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count:</span>
+    
+    <span title="Site words total count">18.3k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 — <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="/js/src/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://iwits.com.cn/"/>
-  <updated>2019-08-24T15:48:45.572Z</updated>
+  <updated>2020-04-12T15:22:38.322Z</updated>
   <id>https://iwits.com.cn/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手写实现一个redux</title>
+    <link href="https://iwits.com.cn/_post/2020-04-12-mini-redux-md.html"/>
+    <id>https://iwits.com.cn/_post/2020-04-12-mini-redux-md.html</id>
+    <published>2020-04-12T13:54:20.000Z</published>
+    <updated>2020-04-12T15:22:38.322Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redux&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个状态管理库&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>深入理解ES-Symbol和Symbol属性</title>
